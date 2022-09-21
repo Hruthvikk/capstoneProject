@@ -13,18 +13,26 @@ body {
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 20px;
+    grid-gap: 15px;
 }
 .prr{
     position: relative;
-    height: 230px;
+    height: 235px;
+    width: 350px;
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
 }
 .prr img{
-    width: 200px;
+    width: 250px;
     height: 200px;
     border-radius: 10px;
+    margin-left: 55px;
+    margin-top: 5px;
+    
+}
+.prr p{
+    text-align: center;
+    font-size: 20px;
 }
 h3{
     text-align: center;
