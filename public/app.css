@@ -37,3 +37,9 @@ body {
 h3{
     text-align: center;
 }
+.loginform, .registerform{
+    
+    margin-left: 40%;
+    margin-top: 75px;
+}
+

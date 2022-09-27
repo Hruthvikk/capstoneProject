@@ -13,22 +13,30 @@
         <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/')}}">Home</a>
+                    <a class="nav-link" href="{{url('/home')}}">Home</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/recipe')}}">Recipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/account')}}">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/message')}}">Messages</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/aboutus')}}">About Us</a>    
                 </li>
-                
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/signin')}}">Sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/signup')}}">Sign Up</a>
+                    <a class="nav-link" href="{{url('/logout')}}">Logout</a>
                 </li>
             </ul>
         </div>
         </nav>
+
         @yield('content')
         <br>
         <footer class="stickFoot">
