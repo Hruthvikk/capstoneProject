@@ -15,6 +15,13 @@ body {
     grid-template-columns: repeat(3,1fr);
     grid-gap: 15px;
 }
+.sr{
+    width: 40%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 5px;
+}
 .prr{
     position: relative;
     height: 235px;

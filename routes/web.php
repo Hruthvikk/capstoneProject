@@ -19,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/searchrecipe', function () {
+    return view('searchrecipe');
+});
+Route::get('/viewrecipe', function () {
+    return view('viewrecipe');
+});
+Route::get('/editProfile', function () {
+    return view('editProfile');
+});
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview']);
 Route::get('/signup',[signup::class,'index']);
