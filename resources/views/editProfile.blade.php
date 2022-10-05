@@ -1,6 +1,6 @@
 @extends('mainafterlogin')
 @section('content')
-<div class="editform">
+<div class="editformm">
     <h2>Edit Profile</h2>
     <form>
        @csrf
