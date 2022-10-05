@@ -44,9 +44,11 @@ body {
 h3{
     text-align: center;
 }
-.loginform, .registerform, .editformm{
-    
+.loginform, .registerform{
     margin-left: 40%;
     margin-top: 50px;
 }
-
+.editformm{
+    margin-left: 40%;
+    margin-top: 50px;
+}
