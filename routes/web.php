@@ -28,6 +28,9 @@ Route::get('/viewrecipe', function () {
 Route::get('/editProfile', function () {
     return view('editProfile');
 });
+Route::get('/homeafterlogin', function () {
+    return view('homeafterlogin');
+});
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview']);
 Route::get('/signup',[signup::class,'index']);

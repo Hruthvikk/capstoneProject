@@ -1,4 +1,4 @@
-@extends('main')
+@extends('mainafterlogin')
 @section('content')
 <div class="container">
     <div class="row">
@@ -23,15 +23,15 @@
     <h2 style="text-align: center;">Meals</h2>
     <div class="pr">
             <div class="prr images">
-                <img src="/images/Food13.jpg" alt="" height="200px" width="200px">
+                <img src="/images/Food5.jpg" alt="" height="200px" width="200px">
                 <p>Breakfast</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food14.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food8.jpg" alt=""  height="150px" width="150px">
                 <p>Lunch</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food12.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food11.jpg" alt=""  height="150px" width="150px">
                 <p>Dinner</p>               
             </div>
         </div>

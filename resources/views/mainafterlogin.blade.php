@@ -13,16 +13,16 @@
         <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/home')}}">Home</a>
+                    <a class="nav-link" href="{{url('/homeafterlogin')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/recipe')}}">Recipe</a>
+                    <a class="nav-link" href="{{url('/searchrecipe')}}">Recipe</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/account')}}">Account</a>
+                    <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/message')}}">Messages</a>
@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{{url('/aboutus')}}">About Us</a>    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/logout')}}">Logout</a>
+                    <a class="nav-link" href="{{url('/')}}">Logout</a>
                 </li>
             </ul>
         </div>

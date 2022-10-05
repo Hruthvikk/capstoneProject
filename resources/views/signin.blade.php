@@ -13,7 +13,7 @@
        <input type="password" name="password" class="form-control" placeholder="password" />
        </div>
         <br>
-       <input type="submit" class="btn btn-primary" value="login">
+       <button><a href="{{url('/homeafterlogin')}}">Login</a></button>
     </form>
 </div>
 @endsection
