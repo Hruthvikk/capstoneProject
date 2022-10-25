@@ -5,12 +5,14 @@
     <form action="{{route('register-user')}}" method="post"> 
        @csrf
        <div class="form-row">
+       <div class="form-group col-md-3">
        @if(Session::has('success'))
         <div class="alert alert-success">{{Session::get('success')}}</div>
         @endif
         @if(Session::has('fail'))
         <div class="alert alert-danger">{{Session::get('fail')}}</div>
         @endif
+        </div>
         <div class="form-group col-md-3">
             <label class="form-label">First Name</label> 
             <input type="text" name="firstname" class="form-control" value="{{old('firstname')}}" placeholder="first name" />
