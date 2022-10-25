@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('userFirstName');
             $table->string('userLastName');
-            $table->integer('userPhoneNumber');
+            $table->bigInteger('userPhoneNumber');
             $table->string('userEmail');
             $table->string('userPassword');
             $table->timestamps();
