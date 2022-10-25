@@ -33,6 +33,6 @@ Route::get('/homeafterlogin', function () {
 });
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview']);
-Route::get('/signup',[signup::class,'index']);
+Route::get('/signup',[signup::class,'index'])->name('reg');
 Route::post('/register-user',[signup::class,'registerUser'])->name('register-user');
 
