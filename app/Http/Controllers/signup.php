@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\userrole;
+use App\Models\userRoles;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class signup extends Controller
             'password'=>'required | min:4 | max:24',
             'confirmpassword'=>'required | min:4 | max:24'
         ]);
-        $user = new userrole();
+        $user = new userRoles();
         $user->userFirstName = $request->firstname;
         $user->userLastName = $request->lastname;
         $user->userEmail = $request->email;
