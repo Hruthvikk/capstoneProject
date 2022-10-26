@@ -1,5 +1,8 @@
 @extends('mainafterlogin')
 @section('content')
+@if (Session::has('loginEmail'))
+    echo loginEmail;
+@endif
 <div class="container">
     <div class="row">
         <h2 style="text-align: center;">Popular Recipe</h2>
