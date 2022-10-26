@@ -8,8 +8,8 @@ body {
     position: sticky;
     top: 100%;
 }
-.row{
-    width: auto;
+.row, .container{
+    width: 100%;
 }
 .pr{
     width: 90%;

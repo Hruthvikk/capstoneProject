@@ -48,6 +48,9 @@ h3{
     margin-left: 40%;
     margin-top: 50px;
 }
+.row, .container{
+    width: 100%;
+}
 .editformm{
     margin-left: 40%;
     margin-top: 50px;
