@@ -21,16 +21,17 @@ class signin extends Controller
 
     public function loginUser(Request $request){
         $request->validate([
-            'userEmail'=>'required|email|unique:user_roles,userEmail',
+            'userEmail'=>'required|email|unique:user_roles',
             'password'=>'required|min:4|max:24',
         ]);
-        $user = userRoles::where('userEmail', '=', $request->email)->first();
+        $user = userRoles::where('userEmail', '=', $request->userEmail)->first();
+        
         if($user){
-            if(Hash::check($request->password,$user->userPassword)){
+            if(Hash::check($request->password, $user->userPassword)){
                 $request->session()->put('loginUser',$user->userEmail);
-                echo "Hello"+$request->session()->get('loginUser');
-            
-            }else{
+                return view('homeafterlogin');
+            }
+            else{
                 return back()->with('fail','Password does not match');    
             }
         }

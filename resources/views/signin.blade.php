@@ -14,8 +14,8 @@
         </div>
        <div class="form-group col-md-3">
        <label class="form-label">Email</label> 
-       <input type="email" name="email" class="form-control" value="{{old('email')}}" placeholder="email" />
-       <span class="text-danger">@error('email'){{$message}}@enderror</span>
+       <input type="email" name="userEmail" class="form-control" value="{{old('userEmail')}}" placeholder="email" />
+       <span class="text-danger">@error('userEmail'){{$message}}@enderror</span>
        </div>
        <div class="form-group col-md-3">
        <label class="form-label">Password</label> 
@@ -23,7 +23,7 @@
        <span class="text-danger">@error('password'){{$message}}@enderror</span>
        </div>
         <br>
-       <button><a href="{{url('/homeafterlogin')}}">Login</a></button>
+        <button class="btn btn-primary" type="submit">Login</button>
     </form>
 </div>
 @endsection
