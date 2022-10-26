@@ -40,9 +40,9 @@ class signin extends Controller
 
     public function logout()
     {
-        if(Session::has('loginEmail'))
+        if(session()->has('loginEmail'))
         {
-            Session::pull('loginEmail');
+            session()->pull('loginEmail');
             return redirect('signin');
         }
         else{
