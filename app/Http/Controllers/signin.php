@@ -28,7 +28,7 @@ class signin extends Controller
         if($user){
             if(Hash::check($request->password,$user->userPassword)){
                 $request->session()->put('loginUser',$user->userEmail);
-                echo $request->session()->get('loginUser');
+                echo "Hello"+$request->session()->get('loginUser');
             
             }else{
                 return back()->with('fail','Password does not match');    
