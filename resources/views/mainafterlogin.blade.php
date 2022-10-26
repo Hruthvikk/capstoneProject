@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{url('/message')}}">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/aboutus')}}">About Us</a>    
+                    <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/logout')}}">Logout</a>
