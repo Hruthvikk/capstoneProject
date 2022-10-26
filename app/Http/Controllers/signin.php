@@ -21,7 +21,7 @@ class signin extends Controller
 
     public function loginUser(Request $request){
         $request->validate([
-            'userEmail'=>'required|email|unique:user_roles',
+            'userEmail'=>'required|email',
             'password'=>'required|min:4|max:24',
         ]);
         $user = userRoles::where('userEmail', '=', $request->userEmail)->first();
