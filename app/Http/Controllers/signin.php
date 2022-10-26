@@ -45,6 +45,9 @@ class signin extends Controller
             Session::pull('loginId');
             return redirect()->route('signin');
         }
+        else{
+            return redirect()->route('aboutus');
+        }
     }
 
     }
