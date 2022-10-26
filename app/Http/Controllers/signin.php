@@ -41,7 +41,7 @@ class signin extends Controller
     public function logout(){
         if(session::has('loginId')){
             session::pull('loginId');
-            redirect('signin');
+            return redirect('signin');
         }
     }
 
