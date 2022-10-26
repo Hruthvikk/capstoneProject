@@ -24,7 +24,7 @@ class signup extends Controller
         $request->validate([
             'firstname'=>'required',
             'lastname' =>'required',
-            'userEmail'=>'required | email | unique:user_roles',
+            'email'=>'required | email',
             'phonenum'=>'required | max:12',
             'password'=>'required | min:4 | max:24',
             'confirmpassword'=>'required | min:4 | max:24'
