@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\userRoles;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Http\Request;
 
 class signin extends Controller
@@ -16,69 +19,23 @@ class signin extends Controller
         return view("signin");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function loginUser(Request $request){
+        $request->validate([
+            'email'=>'required | email | unique:user_roles',
+            'password'=>'required | min:4 | max:24',
+        ]);
+        $user = userRoles::where('userEmail', '=', $request->email)->first();
+        if($user){
+            if(Hash::check($request->password,$user->userPassword)){
+                $request->session()->put('loginId',$user->id);
+                return view('homeafterlogin');
+            }else{
+                return back()->with('fail','Password does not match');    
+            }
+        }
+        else{
+            return back()->with('fail','This email address is not registered');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}

@@ -49,7 +49,7 @@
             </div>
        </div>
         <br>
-       <input type="submit" class="btn btn-primary" value="login">
+       <input type="submit" class="btn btn-primary" value="Sign Up">
     </form>
 </div>
 @endsection
