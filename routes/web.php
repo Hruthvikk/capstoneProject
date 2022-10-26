@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\aboutUs;
+use App\Http\Controllers\homeafterlogin;
 use App\Http\Controllers\signin;
 use App\Http\Controllers\signup;
 use Illuminate\Support\Facades\Route;
@@ -28,12 +29,10 @@ Route::get('/viewrecipe', function () {
 Route::get('/editProfile', function () {
     return view('editProfile');
 });
-Route::get('/homeafterlogin', function () {
-    return view('homeafterlogin');
-});
+Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
-Route::get('/signin',[signin::class,'indexview']);
+Route::get('/signin',[signin::class,'indexview'])->middleware('alreadyLoggedIn');
 Route::post('/login-user',[signin::class,'loginUser'])->name('login-user');
-Route::get('/signup',[signup::class,'index'])->name('reg');
+Route::get('/signup',[signup::class,'index'])->name('reg')->middleware('alreadyLoggedIn');
 Route::post('/register-user',[signup::class,'registerUser'])->name('register-user');
 Route::get('/logout',[signin::class,'logout']);
