@@ -29,6 +29,9 @@ Route::get('/viewrecipe', function () {
 Route::get('/editProfile', function () {
     return view('editProfile');
 });
+Route::get('/aboutusal',function(){
+    return view('aboutusal');
+});
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview'])->middleware('alreadyLoggedIn');
