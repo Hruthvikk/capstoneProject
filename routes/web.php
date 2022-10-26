@@ -36,4 +36,4 @@ Route::get('/signin',[signin::class,'indexview']);
 Route::post('/login-user',[signin::class,'loginUser'])->name('login-user');
 Route::get('/signup',[signup::class,'index'])->name('reg');
 Route::post('/register-user',[signup::class,'registerUser'])->name('register-user');
-
+Route::get('/logout',[signin::class,'logout'])->name('logout-user');

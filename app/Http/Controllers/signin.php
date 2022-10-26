@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\userRoles;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class signin extends Controller
@@ -35,6 +35,13 @@ class signin extends Controller
         }
         else{
             return back()->with('fail','This email address is not registered');
+        }
+    }
+
+    public function logout(){
+        if(session::has('loginId')){
+            session::pull('loginId');
+            return view('signin');
         }
     }
 
