@@ -43,10 +43,10 @@ class signin extends Controller
         if(Session::has('loginId'))
         {
             Session::pull('loginId');
-            return redirect()->route('signin');
+            return redirect('signin');
         }
         else{
-            return redirect()->route('aboutus');
+            return redirect('aboutus');
         }
     }
 
