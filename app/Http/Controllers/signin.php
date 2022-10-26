@@ -41,11 +41,13 @@ class signin extends Controller
 
     public function logout(Request $request)
     {
-        $val = $request->session()->get('loginId');
-        if($val)
+        if($request->session()->has('loginId'))
         {
             $request->session()->forget('loginId');
             return redirect('signin');
+        }
+        else{
+            echo "No DATA";
         }
     }
 
