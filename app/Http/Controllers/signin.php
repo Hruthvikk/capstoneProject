@@ -27,7 +27,7 @@ class signin extends Controller
         $user = userRoles::where('userEmail', '=', $request->email)->first();
         if($user){
             if(Hash::check($request->password,$user->userPassword)){
-                $request->session()->put('loginId',$user->id);
+                $request->session()->put('loginEmail',$user->userEmail);
                 return view('homeafterlogin');
             }else{
                 return back()->with('fail','Password does not match');    
@@ -40,9 +40,9 @@ class signin extends Controller
 
     public function logout()
     {
-        if(Session::has('loginId'))
+        if(Session::has('loginEmail'))
         {
-            Session::pull('loginId');
+            Session::pull('loginEmail');
             return redirect('signin');
         }
         else{
