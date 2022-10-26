@@ -38,10 +38,12 @@ class signin extends Controller
         }
     }
 
-    public function logout(){
-        if(session::has('loginId')){
-            session::pull('loginId');
-            return redirect('home');
+    public function logout()
+    {
+        if(Session::has('loginId'))
+        {
+            Session::pull('loginId');
+            return redirect()->route('signin');
         }
     }
 
