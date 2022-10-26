@@ -28,10 +28,8 @@ class signin extends Controller
         if($user){
             if(Hash::check($request->password,$user->userPassword)){
                 $request->session()->put('loginId',$user->userEmail);
-                $val = $request->session()->get('loginId');
-                if($val){
                 return view('homeafterlogin');
-            }
+            
             }else{
                 return back()->with('fail','Password does not match');    
             }
@@ -41,11 +39,12 @@ class signin extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        if(Session::has('loginId'))
+        $val = $request->session()->get('loginId');
+        if($val)
         {
-            Session::pull('loginId');
+            $request->session()->forget('loginId');
             return redirect('signin');
         }
     }
