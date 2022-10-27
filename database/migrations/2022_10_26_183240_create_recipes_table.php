@@ -28,19 +28,17 @@ return new class extends Migration
 
             $table->unsignedBigInteger('mealTime_id');
             $table->foreign('mealTime_id')->references('id')->on
-            ('meal_Times')->onDelete('cascade');
+            ('meal_times')->onDelete('cascade');
 
             $table->unsignedBigInteger('editStyle_id');
             $table->foreign('editStyle_id')->references('id')->on
-            ('edit_Styles')->onDelete('cascade');
+            ('edit_styles')->onDelete('cascade');
 
             $table->unsignedBigInteger('occasion_id');
             $table->foreign('occasion_id')->references('id')->on
             ('occasions')->onDelete('cascade');
 
-            // $table->unsignedBigInteger('rating_id');
-            // $table->foreign('rating_id')->references('id')->on
-            // ('rating_Favs')->onDelete('cascade');
+           
 
             $table->string('recipeImage');
             $table->timestamps();
