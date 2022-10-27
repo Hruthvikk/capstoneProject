@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('recipes', function (Blueprint $table) {
             $table->unsignedBigInteger('rating_id');
             $table->foreign('rating_id')->references('id')->on
-            ('rating_Favs')->onDelete('cascade');
+            ('rating_favs')->onDelete('cascade');
         });
     }
 
