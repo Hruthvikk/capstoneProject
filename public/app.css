@@ -48,6 +48,9 @@ h3{
     margin-left: 40%;
     margin-top: 50px;
 }
+.recipeform{
+    margin-left: 3%;
+}
 .row, .container{
     width: 100%;
 }

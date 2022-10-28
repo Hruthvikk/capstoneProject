@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\aboutUs;
 use App\Http\Controllers\homeafterlogin;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\signin;
 use App\Http\Controllers\signup;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,8 @@ Route::get('/editProfile', function () {
 Route::get('/aboutusal',function(){
     return view('aboutusal');
 });
+Route::get('/addrecipe',[RecipeController::class,'index']);
+Route::post('/addrecipe',[RecipeController::class,'create'])->name('addrecipe');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview'])->middleware('alreadyLoggedIn');

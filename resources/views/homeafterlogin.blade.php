@@ -6,7 +6,7 @@
         <h2 style="text-align: center;">Popular Recipe</h2>
         <div class="pr">
             <div class="prr images">
-                <img src="/images/Food1.jpg" alt="" height="200px" width="200px">
+                <a href=""> <img src="/images/Food1.jpg" alt="" height="200px" width="200px"> </a>
                 <p>Roti Sabji</p>
             </div>
             <div class="prr images">
