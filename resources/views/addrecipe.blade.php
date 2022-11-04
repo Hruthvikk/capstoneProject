@@ -42,7 +42,6 @@
        <select id="mealtime" name="mealtime">
        <option value="0" selected disabled hidden>Select An Option</option>
             @foreach ($mealtime as $mt )
-                
                 <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
