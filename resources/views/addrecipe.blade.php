@@ -17,7 +17,7 @@
         <div class="form-group col-md-3">
         @if(Session::has('loginUserId'))
         <input type="text" name="user_id" value="{{Session::get('loginUserId')}}">
-
+        @endif
        <label class="form-label">Recipe Name: </label> 
        <input type="text" name="recipename" class="form-control" value="{{old('recipename')}}" placeholder="Recipe Name" />
        <span class="text-danger">@error('recipename'){{$message}}@enderror</span>
