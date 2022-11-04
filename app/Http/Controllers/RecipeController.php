@@ -50,15 +50,15 @@ class RecipeController extends Controller
         // ]);
 
         
-        $imgname=$request->file('recipeimage')->getClientOriginalName();
-        $request->file('recipeimage')->storeAs('public/images/',$imgname);
+        $recipeimage = $request->file('recipeimage')->getClientOriginalName();
+        $request->file('recipeimage')->storeAs('public/images/',$recipeimage);
         
         $newrecipe = new recipes();
         // $newrecipe->recipeName = $request->recipename;
         // $newrecipe->recipeDescription = $request->recipedescription;
         // $newrecipe->preparationTime = $request->preparationtime;
         // $newrecipe->cookingTime = $request->cookingtime;
-        $newrecipe->recipeImage = $imgname;
+        $newrecipe->recipeImage = $recipeimage;
         // $newrecipe->ingredients = $request->ingredients;
         // $newrecipe->steps = $request->steps;
 
