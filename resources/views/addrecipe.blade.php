@@ -40,9 +40,8 @@
        <div class="form-group col-md-3">
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
-       @foreach ($mealtime as $mt )
-            <option value="0"></option>
-            <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
+            @foreach ($mealtime as $mt )
+                <option value="{{$mt->id}}" disabled selected value>{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
        </div>
