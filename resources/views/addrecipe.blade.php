@@ -13,7 +13,7 @@
         @endif
         </div>
 
-        $value = $request->session()->get('loginUserId');
+        <?php $value = $request->session()->get('loginUserId'); ?>
         <div class="form-group col-md-3">
         <input type="text" name="user_id" value="{{$value}}">
        <label class="form-label">Recipe Name: </label> 
