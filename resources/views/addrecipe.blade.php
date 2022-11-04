@@ -40,8 +40,9 @@
        <div class="form-group col-md-3">
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
-       <option selected disabled hidden>Select An Option</option>
+       
             @foreach ($mealtime as $mt )
+                <option selected disabled hidden>Select An Option</option>
                 <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
@@ -50,8 +51,9 @@
        <div class="form-group col-md-3">
        <label class="form-label" for="eatingstyle">Eating style: </label>
        <select id="eatingstyle" name="eatingstyle">
-       <option value="0" selected disabled hidden>Select An Option</option>
+       
             @foreach ($eatingstyle as $es )
+                <option value="0" selected disabled hidden>Select An Option</option>
                 <option value="{{$es->id}}">{{$es->editStyleName}}</option>    
             @endforeach
        </select>
@@ -59,9 +61,10 @@
        <br>
        <div class="form-group col-md-3">
        <label class="form-label" for="occasion">Occasion: </label>
-       <option selected disabled hidden>Select An Option</option>
+       
        <select id="occasion" name="occasion">
             @foreach ($occasions as $occ )
+                <option selected disabled hidden>Select An Option</option>
                 <option value="{{$occ->id}}">{{$occ->occassionName}}</option>    
             @endforeach
        </select>
