@@ -41,7 +41,8 @@
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
        @foreach ($mealtime as $mt )
-                <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
+            <option value="0"></option>
+            <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
        </div>
