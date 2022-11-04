@@ -8,6 +8,7 @@ use App\Models\occasion;
 use App\Models\occasions;
 use App\Models\recipe;
 use App\Models\recipes;
+use App\Models\userRoles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -23,10 +24,12 @@ class RecipeController extends Controller
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
+        $user=userRoles::all();
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
-            'eatingstyle'=>$eatingstyle
+            'eatingstyle'=>$eatingstyle,
+            'user'=>$user
         ];
         return view('addrecipe')->with($params);
     }

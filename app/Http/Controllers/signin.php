@@ -29,6 +29,7 @@ class signin extends Controller
         if($user){
             if(Hash::check($request->password, $user->userPassword)){
                 $request->session()->put('loginUser',$user->userEmail);
+                $request->session()->put('loginUserId',$user->id);
                 return view('homeafterlogin');
             }
             else{
