@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('recipes', function (Blueprint $table) {
             $table->dropColumn('rating_id');
-            
         });
     }
 
