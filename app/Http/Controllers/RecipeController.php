@@ -67,7 +67,7 @@ class RecipeController extends Controller
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
         $newrecipe->user_id = $request->user_id;
-        $newrecipe->recipeImage = $request->$recipeimage;
+        $newrecipe->recipeImage = $recipeimage;
         $res=$newrecipe->save();
         if($res){
             return back()->with('success1','New Recipe Added Successfully');
