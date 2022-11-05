@@ -45,9 +45,9 @@ class RecipeController extends Controller
             'recipename'=>'required',
             'preparationtime' =>'required  |numeric',
             'cookingtime'=>'required |numeric',
-            // 'eatingstyle'=>'required',
-            // 'occasion'=>'required',
-            // 'mealtime'=>'required',
+            'eatingstyle'=>'required',
+            'occasion'=>'required',
+            'mealtime'=>'required',
             'recipeimage'=>'required',
             'ingredients'=>'required',
             'steps'=>'required'
@@ -63,11 +63,13 @@ class RecipeController extends Controller
         $newrecipe->recipeDescription = $request->recipedescription;
         $newrecipe->preparationTime = $request->preparationtime;
         $newrecipe->cookingTime = $request->cookingtime;
-        // $newrecipe->mealtime = $request->mealtime;
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
         $newrecipe->user_id = $request->user_id;
         $newrecipe->recipeImage = $recipeimage;
+        $newrecipe->mealTime_id = $request->mealtime1;
+        $newrecipe->editStyle_id = $request->eatingstyle1;
+        $newrecipe->occasion_id = $request->occasion1;
         $res=$newrecipe->save();
         if($res){
             return back()->with('success1','New Recipe Added Successfully');

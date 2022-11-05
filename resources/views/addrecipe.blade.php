@@ -41,12 +41,12 @@
        <span class="text-danger">@error('cookingtime'){{$message}}@enderror</span>
        </div>
        <br>
-       <!-- <div class="form-group col-md-3">
+       <div class="form-group col-md-3">
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
             @foreach ($mealtime as $mt )
                 <option selected disabled hidden>Select An Option</option>
-                <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
+                <option value="{{$mt->id}}" name="mealtime1">{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
        </div>
@@ -57,7 +57,7 @@
        
             @foreach ($eatingstyle as $es )
                 <option value="0" selected disabled hidden>Select An Option</option>
-                <option value="{{$es->id}}">{{$es->editStyleName}}</option>    
+                <option value="{{$es->id}}" name="eatingstyle1">{{$es->editStyleName}}</option>    
             @endforeach
        </select>
        </div>
@@ -68,10 +68,10 @@
        <select id="occasion" name="occasion">
             @foreach ($occasions as $occ )
                 <option selected disabled hidden>Select An Option</option>
-                <option value="{{$occ->id}}">{{$occ->occassionName}}</option>    
+                <option value="{{$occ->id}}" name="occasion1">{{$occ->occassionName}}</option>    
             @endforeach
        </select>
-       </div> -->
+       </div>
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Recipe Image: </label> 
