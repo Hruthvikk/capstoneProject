@@ -64,11 +64,9 @@ class RecipeController extends Controller
         $newrecipe->preparationTime = $request->preparationtime;
         $newrecipe->cookingTime = $request->cookingtime;
         $newrecipe->mealtime = $request->mealtime;
-        $newrecipe->recipeImage = $recipeimage;
+        $newrecipe->recipeImage = $request->$recipeimage;
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
-        
-
         $res=$newrecipe->save();
         if($res){
             return back()->with('success','New Recipe Added Successfully');
