@@ -89,7 +89,7 @@
        <textarea  name="steps" rows="12" cols="50"> </textarea>
        </div>
         <br>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <input type="submit" class="btn btn-primary" value="Sign Up">
     </form>
 </div>
 @endsection
