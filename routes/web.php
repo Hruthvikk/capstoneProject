@@ -34,7 +34,7 @@ Route::get('/aboutusal',function(){
     return view('aboutusal');
 });
 Route::get('/addrecipe',[RecipeController::class,'index']);
-Route::post('/addrecipe',[RecipeController::class,'create'])->name('addrecipe');
+Route::post('/addrecipe',[RecipeController::class,'create'])->name('add-recipe');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/signin',[signin::class,'indexview'])->middleware('alreadyLoggedIn');
