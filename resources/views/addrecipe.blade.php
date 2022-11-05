@@ -5,11 +5,11 @@
     <form action="{{route('addrecipe')}}" method="post" enctype="multipart/form-data">
        @csrf
        <div class="form-group col-md-3">
-       @if(Session::has('success'))
-        <div class="alert alert-success">{{Session::get('success')}}</div>
+       @if(Session::has('success1'))
+        <div class="alert alert-success">{{Session::get('success1')}}</div>
         @endif
-        @if(Session::has('fail'))
-        <div class="alert alert-danger">{{Session::get('fail')}}</div>
+        @if(Session::has('fail1'))
+        <div class="alert alert-danger">{{Session::get('fail1')}}</div>
         @endif
         </div>
 
