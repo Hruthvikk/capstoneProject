@@ -64,6 +64,7 @@ class RecipeController extends Controller
         $newrecipe->recipeImage = $recipeimage;
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
+        $newrecipe->user_id = $request->user_id;
 
         $res=$newrecipe->save();
         if($res){
