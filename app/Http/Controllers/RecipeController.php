@@ -45,9 +45,9 @@ class RecipeController extends Controller
             'recipename'=>'required',
             'preparationtime' =>'required  |numeric',
             'cookingtime'=>'required |numeric',
-            'eatingstyle'=>'required',
-            'occasion'=>'required',
-            'mealtime'=>'required',
+            // 'eatingstyle'=>'required',
+            // 'occasion'=>'required',
+            // 'mealtime'=>'required',
             'recipeimage'=>'required',
             'ingredients'=>'required',
             'steps'=>'required'
@@ -63,7 +63,7 @@ class RecipeController extends Controller
         $newrecipe->recipeDescription = $request->recipedescription;
         $newrecipe->preparationTime = $request->preparationtime;
         $newrecipe->cookingTime = $request->cookingtime;
-        $newrecipe->mealtime = $request->mealtime;
+        // $newrecipe->mealtime = $request->mealtime;
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
         $newrecipe->user_id = $request->user_id;

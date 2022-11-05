@@ -41,10 +41,9 @@
        <span class="text-danger">@error('cookingtime'){{$message}}@enderror</span>
        </div>
        <br>
-       <div class="form-group col-md-3">
+       <!-- <div class="form-group col-md-3">
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
-       
             @foreach ($mealtime as $mt )
                 <option selected disabled hidden>Select An Option</option>
                 <option value="{{$mt->id}}">{{$mt->mealTimeName}}</option>    
@@ -72,7 +71,7 @@
                 <option value="{{$occ->id}}">{{$occ->occassionName}}</option>    
             @endforeach
        </select>
-       </div>
+       </div> -->
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Recipe Image: </label> 
