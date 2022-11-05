@@ -45,7 +45,7 @@
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
             @foreach ($mealtime as $mt )
-                <option disabled>Select An Option</option>
+                <option disabled selected>Select An Option</option>
                 <option value="{{$mt->id}}" name="mealtime" selected>{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
@@ -56,7 +56,7 @@
        <select id="eatingstyle" name="eatingstyle">
        
             @foreach ($eatingstyle as $es )
-                <option value="0"disabled>Select An Option</option>
+                <option value="0"disabled selected>Select An Option</option>
                 <option value="{{$es->id}}" name="eatingstyle" selected>{{$es->editStyleName}}</option>    
             @endforeach
        </select>
@@ -66,8 +66,8 @@
        <label class="form-label" for="occasion">Occasion: </label>
        
        <select id="occasion" name="occasion">
+       <option  hidden disabled selected>Select An Option</option>
             @foreach ($occasions as $occ )
-                <option disabled>Select An Option</option>
                 <option value="{{$occ->id}}" name="occasion" selected>{{$occ->occassionName}}</option>    
             @endforeach
        </select>
@@ -88,7 +88,7 @@
        <input type="text" name="steps">
        </div>
         <br>
-        <input type="submit" class="btn btn-primary" value="Sign Up">
+        <input type="submit" class="btn btn-primary" value="Submit">
     </form>
 </div>
 @endsection
