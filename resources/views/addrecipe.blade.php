@@ -46,7 +46,7 @@
        <select id="mealtime" name="mealtime">
             @foreach ($mealtime as $mt )
                 <option selected disabled hidden>Select An Option</option>
-                <option value="{{$mt->id}}" name="mealtime1">{{$mt->mealTimeName}}</option>    
+                <option value="{{$mt->id}}" name="mealtime" selected>{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
        </div>
@@ -57,7 +57,7 @@
        
             @foreach ($eatingstyle as $es )
                 <option value="0" selected disabled hidden>Select An Option</option>
-                <option value="{{$es->id}}" name="eatingstyle1">{{$es->editStyleName}}</option>    
+                <option value="{{$es->id}}" name="eatingstyle" selected>{{$es->editStyleName}}</option>    
             @endforeach
        </select>
        </div>
@@ -68,7 +68,7 @@
        <select id="occasion" name="occasion">
             @foreach ($occasions as $occ )
                 <option selected disabled hidden>Select An Option</option>
-                <option value="{{$occ->id}}" name="occasion1">{{$occ->occassionName}}</option>    
+                <option value="{{$occ->id}}" name="occasion" selected>{{$occ->occassionName}}</option>    
             @endforeach
        </select>
        </div>
