@@ -9,6 +9,7 @@ use App\Models\occasions;
 use App\Models\recipe;
 use App\Models\recipes;
 use App\Models\userRoles;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -71,13 +72,19 @@ class RecipeController extends Controller
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
         $res=$newrecipe->save();
+        try{
         if($res){
             return back()->with('success1','New Recipe Added Successfully');
         }
         else{
             return back()->with('fail1','New Recipe add Unsuccessful');
         }
+    }
+
+        catch(Exception $e){
         
+        return $e;
+    }
     }
 
     
