@@ -45,7 +45,7 @@
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
             @foreach ($mealtime as $mt )
-                <option selected disabled hidden>Select An Option</option>
+                <option disabled>Select An Option</option>
                 <option value="{{$mt->id}}" name="mealtime" selected>{{$mt->mealTimeName}}</option>    
             @endforeach
        </select>
@@ -56,7 +56,7 @@
        <select id="eatingstyle" name="eatingstyle">
        
             @foreach ($eatingstyle as $es )
-                <option value="0" selected disabled hidden>Select An Option</option>
+                <option value="0"disabled>Select An Option</option>
                 <option value="{{$es->id}}" name="eatingstyle" selected>{{$es->editStyleName}}</option>    
             @endforeach
        </select>
@@ -67,7 +67,7 @@
        
        <select id="occasion" name="occasion">
             @foreach ($occasions as $occ )
-                <option selected disabled hidden>Select An Option</option>
+                <option disabled>Select An Option</option>
                 <option value="{{$occ->id}}" name="occasion" selected>{{$occ->occassionName}}</option>    
             @endforeach
        </select>
