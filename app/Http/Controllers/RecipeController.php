@@ -58,15 +58,22 @@ class RecipeController extends Controller
         $request->file('recipeimage')->storeAs('public/images/',$recipeimage);
         
         $newrecipe = new recipes();
-        $newrecipe->user_id = $request->user_id;
+        
         $newrecipe->recipeName = $request->recipename;
         $newrecipe->recipeDescription = $request->recipedescription;
         $newrecipe->preparationTime = $request->preparationtime;
         $newrecipe->cookingTime = $request->cookingtime;
         $newrecipe->mealtime = $request->mealtime;
-        $newrecipe->recipeImage = $request->$recipeimage;
         $newrecipe->ingredients = $request->ingredients;
         $newrecipe->steps = $request->steps;
+        $newrecipe->user_id = $request->user_id;
+        $newrecipe->recipeImage = $request->$recipeimage;
+        $newrecipe->mealTime_id = $request-> ;
+        $newrecipe->editStyle_id = $request-> ;
+        $newrecipe->occasion_id = $request-> ;
+
+        
+        
         $res=$newrecipe->save();
         if($res){
             return back()->with('success','New Recipe Added Successfully');
