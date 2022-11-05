@@ -71,13 +71,14 @@ class RecipeController extends Controller
         $newrecipe->mealTime_id = $request->mealtime;
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
+
         $res=$newrecipe->save();
         
         if($res){
             return redirect('homeafterlogin')->with('success1','New Recipe Added Successfully');
         }
         else{
-            return back()->with('fail1','New Recipe add Unsuccessful');
+            return redirect('homeafterlogin')->with('fail1','New Recipe add Unsuccessful');
         }
     }
 
