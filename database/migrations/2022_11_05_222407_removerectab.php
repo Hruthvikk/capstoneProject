@@ -13,11 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('recipes', function (Blueprint $table) {
-            $table->dropColumn('occasion_id');
-            $table->dropColumn('editStyle_id');
-            $table->dropColumn('mealTime_id');
-        });
+        //
     }
 
     /**
@@ -27,8 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('recipes', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };
