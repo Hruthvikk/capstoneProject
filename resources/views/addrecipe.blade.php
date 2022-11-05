@@ -81,12 +81,12 @@
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Ingredients:  </label> 
-       <textarea  name="ingredients" rows="12" cols="30"> </textarea>
+       <input type="text" name="ingredients">
        </div>
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Steps: </label> 
-       <textarea  name="steps" rows="12" cols="50"> </textarea>
+       <input type="text" name="steps">
        </div>
         <br>
         <input type="submit" class="btn btn-primary" value="Sign Up">

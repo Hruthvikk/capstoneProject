@@ -21,25 +21,9 @@ return new class extends Migration
             $table->integer('cookingTime');
             $table->longText('ingredients');
             $table->longText('steps');
-
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on
             ('user_roles')->onDelete('cascade');
-
-            $table->unsignedBigInteger('mealTime_id');
-            $table->foreign('mealTime_id')->references('id')->on
-            ('meal_times')->onDelete('cascade');
-
-            $table->unsignedBigInteger('editStyle_id');
-            $table->foreign('editStyle_id')->references('id')->on
-            ('edit_styles')->onDelete('cascade');
-
-            $table->unsignedBigInteger('occasion_id');
-            $table->foreign('occasion_id')->references('id')->on
-            ('occasions')->onDelete('cascade');
-
-           
-
             $table->string('recipeImage');
             $table->timestamps();
         });
