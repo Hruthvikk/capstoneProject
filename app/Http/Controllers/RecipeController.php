@@ -26,18 +26,19 @@ class RecipeController extends Controller
         $mealtime=mealTime::all();
         $occasions=occasion::all();
         $user=userRoles::all();
-        $recip=recipes::all();
+        
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
             'eatingstyle'=>$eatingstyle,
-            'user'=>$user,
-            'recip'=>$recip
+            'user'=>$user
+            
         ];
         return view('addrecipe')->with($params);
     }
     public function checkimg(){
-        return view('check');
+        $recip=recipes::all();
+        return view('check',['recip'=>$recip]);
     }
     /**
      * Show the form for creating a new resource.
