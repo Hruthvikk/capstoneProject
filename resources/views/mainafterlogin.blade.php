@@ -19,6 +19,9 @@
                     <a class="nav-link" href="{{url('/searchrecipe')}}">Recipe</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
                 </li>
                 <li class="nav-item">
