@@ -37,8 +37,8 @@ class RecipeController extends Controller
         return view('addrecipe')->with($params);
     }
     public function checkimg(){
-        $photos=recipes::all();
-        return view('check', compact('photos'));
+        $recip=recipes::all();
+        return view('check',['recip'=>$recip]);
     }
     /**
      * Show the form for creating a new resource.

@@ -3,7 +3,7 @@
 
     @foreach ($recip as $r)
         <span>{{$r->recipeImage}}</span>
-        <img src="{{asset('storage/images/'. $r->recipeImage)}}">
+        <img src="{{asset('storage/app/public/images/'. $r->recipeImage) }}">
     @endforeach
 
 @endsection
