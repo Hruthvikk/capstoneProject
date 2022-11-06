@@ -26,11 +26,13 @@ class RecipeController extends Controller
         $mealtime=mealTime::all();
         $occasions=occasion::all();
         $user=userRoles::all();
+        $recip=recipes::all();
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
             'eatingstyle'=>$eatingstyle,
-            'user'=>$user
+            'user'=>$user,
+            'recip'=>$recip
         ];
         return view('addrecipe')->with($params);
     }
