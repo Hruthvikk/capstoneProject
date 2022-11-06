@@ -2,7 +2,7 @@
 @section('content')
 <div class="recipeform">
     <h2>Enter a recipe:</h2>
-    <form method="post" action="{{route('added-recipe')}}" enctype="multipart/form-data">
+    <form method="get" action="{{route('added-recipe')}}" enctype="multipart/form-data">
        @csrf
        <div class="form-group col-md-3">
        @if(Session::has('success1'))
@@ -15,24 +15,24 @@
 
         
         <div class="form-group col-md-3">
-        @if(Session::has('loginUserId'))
-        <input type="hidden" name="user_id" value="{{Session::get('loginUserId')}}">
-        @endif
-       <label class="form-label">Recipe Name: </label> 
-       <input type="text" name="recipename" class="form-control" value="{{old('recipename')}}" placeholder="Recipe Name" />
-       <span class="text-danger">@error('recipename'){{$message}}@enderror</span>
+            @if(Session::has('loginUserId'))
+            <input type="hidden" name="user_id" value="{{Session::get('loginUserId')}}">
+            @endif
+            <label class="form-label">Recipe Name: </label> 
+            <input type="text" name="recipename" class="form-control" value="{{old('recipename')}}" placeholder="Recipe Name" />
+            <span class="text-danger">@error('recipename'){{$message}}@enderror</span>
        </div>
         <br>
        <div class="form-group col-md-3">
-       <label class="form-label">Recipe Description: </label> 
-       <input type="text" name="recipedescription" class="form-control" value="{{old('recipedescription')}}" placeholder="Recipe Description" />
-       <span class="text-danger">@error('recipedescription'){{$message}}@enderror</span>
+        <label class="form-label">Recipe Description: </label> 
+        <input type="text" name="recipedescription" class="form-control" value="{{old('recipedescription')}}" placeholder="Recipe Description" />
+        <span class="text-danger">@error('recipedescription'){{$message}}@enderror</span>
        </div>
        <br>
        <div class="form-group col-md-3">
-       <label class="form-label">Preparation Time: </label> 
-       <input type="text" name="preparationtime" class="form-control" value="{{old('preparationtime')}}" placeholder="Preparation Time In Minutes" />
-       <span class="text-danger">@error('preparationtime'){{$message}}@enderror</span>
+        <label class="form-label">Preparation Time: </label> 
+        <input type="text" name="preparationtime" class="form-control" value="{{old('preparationtime')}}" placeholder="Preparation Time In Minutes" />
+        <span class="text-danger">@error('preparationtime'){{$message}}@enderror</span>
        </div>
        <br>
        <div class="form-group col-md-3">
