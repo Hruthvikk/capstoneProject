@@ -75,10 +75,10 @@ class RecipeController extends Controller
         $res=$newrecipe->save();
         
         if($res){
-            return redirect('homeafterlogin')->with('success1','New Recipe Added Successfully');
+            return back()->with('success1','New Recipe Added Successfully');
         }
         else{
-            return redirect('homeafterlogin')->with('fail1','New Recipe add Unsuccessful');
+            return back()->with('fail1','New Recipe add Unsuccessful');
         }
     }
 
