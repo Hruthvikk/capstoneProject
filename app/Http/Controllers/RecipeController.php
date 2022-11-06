@@ -40,7 +40,7 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function addrecipep(Request $request)
     {
         $request->validate([
             'recipename'=>'required',
