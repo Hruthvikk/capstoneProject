@@ -2,7 +2,7 @@
 @section('content')
 <div class="recipeform">
     <h2>Enter a recipe:</h2>
-    <form action="{{route('added-recipe')}}" method="post" enctype="multipart/form-data">
+    <form method="post" action="{{route('added-recipe')}}" enctype="multipart/form-data">
        @csrf
        <div class="form-group col-md-3">
        @if(Session::has('success1'))
