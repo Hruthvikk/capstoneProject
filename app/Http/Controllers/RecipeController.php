@@ -36,7 +36,9 @@ class RecipeController extends Controller
         ];
         return view('addrecipe')->with($params);
     }
-
+    public function checkimg(){
+        return view('check');
+    }
     /**
      * Show the form for creating a new resource.
      *
