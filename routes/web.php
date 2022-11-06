@@ -33,6 +33,9 @@ Route::get('/editProfile', function () {
 Route::get('/aboutusal',function(){
     return view('aboutusal');
 });
+Route::get('/check',function(){
+    return view('check');
+});
 Route::get('/addrecipe',[RecipeController::class,'index']);
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->name('added-recipe');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
