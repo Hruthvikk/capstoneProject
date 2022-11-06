@@ -2,8 +2,9 @@
 @section('content')
 
     @foreach ($recip as $r)
-        <span>{{$r->recipeImage}}</span>
-        <img src="{{asset('storage/app/public/images/'. $r->recipeImage) }}">
+        <?php $imagename=$r->recipeImage; ?>
+        
+        <img src="/public/Image/<?=$imagename?>" alt="" height="100px" width="150px">
     @endforeach
 
 @endsection
