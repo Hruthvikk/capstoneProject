@@ -27,14 +27,13 @@ Route::get('/searchrecipe', function () {
 Route::get('/viewrecipe', function () {
     return view('viewrecipe');
 });
-Route::get('/editProfile', function () {
-    return view('editProfile');
-});
-Route::get('/aboutusal',function(){
-    return view('aboutusal');
-});
 
-Route::get('/addrecipe',[RecipeController::class,'index']);
+
+Route::get('/aboutusal',[homeafterlogin::class,'aual'])->middleware('isLoggedIn');
+Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLoggedIn');
+Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
+Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
+Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
 Route::get('/check',[RecipeController::class,'checkimg']);
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->name('added-recipe');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');

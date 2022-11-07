@@ -31,8 +31,8 @@
         </nav>
         @yield('content')
         <br>
-        <footer class="stickFoot">
-            <div>
+        <footer class="bg-dark text-center text-white position-sticky top-100">
+            <div class="stickFoot">
                 <div class="col">©</div>
                 <div class="col">Hruthvik</div>
                 <div class="col">Chokshi</div>

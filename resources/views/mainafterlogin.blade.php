@@ -5,7 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <link rel="stylesheet" href="app.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/app.css">
         
     </head>
     <body>
@@ -22,7 +25,7 @@
                     <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/check')}}">Add Recipe</a>
+                    <a class="nav-link" href="{{url('/check')}}">check Recipe</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
@@ -42,11 +45,10 @@
             </ul>
         </div>
         </nav>
-
-        @yield('content')
+             @yield('content')
         <br>
-        <footer class="stickFoot">
-            <div>
+        <footer class="bg-dark text-center text-white position-sticky top-100">
+            <div class="stickFoot">
                 <div class="col">©</div>
                 <div class="col">Hruthvik</div>
                 <div class="col">Chokshi</div>

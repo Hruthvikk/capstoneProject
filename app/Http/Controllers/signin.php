@@ -48,9 +48,6 @@ class signin extends Controller
             $request->session()->forget('loginUser');
             return redirect('signin');
         }
-        else{
-            echo "No DATA";
-        }
     }
 
     }

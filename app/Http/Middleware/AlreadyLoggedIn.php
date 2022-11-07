@@ -16,12 +16,13 @@ class AlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('loginUser')){
-         if((url('signin')==$request->url() || url('signup')==$request->url()))
+        if(session()->has('loginUser'))
         {
-            return redirect('logout');
+             if((url('signin')==$request->url() || url('signup')==$request->url()))
+            {
+                return redirect('logout');
+            }
         }
-    }
         return $next($request);
     }
 }
