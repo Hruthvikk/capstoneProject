@@ -21,14 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/searchrecipe', function () {
-    return view('searchrecipe');
-});
-Route::get('/viewrecipe', function () {
-    return view('viewrecipe');
-});
 
 
+Route::get('/viewrecipe/{recipeid}',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
+Route::put('/searchedrecipes',[RecipeController::class,'searchRecipe'])->name('searched-recipes')->middleware('isLoggedIn');
+Route::get('/searchrecipe',[RecipeController::class,'searchRecipeView'])->middleware('isLoggedIn');
+Route::put('/searchrecipe',[RecipeController::class,'searchRecipe'])->middleware('isLoggedIn');
 Route::get('/aboutusal',[homeafterlogin::class,'aual'])->middleware('isLoggedIn');
 Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLoggedIn');
 Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');

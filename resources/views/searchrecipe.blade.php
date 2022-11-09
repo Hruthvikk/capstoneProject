@@ -1,58 +1,45 @@
 @extends('mainafterlogin')
 @section('content')
 <div class="container">
-    <div class="row">
-        <h2 style="text-align: center;">Popular Recipe</h2>
-        <div class="pr">
-            <div class="prr images">
-                <img src="/images/Food1.jpg" alt="" height="200px" width="200px">
-                <p>Roti Sabji</p>
-            </div>
-            <div class="prr images">
-                <img src="/images/Food4.jpg" alt=""  height="150px" width="150px">
-                <p>Chai</p>
-            </div>
-            <div class="prr images">
-                <img src="/images/Food6.jpg" alt=""  height="150px" width="150px">
-                <p>Samosa</p>               
-            </div>
-        </div>
-    </div>
+    
     <br>
     <div class="row">
     <h2 style="text-align: center;">Search Recipe</h2>
     <div class="sr">
+
+        @if(Session::has('mtid'))
+        <div class="alert alert-success">{{Session::get('mtid')}}
+            
+        </div>
+        @endif
+
             <div>
+                <form action="{{route('searched-recipes')}}" method="post">
+                @csrf
+                @method('PUT')
                 <h5>Meal Time</h5>
-                <input type="checkbox" id="breakfast" name="breakfast" value="breakfast">
-                <label for="breakfast">breakfast</label><br>
-                <input type="checkbox" id="lunch" name="lunch" value="lunch">
-                <label for="lunch">lunch</label><br>
-                <input type="checkbox" id="dinner" name="dinner" value="dinner">
-                <label for="dinner">dinner</label>
+                @foreach ( $mealtime as $mt )
+                    <input type="radio" name="mealtime[]" value="<?=$mt->id?>">
+                    <label for="mealtime[]"><?=$mt->mealTimeName?></label><br>
+                @endforeach
             </div>
             <div>
                 <h5>Eating Style</h5>
-                <input type="checkbox" id="vegeterian" name="vegeterian" value="vegeterian">
-                <label for="vegeterian">vegeterian</label><br>
-                <input type="checkbox" id="non-vegeterian" name="non-vegeterian" value="non-vegeterian">
-                <label for="non-vegeterian">non-vegeterian</label><br>
-                <input type="checkbox" id="vegan" name="vegan" value="vegan">
-                <label for="vegan">vegan</label><br>
-                
+                @foreach ( $eatingstyle as $es )
+                    <input type="radio" name="eatingstyle[]" value="<?=$es->id?>">
+                    <label for="eatingStyle[]"><?=$es->editStyleName?></label><br>
+                @endforeach
             </div>
             <div>
                 <h5>Occassion</h5>
-                <input type="checkbox" id="datenight" name="datenight" value="datenight">
-                <label for="datenight">date-night</label><br>
-                <input type="checkbox" id="familygettogether" name="familygettogether" value="familygettogether">
-                <label for="familygettogether">family-get-together</label><br>
-                <input type="checkbox" id="festival" name="festival" value="festival">
-                <label for="festival">festival</label><br>
-                               
+                @foreach ( $occasions as $o )
+                    <input type="radio" name="occasion[]" value="<?=$o->id?>">
+                    <label for="occasion[]"><?=$o->occassionName?></label><br>
+                @endforeach    
             </div>
             <div>
             <input type="submit" value="Submit" id="srecipe" name="srecipe">
+            </form>
             </div>
         </div>
     </div>

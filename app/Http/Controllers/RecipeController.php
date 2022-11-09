@@ -11,7 +11,9 @@ use App\Models\recipes;
 use App\Models\userRoles;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
+use Psy\Readline\Hoa\Console;
 
 class RecipeController extends Controller
 {
@@ -36,6 +38,19 @@ class RecipeController extends Controller
         ];
         return view('addrecipe')->with($params);
     }
+
+    public function searchRecipeView(){
+        $eatingstyle=editStyle::all();
+        $mealtime=mealTime::all();
+        $occasions=occasion::all();
+        $params=[
+            'mealtime'=>$mealtime,
+            'occasions'=>$occasions,
+            'eatingstyle'=>$eatingstyle
+        ];
+        return view('searchrecipe')->with($params);
+    }
+
     public function checkimg(){
         $recip=recipes::all();
         return view('check',compact('recip'));
@@ -87,6 +102,23 @@ class RecipeController extends Controller
         else{
             return back()->with('fail1','New Recipe add Unsuccessful');
         }
+    }
+
+    public function searchRecipe(Request $request){
+            $mtid[] = $request->mealtime;
+            $esid[] = $request->eatingStyle;
+            $oid[] = $request->occasion;
+            
+            $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
+                             ->orwhere('editStyle_id','=',$esid)
+                             ->orwhere('occasion_id','=',$oid)->get();
+            return view('searchedrecipes',['mtres'=>$mtres]);
+            
+    }
+    public function viewrecipe($id)
+    {
+        $recipedata = recipes::where('id',$id)->get();
+        return view('viewrecipe',compact('recipedata'));
     }
 
     
