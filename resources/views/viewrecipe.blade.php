@@ -8,8 +8,10 @@
         <h4>Recipe Description : {!!$recd->recipeDescription!!}</h4>
         <!-- <h4>Cooking for :  <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"> </h4> -->
         <?php 
-            $total = $recd->preparationTime * $recd->cookingTime
+            $total = $recd->preparationTime * $recd->cookingTime;
+            $imagename=$recd->recipeImage; 
         ?>
+        <img src="/public/Image/<?=$imagename?>" alt="" height="200px" width="200px">
         <h4>Total minutes : {!! $total!!}
         <br>   
         Preparation Time : {!!$recd->preparationTime!!}
@@ -18,10 +20,11 @@
         <br>
         Ingredients Required : {!!$recd->ingredients!!}
         </h4>
-        <form method="POST" action="">
-            <input type="hidden" value="{{$recd->id">
-            <button type="submit" formaction="{{route('login-user')}}">I have All ingredients</button>
-            <button type="submit" formaction="{{route('login-user')}}">I dont have all ingredients</button>
-        </form>
+        <br>
+        <button><a href="{{url('recipesteps',$recd->id)}}">I have All ingredients</a></button>
+        <button><a href="">I dont have all ingredients</a></button>
+            
+            
+        
     
 @endsection

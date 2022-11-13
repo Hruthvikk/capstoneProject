@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-
+Route::get('/recipesteps',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
 Route::get('/viewrecipe/{recipeid}',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
 Route::put('/searchedrecipes',[RecipeController::class,'searchRecipe'])->name('searched-recipes')->middleware('isLoggedIn');
 Route::get('/searchrecipe',[RecipeController::class,'searchRecipeView'])->middleware('isLoggedIn');
