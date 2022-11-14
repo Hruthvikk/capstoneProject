@@ -79,13 +79,13 @@
        </div>
        <br>
        <div class="form-group col-md-3">
-       <label class="form-label">Ingredients:  </label> 
-       <input type="text" name="ingredients">
+       <label class="form-label">Ingredients:  </label> <br>
+       <textarea name="ingredients"></textarea>
        </div>
        <br>
        <div class="form-group col-md-3">
-       <label class="form-label">Steps: </label> 
-       <input type="text" name="steps">
+       <label class="form-label">Steps: </label> <br>
+       <textarea name="steps" ></textarea>
        </div>
         <br>
         <input type="submit" class="btn btn-primary" value="Submit">

@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/recipesteps',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
+Route::get('/recipesteps/{recipeid}',[RecipeController::class,'viewrecipesteps'])->middleware('isLoggedIn');
 Route::get('/viewrecipe/{recipeid}',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
 Route::put('/searchedrecipes',[RecipeController::class,'searchRecipe'])->name('searched-recipes')->middleware('isLoggedIn');
 Route::get('/searchrecipe',[RecipeController::class,'searchRecipeView'])->middleware('isLoggedIn');
@@ -32,7 +32,7 @@ Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLogged
 Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
-Route::get('/check',[RecipeController::class,'checkimg']);
+
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->name('added-recipe');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);

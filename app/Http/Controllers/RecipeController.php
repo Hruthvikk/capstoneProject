@@ -51,10 +51,7 @@ class RecipeController extends Controller
         return view('searchrecipe')->with($params);
     }
 
-    public function checkimg(){
-        $recip=recipes::all();
-        return view('check',compact('recip'));
-    }
+    
     
     /**
      * Show the form for creating a new resource.
@@ -119,6 +116,11 @@ class RecipeController extends Controller
     {
         $recipedata = recipes::where('id',$id)->get();
         return view('viewrecipe',compact('recipedata'));
+    }
+    public function viewrecipesteps($id)
+    {
+        $recipestepdata = recipes::where('id',$id)->get();
+        return view('recipesteps',compact('recipestepdata'));
     }
 
     
