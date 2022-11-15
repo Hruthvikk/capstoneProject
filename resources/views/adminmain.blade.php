@@ -9,41 +9,36 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/app.css">
-        
+        <style>
+            table, th, td {
+                border: 1px solid;
+                padding: 20px;
+                text-align: center;
+                }
+        </style>
     </head>
     <body>
     <nav nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/homeafterlogin')}}">Home</a>
+                    <a class="nav-link" href="{{url('/adminView')}}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/searchrecipe')}}">Search Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/message')}}">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
-                </li>
+                @if(Session::has('loginUserId'))
+                    <?php $uid=session('loginUserId') ?>
+                    <!-- {{url('editUserProfile/<?=$uid?>')}} -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/aeditProfile',$uid)}}">Edit profile</a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/logout')}}">Logout</a>
                 </li>
             </ul>
         </div>
-        </nav>
-             @yield('content')
-        <br>
+    </nav>
+    <br>
+    @yield('content')
         <footer class="bg-dark text-center text-white position-sticky top-100">
             <div class="stickFoot">
                 <div class="col">©</div>

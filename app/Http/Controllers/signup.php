@@ -33,6 +33,7 @@ class signup extends Controller
         $user->userFirstName = $request->firstname;
         $user->userLastName = $request->lastname;
         $user->userEmail = $request->email;
+        $user->userType = "admin";
         $user->userPhoneNumber = $request->phonenum;
         if($request->password === $request->confirmpassword){
             $user->userPassword = Hash::make($request->password);

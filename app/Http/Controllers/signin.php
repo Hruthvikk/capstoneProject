@@ -26,10 +26,23 @@ class signin extends Controller
         ]);
         $user = userRoles::where('userEmail', '=', $request->userEmail)->first();
         
-        if($user){
+        if($user->userType == "admin"){
+            if(Hash::check($request->password, $user->userPassword))
+            {
+                $request->session()->put('loginUser',$user->userEmail);
+                $request->session()->put('loginUserId',$user->id);
+                $request->session()->put('loginUserType',$user->userType);
+                return view('adminhomeafterlogin');
+            }
+            else{
+                return back()->with('fail','Password does not match');    
+            }
+        }
+        else if($user->userType == "member"){
             if(Hash::check($request->password, $user->userPassword)){
                 $request->session()->put('loginUser',$user->userEmail);
                 $request->session()->put('loginUserId',$user->id);
+                
                 return view('homeafterlogin');
             }
             else{
@@ -39,6 +52,9 @@ class signin extends Controller
         else{
             return back()->with('fail','This email address is not registered');
         }
+    }
+    public function adminView(){
+            return view("adminhomeafterlogin");
     }
 
     public function logout(Request $request)
