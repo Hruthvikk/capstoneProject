@@ -122,6 +122,25 @@ class RecipeController extends Controller
         $recipestepdata = recipes::where('id',$id)->get();
         return view('recipesteps',compact('recipestepdata'));
     }
+    public function displayallRecipe(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function deleteRecipe($id){
+        DB::delete('delete from recipes where id = ?',[$id]);
+        $displayar =  DB::table('recipes')
+        ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+        ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+        ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+        ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+        ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
 
     
 

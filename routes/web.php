@@ -30,6 +30,8 @@ Route::put('/searchrecipe',[RecipeController::class,'searchRecipe'])->middleware
 Route::get('/aboutusal',[homeafterlogin::class,'aual'])->middleware('isLoggedIn');
 Route::get('/admindalu',[homeafterlogin::class,'displayallUser'])->middleware('isLoggedIn');
 Route::get('/deleteuser/{userid}',[homeafterlogin::class,'deleteUser'])->middleware('isLoggedIn');
+Route::get('/admindar',[RecipeController::class,'displayallRecipe'])->middleware('isLoggedIn');
+Route::get('/deleteRecipe/{userid}',[RecipeController::class,'deleteRecipe'])->middleware('isLoggedIn');
 Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLoggedIn');
 Route::get('/aeditProfile/{userid}',[homeafterlogin::class,'aeditp'])->middleware('isLoggedIn');
 Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn');
@@ -37,7 +39,7 @@ Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middle
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
 Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn');
-Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->name('added-recipe');
+Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware('isLoggedIn')->name('added-recipe');
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
