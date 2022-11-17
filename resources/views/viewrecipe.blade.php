@@ -59,6 +59,11 @@
             
             <?php 
             $avg=0;
+            $num1=0;
+            $num2=0;
+            $num3=0;
+            $num4=0;
+            $num5=0;
               if($allstar != 0 ){
               $calavg=((1*$ones)+(2*$twos)+(3*$threes)+(4*$fours)+(5*$fives))/$allstar;
               $avg = round($calavg,2);
