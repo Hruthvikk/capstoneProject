@@ -14,9 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('rating_favs', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on
-            ('user_roles')->onDelete('cascade');
+            
             $table->unsignedBigInteger('recipe_id');
             $table->foreign('recipe_id')->references('id')->on
             ('recipes')->onDelete('cascade');
