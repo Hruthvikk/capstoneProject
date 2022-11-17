@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\aboutUs;
 use App\Http\Controllers\homeafterlogin;
+use App\Http\Controllers\ratingFavourite1;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\signin;
 use App\Http\Controllers\signup;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +40,7 @@ Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middle
 Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
+Route::post('/subratefav',[ratingFavourite1::class,'raterecipe'])->middleware('isLoggedIn')->name('added-rate');
 Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn');
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware('isLoggedIn')->name('added-recipe');
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');

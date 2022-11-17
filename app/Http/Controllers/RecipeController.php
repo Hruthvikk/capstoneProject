@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\editStyle;
 use App\Models\mealTime;
 use App\Models\occasion;
-use App\Models\occasions;
-use App\Models\recipe;
+
 use App\Models\recipes;
 use App\Models\userRoles;
-use Exception;
+use App\Models\ratingFav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
-use Psy\Readline\Hoa\Console;
+
 
 class RecipeController extends Controller
 {
@@ -115,7 +113,29 @@ class RecipeController extends Controller
     public function viewrecipe($id)
     {
         $recipedata = recipes::where('id',$id)->get();
-        return view('viewrecipe',compact('recipedata'));
+        $fivestarlist = ratingFav::where('starNum','=','5')->get();
+        $fivestarcount = $fivestarlist->count();
+        $fourstarlist = ratingFav::where('starNum','=','4')->get();
+        $fourstarcount = $fourstarlist->count();
+        $threestarlist = ratingFav::where('starNum','=','3')->get();
+        $threestarcount = $threestarlist->count();
+        $twostarlist = ratingFav::where('starNum','=','2')->get();
+        $twostarcount = $twostarlist->count();
+        $onestarlist = ratingFav::where('starNum','=','1')->get();
+        $onestarcount = $onestarlist->count();
+        $allstarlist = ratingFav::all('starNum');
+        $allstarcount = $allstarlist->count();
+
+        $params=[
+            'fives'=>$fivestarcount,
+            'fours'=>$fourstarcount,
+            'threes'=>$threestarcount,
+            'twos'=>$twostarcount,
+            'ones'=>$onestarcount,
+            'allstar'=>$allstarcount
+            
+        ];
+        return view('viewrecipe',compact('recipedata'))->with($params);
     }
     public function viewrecipesteps($id)
     {
@@ -142,6 +162,7 @@ class RecipeController extends Controller
         return view('admindar',['dar'=>$displayar]);
     }
 
+    
     
 
 }
