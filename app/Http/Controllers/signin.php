@@ -25,7 +25,7 @@ class signin extends Controller
             'password'=>'required|min:4|max:24',
         ]);
         $user = userRoles::where('userEmail', '=', $request->userEmail)->first();
-        
+        if($request->userEmail && $request->password){
         if($user->userType == "admin"){
             if(Hash::check($request->password, $user->userPassword))
             {
@@ -52,6 +52,8 @@ class signin extends Controller
         else{
             return back()->with('fail','This email address is not registered');
         }
+    }
+    
     }
     public function adminView(){
             return view("adminhomeafterlogin");

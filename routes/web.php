@@ -46,6 +46,7 @@ Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware(
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);
+Route::get('/tant',[aboutUs::class,'tantindex']);
 Route::get('/signin',[signin::class,'indexview'])->middleware('alreadyLoggedIn');
 Route::post('/login-user',[signin::class,'loginUser'])->name('login-user');
 Route::get('/signup',[signup::class,'index'])->name('reg')->middleware('alreadyLoggedIn');

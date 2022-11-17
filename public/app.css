@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+  }
+  
 body {
     background-color: #707070;
     min-height: 100vh;
 }
+
 .stickFoot{
     color: #969a9d;
     background-color: #212529;
@@ -156,3 +161,15 @@ h3{
   .bar-3 {height: 18px; background-color: #00bcd4;}
   .bar-2 { height: 18px; background-color: #ff9800;}
   .bar-1 { height: 18px; background-color: #f44336;}
+
+  .tantcard{
+    height: 400px;
+    width: 250px;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: grid;
+  }
+  .card{
+    height: 350px;
+  }
+  

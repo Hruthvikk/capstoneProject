@@ -125,6 +125,7 @@ class RecipeController extends Controller
         $onestarcount = $onestarlist->count();
         $allstarlist = ratingFav::all('starNum');
         $allstarcount = $allstarlist->count();
+        $arf = ratingFav::all();
 
         $params=[
             'fives'=>$fivestarcount,
@@ -132,7 +133,8 @@ class RecipeController extends Controller
             'threes'=>$threestarcount,
             'twos'=>$twostarcount,
             'ones'=>$onestarcount,
-            'allstar'=>$allstarcount
+            'allstar'=>$allstarcount,
+            'arf'=>$arf
             
         ];
         return view('viewrecipe',compact('recipedata'))->with($params);

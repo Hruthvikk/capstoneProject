@@ -55,7 +55,10 @@
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
             </div>
+            
+            
             <?php 
+              if($allstar != 0 ){
               $calavg=((1*$ones)+(2*$twos)+(3*$threes)+(4*$fours)+(5*$fives))/$allstar;
               $avg = round($calavg,2);
               $num5 = ($fives*100 )/ $allstar;
@@ -63,6 +66,7 @@
               $num3 = ($threes*100 )/ $allstar;
               $num2 = ($twos*100 )/ $allstar;
               $num1 = ($ones*100 )/ $allstar;
+              }
             ?>
             <p>{{$avg}} average based on {{$allstar}} reviews.</p>
 <hr style="border:3px solid #f1f1f1">

@@ -15,5 +15,8 @@ class aboutUs extends Controller
     {
         return view('aboutus');
     }
+    public function tantindex(){
+        return view('tant');
+    }
 
 }
