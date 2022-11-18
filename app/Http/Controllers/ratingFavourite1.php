@@ -12,15 +12,16 @@ class ratingFavourite1 extends Controller
             'user_id'=>'unique:rating_favs,user_id'
         ]);
         $new_raterecipe = new ratingFav();
-
-        $new_raterecipe->starNum = $request->input('rate');
-        $new_raterecipe->favYesNo = $request->input('fav');
-        $new_raterecipe->user_id = $request->user_id;
-        $new_raterecipe->recipe_id = $request->recipe_id;
-
+        if($new_raterecipe->starNum = null ){
+            if($new_raterecipe->starNum != $request->input('rate')){
+                $new_raterecipe->starNum = $request->input('rate');
+                $new_raterecipe->favYesNo = $request->input('fav');
+                $new_raterecipe->user_id = $request->user_id;
+                $new_raterecipe->recipe_id = $request->recipe_id;
+        }}
         $res = $new_raterecipe->save();
         if($res){
-        return back();
+        return back()->with('alreadyexists','Same rating already Exists');
         }
     }
     
