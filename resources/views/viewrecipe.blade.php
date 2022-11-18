@@ -127,7 +127,9 @@
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-1" style="width:<?=$num1?>%;"></div>
+      <div class="bar-1" style="width:<?=$num1?>%;">@if(Session::has('alreadyexists'))
+        <div class="alert alert-danger">{{Session::get('alreadyexists')}}</div>
+        @endif</div>
     </div>
   </div>
   <div class="side right">
@@ -137,9 +139,7 @@
         </div>
         </div> 
         </form>
-        @if(Session::has('alreadyexists'))
-        <div class="alert alert-danger">{{Session::get('alreadyexists')}}</div>
-        @endif
+        
         
     
 @endsection
