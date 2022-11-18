@@ -170,12 +170,64 @@ class RecipeController extends Controller
     }
 
 
+
     public function displayallRecipe(){
         $displayar = DB::table('recipes')
                     ->join('user_roles', 'recipes.user_id','=','user_roles.id')
                     ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('recipeName','asc')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function displayallRecipedesc(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('recipeName','desc')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function displayallRecipeptasc(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('preparationTime','asc')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function displayallRecipeptdesc(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('preparationTime','desc')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function displayallRecipectasc(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('cookingTime','asc')
+                    ->get();
+        return view('admindar',['dar'=>$displayar]);
+    }
+    public function displayallRecipectdesc(){
+        $displayar = DB::table('recipes')
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->orderBy('cookingTime','desc')
                     ->get();
         return view('admindar',['dar'=>$displayar]);
     }

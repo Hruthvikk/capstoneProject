@@ -44,9 +44,7 @@ class homeafterlogin extends Controller
         $up->save();
         return back()->with('success2','PROFILE UPDATED');
     }
-    public function updateRecipe(){
-        
-    }
+    
     public function aupdatep1(Request $request,$uid){
         $up = userRoles::find($uid);
         $up->userEmail = $request->email;
@@ -57,17 +55,6 @@ class homeafterlogin extends Controller
     public function aual(){
         return view('aboutusal');
     }
-    public function displayallUser(){
-        $mem="member";
-        $displayau = userRoles::where('userType',$mem)->get();
-        return view('admindalu',['dau'=>$displayau]);
-    }
-    public function deleteUser($id){
-        DB::delete('delete from user_roles where id = ?',[$id]);
-        $mem="member";
-        $displayau = userRoles::where('userType',$mem)->get();
-        return view('admindalu',['dau'=>$displayau]);
-    }
     public function viewfavourites(Request $request){
         $userloginid = $request->session()->get('loginUserId');
         $userFavourites = DB::table('rating_favs')->join('recipes', 'rating_favs.recipe_id','=','recipes.id')
@@ -76,5 +63,49 @@ class homeafterlogin extends Controller
                                                   ->get();
         return view('viewfavourites',['userFavourites'=>$userFavourites]);
     }
+
+//------------------------------ADMIN---------------------------------------------------------------
+    public function displayallUser(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'asc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function displayallUserdes(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'desc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function displayallUserlndes(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'desc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function displayallUserelnasc(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'asc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function displayallUseremasc(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'asc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function displayallUseremdes(){
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'desc')->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+    public function deleteUser($id){
+        DB::delete('delete from user_roles where id = ?',[$id]);
+        $mem="member";
+        $displayau = userRoles::where('userType',$mem)->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
+
+//---------------------------------------END ADMIN---------------------------------------------------
+
+
+
+    
 
 }

@@ -3,10 +3,25 @@
      <div>
         <table>
             <thead>
-                <th>Recipe Name</th>
+                <th>Recipe Name
+                <span>
+                    <a href="{{url('displayallRecipedesc')}}"><i class="bi bi-arrow-up"></i></a>
+                    <a href="{{url('admindar')}}"><i class="bi bi-arrow-down"></i></a>
+                    </span>
+                </th>
                 <th>Recipe Description</th>
-                <th>Preparation Time</th>
-                <th>Cooking Time</th>
+                <th>Preparation Time
+                <span>
+                    <a href="{{url('displayallRecipeptdesc')}}"><i class="bi bi-arrow-up"></i></a>
+                    <a href="{{url('displayallRecipeptasc')}}"><i class="bi bi-arrow-down"></i></a>
+                    </span>
+                </th>
+                <th>Cooking Time
+                <span>
+                    <a href="{{url('displayallRecipectdesc')}}"><i class="bi bi-arrow-up"></i></a>
+                    <a href="{{url('displayallRecipectasc')}}"><i class="bi bi-arrow-down"></i></a>
+                    </span>
+                </th>
                 <th>Ingredients</th>
                 <th>Steps</th>
                 <th>Username</th>
