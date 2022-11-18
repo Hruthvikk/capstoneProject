@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   .container{
-    width: auto;
+    width: 100%;
   }
 body {
     background-color: #212529;
@@ -19,6 +19,7 @@ nav{
 }
 body{
     color: yellowgreen;
+    width: auto;
 }
 .ultwo{
     list-style-type: none;
@@ -40,9 +41,10 @@ body{
     background-size: 100% 230px;
     background-repeat: no-repeat;
     height: 120px;
+    width: auto;
 }
 .pr{
-    width: 90%;
+    width: auto;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -66,14 +68,14 @@ body{
     grid-gap: 5px;
 }
 .prr{
-    position: relative;
+    
     height: 235px;
-    width: 350px;
+    width: auto;
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
 }
 .prr img{
-    width: 250px;
+    width: auto;
     height: 200px;
     border-radius: 10px;
     margin-left: 55px;
