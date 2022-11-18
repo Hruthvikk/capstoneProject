@@ -25,34 +25,44 @@ class signin extends Controller
             'password'=>'required|min:4|max:24',
         ]);
         $user = userRoles::where('userEmail', '=', $request->userEmail)->first();
-        if($request->userEmail && $request->password){
-        if($user->userType == "admin"){
-            if(Hash::check($request->password, $user->userPassword))
+        if($user)
+        {
+            if($request->userEmail && $request->password)
             {
-                $request->session()->put('loginUser',$user->userEmail);
-                $request->session()->put('loginUserId',$user->id);
-                $request->session()->put('loginUserType',$user->userType);
-                return view('adminhomeafterlogin');
-            }
-            else{
-                return back()->with('fail','Password does not match');    
+                if($user->userType == "admin")
+                {
+                    if(Hash::check($request->password, $user->userPassword))
+                    {
+                        $request->session()->put('loginUser',$user->userEmail);
+                        $request->session()->put('loginUserId',$user->id);
+                        $request->session()->put('loginUserType',$user->userType);
+                        return view('adminhomeafterlogin');
+                    }
+                    else{
+                        return back()->with('fail','Password does not match');    
+                    }
+                }
+                else if($user->userType == "member")
+                {
+                    if(Hash::check($request->password, $user->userPassword))
+                    {
+                        $request->session()->put('loginUser',$user->userEmail);
+                        $request->session()->put('loginUserId',$user->id);
+                        
+                        return view('homeafterlogin');
+                    }
+                    else
+                    {
+                        return back()->with('fail','Password does not match');    
+                    }
+                }
             }
         }
-        else if($user->userType == "member"){
-            if(Hash::check($request->password, $user->userPassword)){
-                $request->session()->put('loginUser',$user->userEmail);
-                $request->session()->put('loginUserId',$user->id);
-                
-                return view('homeafterlogin');
-            }
-            else{
-                return back()->with('fail','Password does not match');    
-            }
-        }
-        else{
+        else
+        {
             return back()->with('fail','This email address is not registered');
         }
-    }
+    
     
     }
     public function adminView(){
