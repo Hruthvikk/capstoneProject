@@ -29,13 +29,13 @@
         
         <div class="gridv2">
           
-        <!-- @foreach ($arf as $af )
-              
-          @endforeach
-          <span>Your Rating:{{$af->starNum}}</span>        -->
+          
+                
         <form method="post" action="{{route('added-rate')}}">
             @csrf
-          
+            @foreach ($arf as $af )
+              <span>Your Rating:{{$af->starNum}}</span>     
+          @endforeach
            
           
             <input type="hidden" name="recipe_id" value="{{$recd->id}}">
@@ -82,6 +82,7 @@
               $num1 = ($ones*100 )/ $allstar;
               }
             ?>
+            <p>{{$ones}} {{$twos}} {{$threes}} {{$fours}} {{$fives}} {{$allstar}}</p>
             <p>{{$avg}} average based on {{$allstar}} reviews.</p>
 <hr style="border:3px solid #f1f1f1">
 

@@ -10,33 +10,33 @@ class ratingFavourite1 extends Controller
 {
     public function raterecipe(Request $request){
             $userloginid = $request->session()->get('loginUserId');
-            $alreadyexists = DB::table('rating_favs')->where('user_id','=',$userloginid);
-
+            $currentRecipeId = $request->recipe_id;
+            $alreadyexists = DB::table('rating_favs')->select('starNum')->where('recipe_id','=',$currentRecipeId)->where('user_id','=',$userloginid);
+            $alreadyexistsCount = $alreadyexists->count();
             $alreadyexistsstarnum = DB::table('rating_favs')->select('starNum')->where('user_id','=',$userloginid);
-            $inputStarNum = $request->rate;
+            $inputStarNum = $request->input('rate');
 
-            if($alreadyexists){
+            if($alreadyexistsCount == 0){
+                $new_raterecipe = new ratingFav();
+                    $new_raterecipe->starNum = $request->input('rate');
+                    $new_raterecipe->favYesNo = $request->input('fav');
+                    $new_raterecipe->user_id = $request->user_id;
+                    $new_raterecipe->recipe_id = $request->recipe_id;
+                    $res = $new_raterecipe->save();
+                    if($res){return back()->with('alreadyexists','1');}
+            }
+            else if($alreadyexistsCount <= 1){
                 if($alreadyexistsstarnum == $inputStarNum ){
                     return back()->with('alreadyexists','You Already have same Rating.');
                 }else{
-                    $updateRating = ratingFav::where('user_id','=',$userloginid)
+                    $updateRating = ratingFav::where('recipe_id','=',$currentRecipeId)->where('user_id','=',$userloginid)
                                                 ->update(['starNum'=>$request->rate,
                                                 'favYesNo'=>$request->fav
                                                 ]);
-                                                
-                    
-                    return back();
+                    return back()->with('alreadyexists','2');
                 }    
             }
-            else if(!$alreadyexists){
-            $new_raterecipe = new ratingFav();
-                $new_raterecipe->starNum = $request->input('rate');
-                $new_raterecipe->favYesNo = $request->input('fav');
-                $new_raterecipe->user_id = $request->user_id;
-                $new_raterecipe->recipe_id = $request->recipe_id;
-                $res = $new_raterecipe->save();
-                if($res){return back();}
-        }
+            
     }
     
 }

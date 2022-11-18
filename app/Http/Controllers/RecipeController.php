@@ -114,18 +114,27 @@ class RecipeController extends Controller
     {
         
         $recipedata = recipes::where('id',$id)->get();
-        $fivestarlist = ratingFav::where('starNum','=','5')->get();
+
+        $fivestarlist = ratingFav::where('recipe_id','=',$id)
+                                  ->where('starNum','=','5')->get();
         $fivestarcount = $fivestarlist->count();
-        $fourstarlist = ratingFav::where('starNum','=','4')->get();
+
+        $fourstarlist = ratingFav::where('recipe_id','=',$id)
+                                ->where('starNum','=','4')->get();
         $fourstarcount = $fourstarlist->count();
-        $threestarlist = ratingFav::where('starNum','=','3')->get();
+
+        $threestarlist = ratingFav::where('recipe_id','=',$id)->where('starNum','=','3')->get();
         $threestarcount = $threestarlist->count();
-        $twostarlist = ratingFav::where('starNum','=','2')->get();
+
+        $twostarlist = ratingFav::where('recipe_id','=',$id)->where('starNum','=','2')->get();
         $twostarcount = $twostarlist->count();
-        $onestarlist = ratingFav::where('starNum','=','1')->get();
+
+        $onestarlist = ratingFav::where('recipe_id','=',$id)->where('starNum','=','1')->get();
         $onestarcount = $onestarlist->count();
-        $allstarlist = ratingFav::all('starNum');
+
+        $allstarlist = ratingFav::select('starNum')->where('recipe_id','=',$id);
         $allstarcount = $allstarlist->count();
+
         $uid=$request->session()->get('loginUserId');
         $arf = ratingFav::where('user_id','=',$uid)->get();
         
@@ -135,15 +144,32 @@ class RecipeController extends Controller
             'threes'=>$threestarcount,
             'twos'=>$twostarcount,
             'ones'=>$onestarcount,
-            'allstar'=>$allstarcount
+            'allstar'=>$allstarcount,
+            'arf'=>$arf
         ];
-        return view('viewrecipe',compact('recipedata'),compact('arf'))->with($params);
+        return view('viewrecipe',compact('recipedata'))->with($params);
     }
     public function viewrecipesteps($id)
     {
         $recipestepdata = recipes::where('id',$id)->get();
         return view('recipesteps',compact('recipestepdata'));
     }
+    
+
+    public function updateRecipe($id,Request $request){
+        $eatingstyle=editStyle::all();
+        $mealtime=mealTime::all();
+        $occasions=occasion::all();
+        $params=[
+            'mealtime'=>$mealtime,
+            'occasions'=>$occasions,
+            'eatingstyle'=>$eatingstyle
+        ];
+        $upr = recipes::find($id);
+        return view('updateRecipe',['upr'=>$upr])->with($params);
+    }
+
+
     public function displayallRecipe(){
         $displayar = DB::table('recipes')
                     ->join('user_roles', 'recipes.user_id','=','user_roles.id')

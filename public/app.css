@@ -202,4 +202,9 @@ h3{
   .steps{
     max-width: 275px;
   }
+  table, th, td {
+    border: 1px solid;
+    padding: 20px;
+    text-align: center;
+    }
   

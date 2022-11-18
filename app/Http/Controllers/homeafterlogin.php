@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\userRoles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Psy\Readline\Hoa\Console;
 
 class homeafterlogin extends Controller
@@ -13,9 +14,18 @@ class homeafterlogin extends Controller
         $user = userRoles::all(); 
         return view('homeafterlogin',['user'=>$user]);
     }
-    public function editp()
+    public function editp(Request $request)
     {
-        return view('editProfile');
+        $uid=$request->session()->get('loginUserId');
+        $editr = DB::table('recipes')
+                    ->where('user_id','=',$uid)
+                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->get();
+        return view('editProfile',['editr'=>$editr]);
+
     }
     public function aeditp($aid)
     {
@@ -24,8 +34,8 @@ class homeafterlogin extends Controller
     }
     public function editp1($id)
     {
-        $userdata=userRoles::find($id);
-        return view('editUserProfile',['userdata'=>$userdata]);
+        $userdata=userRoles::find($id);   
+        return view('editUserProfile',compact('userdata'));
     }
     public function updatep1(Request $request,$uid){
         $up = userRoles::find($uid);
@@ -33,6 +43,9 @@ class homeafterlogin extends Controller
         $up->userPhoneNumber = $request->phonenumber;
         $up->save();
         return back()->with('success2','PROFILE UPDATED');
+    }
+    public function updateRecipe(){
+        
     }
     public function aupdatep1(Request $request,$uid){
         $up = userRoles::find($uid);

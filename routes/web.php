@@ -35,6 +35,7 @@ Route::get('/deleteuser/{userid}',[homeafterlogin::class,'deleteUser'])->middlew
 Route::get('/admindar',[RecipeController::class,'displayallRecipe'])->middleware('isLoggedIn');
 Route::get('/deleteRecipe/{userid}',[RecipeController::class,'deleteRecipe'])->middleware('isLoggedIn');
 Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLoggedIn');
+Route::get('/updateRecipe/{recipeid}',[RecipeController::class,'updateRecipe'])->middleware('isLoggedIn');
 Route::get('/aeditProfile/{userid}',[homeafterlogin::class,'aeditp'])->middleware('isLoggedIn');
 Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn');
 Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
