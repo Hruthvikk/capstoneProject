@@ -14,32 +14,34 @@
     <body>
     <nav nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/homeafterlogin')}}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/searchrecipe')}}">Search Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/message')}}">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/logout')}}">Logout</a>
-                </li>
-            </ul>
+            <ul class="ultwo">
+                        <li class="litwo">
+                        <a class="nav-link" href="{{url('/homeafterlogin')}}">Home</a>
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/searchrecipe')}}">Search Recipe</a>
+                        </li>
+                        
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/message')}}">Messages</a>
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
+                        </li>
+                        <li class="litwo">
+                            <a class="nav-link" href="{{url('/logout')}}">Logout</a>
+                        </li>
+            </ul>            
+                
         </div>
         </nav>
              @yield('content')
