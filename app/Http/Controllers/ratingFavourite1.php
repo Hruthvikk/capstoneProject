@@ -10,7 +10,7 @@ class ratingFavourite1 extends Controller
 {
     public function raterecipe(Request $request){
         $current_uid = $request->session()->get('loginUserId') ;
-        $query = "SELECT starNum FROM rating_favs where user_id=$current_uid";
+        $query = "SELECT rating_favs.starNum FROM rating_favs where user_id=$current_uid";
         $csn = DB::select($query);
         $new_raterecipe = new ratingFav();
         if( ( $csn = $request->input('rate') )&& ($new_raterecipe->user_id = $request->user_id)){
