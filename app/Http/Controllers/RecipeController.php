@@ -110,8 +110,11 @@ class RecipeController extends Controller
             return view('searchedrecipes',['mtres'=>$mtres]);
             
     }
-    public function viewrecipe($id)
+    public function viewrecipe(Request $request,$id)
     {
+        $request->validate([
+            'user_id'=>'unique:rating_favs,user_id'
+        ]);
         $recipedata = recipes::where('id',$id)->get();
         $fivestarlist = ratingFav::where('starNum','=','5')->get();
         $fivestarcount = $fivestarlist->count();
