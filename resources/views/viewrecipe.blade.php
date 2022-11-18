@@ -28,12 +28,21 @@
         </div>
         
         <div class="gridv2">
-          <form method="post" action="{{route('added-rate')}}">
+          
+        @foreach ($arf as $af )
+              
+          @endforeach
+          <span>Your Rating:{{$af->starNum}}</span>       
+        <form method="post" action="{{route('added-rate')}}">
             @csrf
+          
+           
+          
             <input type="hidden" name="recipe_id" value="{{$recd->id}}">
         @if(Session::has('loginUserId'))
             <input type="hidden" name="user_id" value="{{Session::get('loginUserId')}}">
             @endif
+            
             <span class="heading">User Rating</span> &nbsp&nbsp&nbsp&nbsp&nbsp
             <input type="hidden" id="fav" name="fav" value="no">
             <input type="checkbox" id="fav" name="fav" value="yes">
@@ -41,19 +50,18 @@
             <input type="submit" value="Submit Rating" class="btn btn-danger">
             <div class="rate">
                 
-
                 <br>
                 <input type="hidden" name="rate" value="0">
                 <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
+                <label for="star5" >5 stars</label>
                 <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
+                <label for="star4" >4 stars</label>
                 <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
+                <label for="star3" >3 stars</label>
                 <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
+                <label for="star2" >2 stars</label>
                 <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
+                <label for="star1" >1 star</label>
             </div>
             
             

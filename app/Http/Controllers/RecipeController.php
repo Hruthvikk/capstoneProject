@@ -126,19 +126,18 @@ class RecipeController extends Controller
         $onestarcount = $onestarlist->count();
         $allstarlist = ratingFav::all('starNum');
         $allstarcount = $allstarlist->count();
-        $arf = ratingFav::all();
-
+        $uid=$request->session()->get('loginUserId');
+        $arf = ratingFav::where('user_id','=',$uid)->get();
+        
         $params=[
             'fives'=>$fivestarcount,
             'fours'=>$fourstarcount,
             'threes'=>$threestarcount,
             'twos'=>$twostarcount,
             'ones'=>$onestarcount,
-            'allstar'=>$allstarcount,
-            'arf'=>$arf
-            
+            'allstar'=>$allstarcount
         ];
-        return view('viewrecipe',compact('recipedata'))->with($params);
+        return view('viewrecipe',compact('recipedata'),compact('arf'))->with($params);
     }
     public function viewrecipesteps($id)
     {
