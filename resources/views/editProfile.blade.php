@@ -8,7 +8,7 @@
         <?php $uid=session('loginUserId') ?>
         <!-- {{url('editUserProfile/<?=$uid?>')}} -->
         <a href="{{url('editUserProfile',$uid)}}" class="btn btn-info">Edit Profile</a>
-        <a href="{{url('/editRecipe')}}" class="btn btn-info">Edit Recipe</a>
+        <a href="{{url('/viewfavourites')}}" class="btn btn-info">View Favourites</a>
     @endif
 </div>
 @endsection

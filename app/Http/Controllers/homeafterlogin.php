@@ -55,6 +55,13 @@ class homeafterlogin extends Controller
         $displayau = userRoles::where('userType',$mem)->get();
         return view('admindalu',['dau'=>$displayau]);
     }
-
+    public function viewfavourites(Request $request){
+        $userloginid = $request->session()->get('loginUserId');
+        $userFavourites = DB::table('rating_favs')->join('recipes', 'rating_favs.recipe_id','=','recipes.id')
+                                                  ->where('favYesNo','=','yes')
+                                                  ->where('rating_favs.user_id','=',$userloginid)
+                                                  ->get();
+        return view('viewfavourites',['userFavourites'=>$userFavourites]);
+    }
 
 }

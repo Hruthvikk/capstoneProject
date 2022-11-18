@@ -39,6 +39,7 @@ Route::get('/aeditProfile/{userid}',[homeafterlogin::class,'aeditp'])->middlewar
 Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn');
 Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
+Route::get('/viewfavourites',[homeafterlogin::class,'viewfavourites'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
 Route::post('/subratefav',[ratingFavourite1::class,'raterecipe'])->middleware('isLoggedIn')->name('added-rate');
 Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn');
