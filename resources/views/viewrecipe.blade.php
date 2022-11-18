@@ -29,10 +29,10 @@
         
         <div class="gridv2">
           
-        @foreach ($arf as $af )
+        <!-- @foreach ($arf as $af )
               
           @endforeach
-          <span>Your Rating:{{$af->starNum}}</span>       
+          <span>Your Rating:{{$af->starNum}}</span>        -->
         <form method="post" action="{{route('added-rate')}}">
             @csrf
           
