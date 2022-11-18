@@ -13,7 +13,7 @@ class ratingFavourite1 extends Controller
         $inputsn = $request->input('rate');
         $query = "SELECT * FROM rating_favs where user_id=$current_uid";
         $csn[] = DB::select($query);
-        print_r($csn[0]['starNum']);
+        print_r($csn[0][2]);
         $new_raterecipe = new ratingFav();
         // if( ( $csn = $inputsn )&& ($new_raterecipe->user_id = $request->user_id)){
         //     return back()->with('alreadyexists','Same rating already Exists');    
