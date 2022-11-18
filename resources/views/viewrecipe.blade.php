@@ -137,6 +137,9 @@
         </div>
         </div> 
         </form>
+        @if(Session::has('alreadyexists'))
+        <div class="alert alert-danger">{{Session::get('alreadyexists')}}</div>
+        @endif
         
     
 @endsection
