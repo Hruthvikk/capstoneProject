@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('body');
 
-            $table->unsignedBigInteger('recipe_id');
+            $table->unsignedBigInteger('recipe_id')->nullable();
             $table->foreign('recipe_id')->references('id')->on
             ('recipes')->onDelete('cascade');
 
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('reciever_id');
             $table->foreign('reciever_id')->references('id')->on
             ('user_roles')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }
