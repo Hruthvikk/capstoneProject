@@ -79,7 +79,7 @@
        <input type="file" name="recipeimage">
        </div>
        <br>
-       <div class="form-group col-md-3">
+       <!-- <div class="form-group col-md-3">
        <SCRIPT language="javascript">
 		function addRow(tableID) {
 
@@ -155,7 +155,7 @@
             </SELECT>
         </TD>
     </TR>
-</TABLE>
+</TABLE> -->
        <label class="form-label">Ingredients:  </label> <br>
        <textarea name="ingredients" ></textarea>
        </div>
@@ -167,5 +167,15 @@
         <br>
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
+    <script src="js/jquery.min.js"></script>
+<script src="js/jquery-image-upload-resizer.js"></script>
+<script>
+    $('#recipeimage').imageUploadResizer({
+        max_width: 250, // Defaults 1000
+        max_height: 250, // Defaults 1000
+        quality: 0.8, // Defaults 1
+        do_not_resize: ['gif', 'svg'], // Defaults []
+    });
+</script>
 </div>
 @endsection
