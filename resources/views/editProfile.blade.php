@@ -12,7 +12,7 @@
     @endif
 </div>
 <br><br>
-<div>
+<div class="edre">
     <h2 style="margin-left: 40%;">Recipes Added by you</h2>
     <table>
         <thead>
