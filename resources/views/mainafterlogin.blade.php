@@ -15,34 +15,47 @@
         
     </head>
     <body>
+    <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
+        <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
+        <a class="nav-link" href="{{url('/message')}}">Messages</a>
+        <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
+        <a class="nav-link" href="{{url('/logout')}}">Logout</a>
+    </div>
+    </div>
+    <script>
+        function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
     <nav nav class="navbar navbar-dark bg-dark">
+    
         <div class="container-fluid">
+        
             <ul class="ultwo">
-                        <li class="litwo">
+                        <li class="nav-item">
                         <a class="nav-link" href="{{url('/homeafterlogin')}}">Home</a>
                         </li>
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/searchrecipe')}}">Search Recipe</a>
-                        </li>
                         
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/tant')}}">Tips / Tricks</a>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{url('/searchrecipe')}}">Search Recipe</a>
                         </li>
-                        <li class="litwo">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{url('/addrecipe')}}">Add Recipe</a>
                         </li>
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/editProfile')}}">Account</a>
-                        </li>
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/message')}}">Messages</a>
-                        </li>
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/aboutusal')}}">About Us</a>    
-                        </li>
-                        <li class="litwo">
-                            <a class="nav-link" href="{{url('/logout')}}">Logout</a>
-                        </li>
+                        
+                        
+                        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+                            
+                        
+                        
+                        
             </ul>            
                 
         </div>
