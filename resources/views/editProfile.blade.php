@@ -12,9 +12,9 @@
     @endif
 </div>
 <br><br>
-<div class="edre">
+<div style="overflow-x:auto;">
     <h2 style="margin-left: 40%;">Recipes Added by you</h2>
-    <table>
+    <table class=".table-responsive">
         <thead>
             <th>Recipe Name</th>
             <th>Recipe Description</th>
