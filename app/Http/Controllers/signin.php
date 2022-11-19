@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\userRoles;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 
 class signin extends Controller
@@ -71,9 +71,13 @@ class signin extends Controller
 
     public function logout(Request $request)
     {
+        
         if($request->session()->has('loginUser'))
         {
             $request->session()->forget('loginUser');
+            return redirect('signin');
+        }
+        else{
             return redirect('signin');
         }
     }

@@ -23,6 +23,7 @@ class AlreadyLoggedIn
                 return redirect('logout');
             }
         }
+        
         return $next($request);
     }
 }
