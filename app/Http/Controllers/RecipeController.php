@@ -72,6 +72,8 @@ class RecipeController extends Controller
 
         
         $recipeimage = $request->file('recipeimage')->getClientOriginalName();
+        $imgpath = public_path('public/Image/'.$recipeimage);
+        
         // $request->file('recipeimage')->storeAs('public/images/',$recipeimage);
         $request->file('recipeimage')->move(public_path('public/Image'), $recipeimage);
         
@@ -156,17 +158,19 @@ class RecipeController extends Controller
     }
     
 
-    public function updateRecipe($id,Request $request){
+    public function updateRecipe($recipename){
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
+        $uprecipeData = recipes::where('recipeName','=',$recipename);
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
-            'eatingstyle'=>$eatingstyle
+            'eatingstyle'=>$eatingstyle,
+            'uprecipeData'=>$uprecipeData
         ];
-        $upr = recipes::find($id);
-        return view('updateRecipe',['upr'=>$upr])->with($params);
+        
+        return view('updateRecipe')->with($params);
     }
 
 

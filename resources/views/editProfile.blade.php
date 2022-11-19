@@ -32,6 +32,7 @@
         <tbody>
             @foreach ($editr as $r )
             <tr>
+                    
                     <td>{{$r->recipeName}}</td>
                     <td>{{$r->recipeDescription}}</td>
                     <td>{{$r->preparationTime}} Minutes</td>
@@ -43,10 +44,10 @@
                     <td>{{$r->occassionName}}</td>
                     <td>{{$r->mealTimeName}}</td>
                     <?php $imagename=$r->recipeImage;
-                            $id= $r->user_id;
+                            $rena = $r->recipeName; 
                     ?>
                     <td><img src="/public/Image/<?=$imagename?>" alt="" height="125px" width="125px"></td>
-                    <td><a href="{{url('updateRecipe',$id)}}" class="btn btn-light">Update Recipe</a></td>
+                    <td><a href="{{url('updateRecipe',$rena)}}" class="btn btn-light">Update Recipe</a></td>
                 </tr>      
             @endforeach
         </tbody>
