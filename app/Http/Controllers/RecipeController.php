@@ -74,8 +74,6 @@ class RecipeController extends Controller
             'recipeimage'=>'required',
             'ingredients'=>'required',
             'steps'=>'required',
-            
-            'unit'=>'required'
         ]);
         
         
@@ -96,16 +94,16 @@ class RecipeController extends Controller
         $newrecipe->mealTime_id = $request->mealtime;
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
-        
         $newrecipe->units_id = $request->unit;
+        $newrecipe->measurement = $request->measurement;
 
         $res=$newrecipe->save();
         
         if($res){
-            return back()->with('success','New Recipe Added Successfully');
+            return back()->with('success1','New Recipe Added Successfully');
         }
         else{
-            return back()->with('fail','New Recipe add Unsuccessful');
+            return back()->with('fail1','New Recipe add Unsuccessful');
         }
     }
 
