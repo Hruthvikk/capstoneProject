@@ -135,9 +135,9 @@
 		}
 
 	</SCRIPT>
-    <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+    <INPUT type="button" class="btn btn-primary" value="Add Row" onclick="addRow('dataTable')" />
 
-<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+<INPUT type="button" class="btn btn-danger" value="Delete Row" onclick="deleteRow('dataTable')" />
 
 <TABLE id="dataTable" width="350px" border="1">
     <TR>
