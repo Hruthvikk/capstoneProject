@@ -5,11 +5,11 @@
     <form method="POST" action="{{route('added-recipe')}}" enctype="multipart/form-data">
        @csrf
        <div class="form-group col-md-3">
-       @if(Session::has('success1'))
-        <div class="alert alert-success">{{Session::get('success1')}}</div>
+       @if(Session::has('success'))
+        <div class="alert alert-success">{{Session::get('success')}}</div>
         @endif
-        @if(Session::has('fail1'))
-        <div class="alert alert-danger">{{Session::get('fail1')}}</div>
+        @if(Session::has('fail'))
+        <div class="alert alert-danger">{{Session::get('fail')}}</div>
         @endif
         </div>
 
@@ -76,11 +76,21 @@
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Recipe Image: </label> 
-       <input type="file" name="recipeimage">
+       <input type="file" name="recipeimage" id="recipeimage" required>
+       
        </div>
        <br>
-       <!-- <div class="form-group col-md-3">
-       <SCRIPT language="javascript">
+       <div class="form-group col-md-3">
+
+       <label class="form-label">Ingredients:  </label> <br>
+       <input type="text" name="ingredients" class="form-control"   />
+       <select name="country">
+					@foreach ( $unit as $u )
+                        <option value="{{$u->id}}" name="unit" selected>{{$u->unitName}}</option>    
+                    @endforeach
+        </select>
+       
+       <!-- <SCRIPT language="javascript">
 		function addRow(tableID) {
 
 			var table = document.getElementById(tableID);
@@ -135,29 +145,36 @@
 			}
 		}
 
-	</SCRIPT>
-<INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+	</SCRIPT> -->
+    
+	<!-- <INPUT type="button" class="btn btn-primary" value="Add Row" onclick="addRow('dataTable')" />
 
-<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+	<INPUT type="button" class="btn btn-danger" value="Delete Row" onclick="deleteRow('dataTable')" />
+    <table>
+        <tr>
+            <td></td>
+            <td>Measurement</td>
+            <td>Unit</td>
+            <td>Ingredient</td>
 
-<TABLE id="dataTable" width="350px" border="1">
-    <TR></TR>
-    <TR>
-        <TD><INPUT type="checkbox" name="chk"/></TD>
-        <TD><INPUT type="text" name="txt"/></TD>
-        <TD>
-            <SELECT name="country">
-                <OPTION value="in">India</OPTION>
-                <OPTION value="de">Germany</OPTION>
-                <OPTION value="fr">France</OPTION>
-                <OPTION value="us">United States</OPTION>
-                <OPTION value="ch">Switzerland</OPTION>
-            </SELECT>
-        </TD>
+        </tr>
+    </table> -->
+	<!-- <TABLE id="dataTable" border="1">
+		<TR>
+			<TD><input type="checkbox" name="chk"/></TD>
+			<TD><input type="number" step="0.5" name="measurement" /></TD>
+            <TD>
+				<SELECT name="country">
+					@foreach ( $unit as $u )
+                        <option value="{{$u->id}}" name="unit" selected>{{$u->unitName}}</option>    
+                    @endforeach
+				</SELECT>
+			</TD>
+            <TD><input type="text" name="ingredients" required/></TD>
+            
+			
     </TR>
-</TABLE> -->
-       <label class="form-label">Ingredients:  </label> <br>
-       <textarea name="ingredients" ></textarea>
+	</TABLE> -->
        </div>
        <br>
        <div class="form-group col-md-3">
@@ -165,9 +182,9 @@
        <textarea name="steps" ></textarea>
        </div>
         <br>
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-success" value="Submit">
     </form>
-    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery.min.js"></script>
 <script src="js/jquery-image-upload-resizer.js"></script>
 <script>
     $('#recipeimage').imageUploadResizer({
@@ -176,6 +193,7 @@
         quality: 0.8, // Defaults 1
         do_not_resize: ['gif', 'svg'], // Defaults []
     });
-</script>
+</script> -->
+
 </div>
 @endsection

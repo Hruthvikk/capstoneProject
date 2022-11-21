@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\editStyle;
 use App\Models\mealTime;
 use App\Models\occasion;
-
+use App\Models\unit;
 use App\Models\recipes;
 use App\Models\userRoles;
 use App\Models\ratingFav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 
 class RecipeController extends Controller
@@ -23,16 +23,19 @@ class RecipeController extends Controller
      */
     public function index()
     {
+        
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
+        $unit=unit::all();
         $user=userRoles::all();
         
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
             'eatingstyle'=>$eatingstyle,
-            'user'=>$user
+            'user'=>$user,
+            'unit'=>$unit
             
         ];
         return view('addrecipe')->with($params);
@@ -42,6 +45,7 @@ class RecipeController extends Controller
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
+        
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
@@ -59,6 +63,7 @@ class RecipeController extends Controller
      */
     public function addrecipep(Request $request)
     {
+    
         $request->validate([
             'recipename'=>'required',
             'preparationtime' =>'required  |numeric',
@@ -68,18 +73,18 @@ class RecipeController extends Controller
             'mealtime'=>'required',
             'recipeimage'=>'required',
             'ingredients'=>'required',
-            'steps'=>'required'
+            'steps'=>'required',
+            
+            'unit'=>'required'
         ]);
-
+        
         
         $recipeimage = $request->file('recipeimage')->getClientOriginalName();
-        $imgpath = public_path('public/Image/'.$recipeimage);
-        
         // $request->file('recipeimage')->storeAs('public/images/',$recipeimage);
         $request->file('recipeimage')->move(public_path('public/Image'), $recipeimage);
         
         $newrecipe = new recipes();
-        
+
         $newrecipe->recipeName = $request->recipename;
         $newrecipe->recipeDescription = $request->recipedescription;
         $newrecipe->preparationTime = $request->preparationtime;
@@ -91,14 +96,16 @@ class RecipeController extends Controller
         $newrecipe->mealTime_id = $request->mealtime;
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
+        
+        $newrecipe->units_id = $request->unit;
 
         $res=$newrecipe->save();
         
         if($res){
-            return back()->with('success1','New Recipe Added Successfully');
+            return back()->with('success','New Recipe Added Successfully');
         }
         else{
-            return back()->with('fail1','New Recipe add Unsuccessful');
+            return back()->with('fail','New Recipe add Unsuccessful');
         }
     }
 
