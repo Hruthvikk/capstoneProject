@@ -21,7 +21,40 @@
             <br>
             Cooking Time : {!!$recd->cookingTime!!}
             <br>
-            Ingredients Required : {!!$recd->ingredients!!}
+            Ingredients Required :
+            <table>
+              <tr>
+                  <td>Measurement</td>
+                  <td>Unit</td>
+                  <td>Ingredients</td>
+              </tr>
+              
+                <?php 
+                    $m=explode(",",$recd->measurement);
+                    $u=explode(",",$recd->unitName);
+                    $in=explode(",",$recd->ingredients);
+                    $i=0;  
+                ?>
+                @foreach ( $m as $m1 )
+                <tr>
+                  
+                        <td>
+                          {!! $m1 !!}
+                        </td>
+                        <td>{!!$u[$i]!!}</td>
+                        <td>{!!$in[$i]!!}</td>
+                      <?php $i++?>
+                @endforeach
+                
+                      </tr>
+                
+                 
+                      
+                
+
+              
+            </table>
+            
             </h4>
             <br>
             <button><a href="{{url('recipesteps',$recd->id)}}">I have All ingredients</a></button>
@@ -83,7 +116,7 @@
               $num1 = ($ones*100 )/ $allstar;
               }
             ?>
-            <p>{{$ones}} {{$twos}} {{$threes}} {{$fours}} {{$fives}} {{$allstar}}</p>
+            
             <p>{{$avg}} average based on {{$allstar}} reviews.</p>
 <hr style="border:3px solid #f1f1f1">
 
@@ -139,9 +172,7 @@
     <div class="bar-container">
       <div class="bar-1" style="width:<?=$num1?>%;">
     </div>
-    @if(Session::has('alreadyexists'))
-        <div class="alert alert-danger">{{Session::get('alreadyexists')}}</div>
-        @endif</div>
+    </div>
       <br>
       <br>
       
