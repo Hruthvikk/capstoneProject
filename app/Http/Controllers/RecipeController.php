@@ -75,8 +75,15 @@ class RecipeController extends Controller
             'ingredients'=>'required',
             'steps'=>'required',
         ]);
+        $input=$request->all();
         
-        
+        $measurements=$input['measurement'];
+        $measurements1=implode(',',$measurements);
+        $units=$input['unit'];
+        $units1=implode(',',$units);
+        $ingredients=$input['ingredients'];
+        $ingredients1=implode(',',$ingredients);
+
         $recipeimage = $request->file('recipeimage')->getClientOriginalName();
         // $request->file('recipeimage')->storeAs('public/images/',$recipeimage);
         $request->file('recipeimage')->move(public_path('public/Image'), $recipeimage);
@@ -87,15 +94,15 @@ class RecipeController extends Controller
         $newrecipe->recipeDescription = $request->recipedescription;
         $newrecipe->preparationTime = $request->preparationtime;
         $newrecipe->cookingTime = $request->cookingtime;
-        $newrecipe->ingredients = $request->ingredients;
+        $newrecipe->ingredients = $ingredients1;
         $newrecipe->steps = $request->steps;
         $newrecipe->user_id = $request->user_id;
         $newrecipe->recipeImage = $recipeimage;
         $newrecipe->mealTime_id = $request->mealtime;
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
-        $newrecipe->units_id = $request->unit;
-        $newrecipe->measurement = $request->measurement;
+        $newrecipe->unitName = $units1;
+        $newrecipe->measurement = $measurements1;
 
         $res=$newrecipe->save();
         

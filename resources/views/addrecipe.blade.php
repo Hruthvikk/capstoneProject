@@ -144,19 +144,19 @@
         <TD><INPUT type="checkbox" name="chk"/></TD>
         <TD>
                 <label class="form-label" for="measurement">Measurement: </label>    
-                <input type="number" step="0.5" name="measurement"/>
+                <input type="number" step="0.5" name="measurement[]"/>
         </TD>
         <TD>
             <label class="form-label" for="unit">Unit: </label>
-            <select id="unit" name="unit">
+            <select id="unit" name="unit[]">
             @foreach ($unit as $u )
-                <option value="{{$u->id}}" name="unit" selected>{{$u->unitName}}</option>    
+                <option value="{{$u->unitName}}" name="unit[]" selected>{{$u->unitName}}</option>    
             @endforeach
        </select>
         </TD>
         <TD>
             <label class="form-label">Ingredients:  </label> <br>
-                <INPUT type="text" name="ingredients"/>
+                <INPUT type="text" name="ingredients[]"/>
             </TD>
     </TR>
 </TABLE>
@@ -168,26 +168,7 @@
        <input type="file" name="recipeimage">
        </div>
        <br>
-       <!-- <div class="form-group col-md-3">
-       
 
-
-<TABLE id="dataTable" width="350px" border="1">
-    <TR></TR>
-    <TR>
-        <TD><INPUT type="checkbox" name="chk"/></TD>
-        <TD><INPUT type="text" name="txt"/></TD>
-        <TD>
-            <SELECT name="country">
-                <OPTION value="in">India</OPTION>
-                <OPTION value="de">Germany</OPTION>
-                <OPTION value="fr">France</OPTION>
-                <OPTION value="us">United States</OPTION>
-                <OPTION value="ch">Switzerland</OPTION>
-            </SELECT>
-        </TD>
-    </TR>
-</TABLE> -->
        
        </div>
        <br>
