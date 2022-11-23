@@ -3,7 +3,7 @@
 <h3>Searched Recipes</h3>
     @foreach ($mtres as $sd )
     <?php $imagename=$sd->recipeImage; ?>
-    <div class="grid-cointainer">
+    <div class="cointainer">
         <div class="grid-item">
             <div class="pr">
             <div class="prr images">
