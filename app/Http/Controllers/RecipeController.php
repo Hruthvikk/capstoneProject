@@ -110,6 +110,7 @@ class RecipeController extends Controller
             return back()->with('success1','New Recipe Added Successfully');
         }
         else{
+            $request->session()->put('fail1','New Recipe add Unsuccessful');
             return back()->with('fail1','New Recipe add Unsuccessful');
         }
     }
