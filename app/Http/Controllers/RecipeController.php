@@ -111,7 +111,7 @@ class RecipeController extends Controller
         }
         else{
             $request->session()->put('fail1','New Recipe add Unsuccessful');
-            return back()->with('fail1','New Recipe add Unsuccessful');
+            return view('homeafterlogin')->with('fail1','New Recipe add Unsuccessful');
         }
     }
 
