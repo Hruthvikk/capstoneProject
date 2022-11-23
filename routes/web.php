@@ -31,34 +31,34 @@ Route::get('/searchrecipe',[RecipeController::class,'searchRecipeView'])->middle
 Route::put('/searchrecipe',[RecipeController::class,'searchRecipe'])->middleware('isLoggedIn');
 Route::get('/aboutusal',[homeafterlogin::class,'aual'])->middleware('isLoggedIn');
 
-Route::get('/admindalu',[homeafterlogin::class,'displayallUser'])->middleware('isLoggedIn');
-Route::get('/admindaludes',[homeafterlogin::class,'displayallUserdes'])->middleware('isLoggedIn');
-Route::get('/displayallUserlndes',[homeafterlogin::class,'displayallUserlndes'])->middleware('isLoggedIn');
-Route::get('/displayallUserelnasc',[homeafterlogin::class,'displayallUserelnasc'])->middleware('isLoggedIn');
-Route::get('/displayallUseremdes',[homeafterlogin::class,'displayallUseremdes'])->middleware('isLoggedIn');
-Route::get('/displayallUseremasc',[homeafterlogin::class,'displayallUseremasc'])->middleware('isLoggedIn');
+Route::get('/admindalu',[homeafterlogin::class,'displayallUser'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/admindaludes',[homeafterlogin::class,'displayallUserdes'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallUserlndes',[homeafterlogin::class,'displayallUserlndes'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallUserelnasc',[homeafterlogin::class,'displayallUserelnasc'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallUseremdes',[homeafterlogin::class,'displayallUseremdes'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallUseremasc',[homeafterlogin::class,'displayallUseremasc'])->middleware('isLoggedIn')->middleware('isAdmin');
 
-Route::get('/deleteuser/{userid}',[homeafterlogin::class,'deleteUser'])->middleware('isLoggedIn');
+Route::get('/deleteuser/{userid}',[homeafterlogin::class,'deleteUser'])->middleware('isLoggedIn')->middleware('isAdmin');
 
-Route::get('/admindar',[RecipeController::class,'displayallRecipe'])->middleware('isLoggedIn');
-Route::get('/displayallRecipedesc',[RecipeController::class,'displayallRecipedesc'])->middleware('isLoggedIn');
-Route::get('/displayallRecipeptdesc',[RecipeController::class,'displayallRecipeptdesc'])->middleware('isLoggedIn');
-Route::get('/displayallRecipeptasc',[RecipeController::class,'displayallRecipeptasc'])->middleware('isLoggedIn');
-Route::get('/displayallRecipectdesc',[RecipeController::class,'displayallRecipectdesc'])->middleware('isLoggedIn');
-Route::get('/displayallRecipectasc',[RecipeController::class,'displayallRecipectasc'])->middleware('isLoggedIn');
+Route::get('/admindar',[RecipeController::class,'displayallRecipe'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallRecipedesc',[RecipeController::class,'displayallRecipedesc'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallRecipeptdesc',[RecipeController::class,'displayallRecipeptdesc'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallRecipeptasc',[RecipeController::class,'displayallRecipeptasc'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallRecipectdesc',[RecipeController::class,'displayallRecipectdesc'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/displayallRecipectasc',[RecipeController::class,'displayallRecipectasc'])->middleware('isLoggedIn')->middleware('isAdmin');
 
-Route::get('/deleteRecipe/{userid}',[RecipeController::class,'deleteRecipe'])->middleware('isLoggedIn');
+Route::get('/deleteRecipe/{userid}',[RecipeController::class,'deleteRecipe'])->middleware('isLoggedIn')->middleware('isAdmin');
 
 Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLoggedIn');
 Route::get('/updateRecipe/{recipename}',[RecipeController::class,'updateRecipe'])->middleware('isLoggedIn');
 Route::get('/aeditProfile/{userid}',[homeafterlogin::class,'aeditp'])->middleware('isLoggedIn');
-Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn');
-Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
+Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
 Route::get('/viewfavourites',[homeafterlogin::class,'viewfavourites'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
 Route::post('/subratefav',[ratingFavourite1::class,'raterecipe'])->middleware('isLoggedIn')->name('added-rate');
-Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn');
+Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware('isLoggedIn')->name('added-recipe');
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');

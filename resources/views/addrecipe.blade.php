@@ -179,6 +179,7 @@
         <br>
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
+    
     <script src="js/jquery.min.js"></script>
 <script src="js/jquery-image-upload-resizer.js"></script>
 <script>
