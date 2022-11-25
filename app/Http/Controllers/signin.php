@@ -35,7 +35,7 @@ class signin extends Controller
                     {
                         $request->session()->put('loginUser',$user->userEmail);
                         $request->session()->put('loginUserId',$user->id);
-                        $request->session()->put('loginUserType',$user->userType);
+                        $request->session()->put('userRole',$user->userType);
                         return view('adminhomeafterlogin');
                     }
                     else{

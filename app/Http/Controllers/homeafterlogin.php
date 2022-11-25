@@ -70,6 +70,16 @@ class homeafterlogin extends Controller
         $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'asc')->get();
         return view('admindalu',['dau'=>$displayau]);
     }
+
+    public function displayUserWithDate(Request $request){
+        $fromDate = $request->fromDate;
+        
+        $toDate = $request->toDate;
+        
+
+        $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?",[$fromDate." 00:00:00",$toDate." 23:59:59"])->get();
+        return view('admindalu',['dau'=>$displayau]);
+    }
     public function displayallUserdes(){
         $mem="member";
         $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'desc')->get();

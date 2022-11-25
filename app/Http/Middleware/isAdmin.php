@@ -17,11 +17,15 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session()->has('userRole')){
-            if(Session()->get('userRole')=='member'){
-                return redirect('homeafterlogin');
-            }
+        if(Session()->get('userRole')=='member')
+        {    
+            return redirect('homeafterlogin');
         }
-        return $next($request);
+            else if((Session()->get('userRole'))=='admin') 
+            {
+                return $next($request);
+            }
+        
+        
     }
 }

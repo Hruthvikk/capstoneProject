@@ -1,5 +1,17 @@
 @extends('adminmain')
 @section('content')
+<h4>
+    <div class="form-group row">
+    <form method="POST" action="{{route('searchdate-recipe')}}">
+        @csrf
+    <label for="fromDate">Recipes added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate"></div>
+    <label for="toDate">Recipes added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate"></div>
+    <br>
+    <div class="col-sm-3"><input type="submit" value="Search"></div>
+    </form>
+    </div>
+
+</h4>
      <div>
         <table>
             <thead>
