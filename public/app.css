@@ -15,7 +15,7 @@ body {
     
 }
 
-nav{
+.navbar{
     background-image: url("navbackg.jpg");
     background-size:cover;
     background-size: 100% 230px;
@@ -71,6 +71,7 @@ nav{
     grid-template-columns: repeat(3,1fr);
     grid-gap: 15px;
 }
+
 .sr{
     width: 50%;
     margin: auto;

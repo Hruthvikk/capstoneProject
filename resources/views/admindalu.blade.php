@@ -36,7 +36,7 @@
                 <th>Delete</th>
             </thead>
             <tbody>
-                @foreach ($dau as $au )
+                @foreach ($displayau as $au )
                 <tr>
                     <td>{{$au->userFirstName}}</td>
                     <td>{{$au->userLastName}}</td>
@@ -47,5 +47,8 @@
                 
             </tbody>
         </table>
+        <div class="row" style="margin-left:645px">
+            {{$displayau->links()}}
+        </div>
      </div>
 @endsection

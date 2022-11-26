@@ -67,8 +67,9 @@ class homeafterlogin extends Controller
 //------------------------------ADMIN---------------------------------------------------------------
     public function displayallUser(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'asc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'asc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
 
     public function displayUserWithDate(Request $request){

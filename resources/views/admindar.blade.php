@@ -44,7 +44,7 @@
                 <th>Delete</th>
             </thead>
             <tbody>
-                @foreach ( $dar as $dr )    
+                @foreach ( $displayar as $dr )    
                 
                 <tr>
                     <td>{{$dr->recipeName}}</td>
@@ -65,5 +65,10 @@
                 @endforeach     
             </tbody>
         </table>
+        <br>
+        <div class="row" style="margin-left:645px">
+            {{$displayar->links()}}
+        </div>  
      </div>
+     
 @endsection
