@@ -11,7 +11,7 @@
             <!-- <h4>Cooking for :  <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"> </h4> -->
             
             <?php 
-                $total = $recd->preparationTime * $recd->cookingTime;
+                $total = $recd->preparationTime + $recd->cookingTime +5;
                 $imagename=$recd->recipeImage; 
             ?>
             <img src="/public/Image/<?=$imagename?>" alt="" height="200px" width="200px">
