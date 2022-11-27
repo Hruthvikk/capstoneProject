@@ -55,7 +55,7 @@ Route::get('/editProfile',[homeafterlogin::class,'editp'])->middleware('isLogged
 Route::get('/updateRecipe/{recipename}',[RecipeController::class,'updateRecipe'])->middleware('isLoggedIn');
 Route::get('/aeditProfile/{userid}',[homeafterlogin::class,'aeditp'])->middleware('isLoggedIn');
 Route::put('/aeditProfile/{userid}',[homeafterlogin::class,'aupdatep1'])->middleware('isLoggedIn')->middleware('isAdmin');
-Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn')->middleware('isAdmin');
+Route::get('/editUserProfile/{userid}',[homeafterlogin::class,'editp1'])->middleware('isLoggedIn');
 Route::put('/editUserProfile/{userid}',[homeafterlogin::class,'updatep1'])->middleware('isLoggedIn');
 Route::get('/viewfavourites',[homeafterlogin::class,'viewfavourites'])->middleware('isLoggedIn');
 Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLoggedIn');
