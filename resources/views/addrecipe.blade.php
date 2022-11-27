@@ -139,7 +139,7 @@
 
 <INPUT type="button" class="btn btn-danger" value="Delete Row" onclick="deleteRow('dataTable')" />
 
-<TABLE id="dataTable" width="650px" border="1">
+<TABLE id="dataTable" width="350px" border="1">
     <TR>
         <TD><INPUT type="checkbox" name="chk"/></TD>
         <TD>
