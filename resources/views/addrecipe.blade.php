@@ -174,7 +174,7 @@
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Steps: </label> <br>
-       <textarea name="steps" ></textarea>
+       <textarea name="steps" col="50" ></textarea>
        </div>
         <br>
         <input type="submit" class="btn btn-primary" value="Submit">
