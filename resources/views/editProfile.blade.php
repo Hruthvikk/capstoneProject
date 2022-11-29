@@ -27,7 +27,7 @@
             <th>Occasion</th>
             <th>Meal Time</th>
             <th>Recipe Image</th>
-            <th>Delete</th>
+            <th>Update</th>
         </thead>
         <tbody>
             @foreach ($editr as $r )
@@ -46,7 +46,7 @@
                     <?php $imagename=$r->recipeImage;
                             $rena = $r->recipeName; 
                     ?>
-                    <td><img src="/public/Image/<?=$imagename?>" alt="" height="125px" width="125px"></td>
+                    <td><img src="storage/app/public/Image/<?=$imagename?>" alt="" height="125px" width="125px"></td>
                     <td><a href="{{url('updateRecipe',$rena)}}" class="btn btn-light">Update Recipe</a></td>
                 </tr>      
             @endforeach

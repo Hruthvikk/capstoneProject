@@ -176,7 +176,7 @@ class RecipeController extends Controller
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
-        $uprecipeData = recipes::where('recipeName','=',$recipename);
+        $uprecipeData = recipes::where('recipeName','=',$recipename)->get();
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
@@ -184,7 +184,7 @@ class RecipeController extends Controller
             'uprecipeData'=>$uprecipeData
         ];
         
-        return view('updateRecipe')->with($params);
+        return view('updateRecipe',['uprecipeData'=>$uprecipeData])->with($params);
     }
 
 

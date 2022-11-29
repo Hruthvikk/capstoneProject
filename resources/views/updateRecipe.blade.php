@@ -17,19 +17,19 @@
         <br>
        <div class="form-group col-md-3">
         <label class="form-label">Recipe Description: </label> 
-        <input type="text" name="recipedescription" class="form-control" value="{{old('recipedescription')}}" placeholder="Recipe Description" />
+        <input type="text" name="recipedescription" class="form-control" value="{!!$updata->recipeDescription!!}" placeholder="Recipe Description" />
         <span class="text-danger">@error('recipedescription'){{$message}}@enderror</span>
        </div>
        <br>
        <div class="form-group col-md-3">
         <label class="form-label">Preparation Time: </label> 
-        <input type="text" name="preparationtime" class="form-control" value="{{old('preparationtime')}}" placeholder="Preparation Time In Minutes" />
+        <input type="text" name="preparationtime" class="form-control" value="{{$updata->preparationTime}}" placeholder="Preparation Time In Minutes" />
         <span class="text-danger">@error('preparationtime'){{$message}}@enderror</span>
        </div>
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Cooking Time: </label> 
-       <input type="text" name="cookingtime" class="form-control" value="{{old('cookingtime')}}" placeholder="Cooking Time In Minute" />
+       <input type="text" name="cookingtime" class="form-control" value="{{$updata->cookingTime}}" placeholder="Cooking Time In Minute" />
        <span class="text-danger">@error('cookingtime'){{$message}}@enderror</span>
        </div>
        <br>
@@ -49,7 +49,6 @@
        <select id="eatingstyle" name="eatingstyle">
        <option  hidden disabled selected>Select An Option</option>
             @foreach ($eatingstyle as $es )
-                
                 <option value="{{$es->id}}" name="eatingstyle" selected>{{$es->editStyleName}}</option>    
             @endforeach
        </select>
@@ -68,17 +67,22 @@
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Recipe Image: </label> 
-       <input type="file" name="recipeimage">
+       <input type="file" name="recipeimage" value="{{$updata->recipeImage}}">
        </div>
        <br>
        <div class="form-group col-md-3">
-       <label class="form-label">Ingredients:  </label> <br>
-       <textarea name="ingredients"></textarea>
+       Ingredients Required :
+            <table>
+              <tr>
+                  <td>Measurement</td>
+                  <td>Unit</td>
+                  <td>Ingredients</td>
+              </tr>
        </div>
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Steps: </label> <br>
-       <textarea name="steps" ></textarea>
+       <textarea name="steps" >{{$updata->steps}}</textarea>
        </div>
         <br>
         <input type="submit" class="btn btn-primary" value="Submit">

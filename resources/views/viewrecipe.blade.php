@@ -47,12 +47,7 @@
                 @endforeach
                 
                       </tr>
-                
-                 
-                      
-                
 
-              
             </table>
             
             </h4>
