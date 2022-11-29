@@ -24,6 +24,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::get('/recipesteps/{recipeid}',[RecipeController::class,'viewrecipesteps'])->middleware('isLoggedIn');
 Route::get('/viewrecipe/{recipeid}',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
 Route::put('/searchedrecipes',[RecipeController::class,'searchRecipe'])->name('searched-recipes')->middleware('isLoggedIn');
