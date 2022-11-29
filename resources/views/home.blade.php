@@ -9,11 +9,11 @@
                 <p>Roti Sabji</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food4.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food4.jpg" alt=""  height="200px" width="200px">
                 <p>Chai</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food6.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food6.jpg" alt=""  height="200px" width="200px">
                 <p>Samosa</p>               
             </div>
         </div>
@@ -27,11 +27,11 @@
                 <p>Breakfast</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food14.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food14.jpg" alt=""  height="200px" width="200px">
                 <p>Lunch</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food12.jpg" alt=""  height="150px" width="150px">
+                <img src="/images/Food12.jpg" alt=""  height="200px" width="200px">
                 <p>Dinner</p>               
             </div>
         </div>
