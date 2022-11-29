@@ -12,6 +12,7 @@ use App\Models\ratingFav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 
 class RecipeController extends Controller
@@ -83,10 +84,16 @@ class RecipeController extends Controller
         $units1=implode(',',$units);
         $ingredients=$input['ingredients'];
         $ingredients1=implode(',',$ingredients);
-
+        
         $recipeimage = $request->file('recipeimage')->getClientOriginalName();
-        $request->file('recipeimage')->storeAs('images',$recipeimage,'public');
-        $request->file('recipeimage')->move(public_path('/storage/app/public/Image'), $recipeimage);
+         
+        //  $request->file('recipeimage')->storeAs('public/images',$recipeimage);
+         $path=$request->file('recipeimage')->store('images','s3');
+
+        // Storage::disk('s3')->put($recipeimage,'public');
+        Storage::disk('s3')->setVisibility($path,'public');
+          
+        // $request->file('recipeimage')->move(public_path('/storage/app/public/Image'), $recipeimage);
         
         $newrecipe = new recipes();
 
@@ -97,7 +104,7 @@ class RecipeController extends Controller
         $newrecipe->ingredients = $ingredients1;
         $newrecipe->steps = $request->steps;
         $newrecipe->user_id = $request->user_id;
-        $newrecipe->recipeImage = $recipeimage;
+        $newrecipe->recipeImage = basename($path) ;
         $newrecipe->mealTime_id = $request->mealtime;
         $newrecipe->editStyle_id = $request->eatingstyle;
         $newrecipe->occasion_id = $request->occasion;
