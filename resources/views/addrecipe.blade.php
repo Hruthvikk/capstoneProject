@@ -184,8 +184,8 @@
 <script src="js/jquery-image-upload-resizer.js"></script>
 <script>
     $('#recipeimage').imageUploadResizer({
-        max_width: 150, // Defaults 1000
-        max_height: 150, // Defaults 1000
+        max_width: 200, // Defaults 1000
+        max_height: 200, // Defaults 1000
         quality: 0.8, // Defaults 1
         do_not_resize: ['gif', 'svg'], // Defaults []
     });
