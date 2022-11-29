@@ -85,7 +85,7 @@ class RecipeController extends Controller
         $ingredients1=implode(',',$ingredients);
 
         $recipeimage = $request->file('recipeimage')->getClientOriginalName();
-        $path=$request->file('recipeimage')->storeAs('images',$recipeimage,'public');
+        $request->file('recipeimage')->storeAs('images',$recipeimage,'public');
         $request->file('recipeimage')->move(public_path('/storage/app/public/Image'), $recipeimage);
         
         $newrecipe = new recipes();
