@@ -110,7 +110,7 @@ class homeafterlogin extends Controller
         DB::delete('delete from user_roles where id = ?',[$id]);
         $mem="member";
         $displayau = userRoles::where('userType',$mem)->get();
-        return view('admindalu',['dau'=>$displayau]);
+        return back();
     }
 
 //---------------------------------------END ADMIN---------------------------------------------------

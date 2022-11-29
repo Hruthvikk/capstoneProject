@@ -25,7 +25,7 @@ class ratingFavourite1 extends Controller
                     $res = $new_raterecipe->save();
                     if($res){return back()->with('alreadyexists','1');}
             }
-            else if($alreadyexistsCount <= 1){
+            else if($alreadyexistsCount == 1){
                 if($alreadyexistsstarnum == $inputStarNum ){
                     return back()->with('alreadyexists','You Already have same Rating.');
                 }else{

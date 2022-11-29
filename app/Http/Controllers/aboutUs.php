@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ratingFav;
+use App\Models\recipes;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class aboutUs extends Controller
@@ -14,6 +17,11 @@ class aboutUs extends Controller
     public function index()
     {
         return view('aboutus');
+    }
+    public function homeindex()
+    {
+        
+        return view('home');
     }
     public function tantindex(){
         return view('tant');
