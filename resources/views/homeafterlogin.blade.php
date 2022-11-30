@@ -10,7 +10,7 @@
                     $imagename=$rr->recipeImage; 
                 ?>
                 <div class="prr images">
-                    <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                <a href="{{url('viewrecipe',$rr->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                     <p>{{$rr->recipeName}}</p>    
                 </div>    
             @endforeach
@@ -35,7 +35,7 @@
                     <?php 
                         $imagename=$lch->recipeImage; 
                     ?>
-                    <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                    <a href="{{url('viewrecipe',$lch->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                 @endforeach
                 <p>Lunch</p>
             </div>
@@ -44,7 +44,7 @@
                     <?php 
                         $imagename=$dn->recipeImage; 
                     ?>
-                <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                <a href="{{url('viewrecipe',$dn->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                 @endforeach
                 <p>Dinner</p>               
             </div>
