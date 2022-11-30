@@ -293,6 +293,7 @@ class RecipeController extends Controller
                     ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+                    ->select('recipes.*','user_roles.userFirstName','meal_times.mealTimeName','edit_styles.editStyleName','occasions.occassionName')
                     ->orderBy('recipeName','asc')
                     ->paginate(5);
         $data = compact('displayar');

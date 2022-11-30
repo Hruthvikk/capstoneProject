@@ -22,6 +22,7 @@
 
         <table>
             <thead>
+                <th>ID</th>
                 <th>Recipe Name
                 <span>
                     <a href="{{url('displayallRecipedesc')}}"><i class="bi bi-arrow-up"></i></a>
@@ -54,6 +55,7 @@
                 @foreach ( $displayar as $dr )    
                 
                 <tr>
+                    <td>{{$dr->id}}</td>
                     <td>{{$dr->recipeName}}</td>
                     <td>{{$dr->recipeDescription}}</td>
                     <td>{{$dr->preparationTime}} Minutes</td>
