@@ -159,7 +159,7 @@ class RecipeController extends Controller
         $allstarcount = $allstarlist->count();
 
         $uid=$request->session()->get('loginUserId');
-        $arf = ratingFav::where('user_id','=',$uid)->get();
+        $arf = ratingFav::where('user_id','=',$uid)->where('recipe_id','=',$id)->get();
         
         $params=[
             'fives'=>$fivestarcount,
