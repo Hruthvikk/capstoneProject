@@ -66,7 +66,7 @@ class signin extends Controller
                             'lunch' =>$lunch,
                             'dine' =>$dine
                         ];
-                        // return view('homeafterlogin')->with($params);
+                         return view('homeafterlogin')->with($params);
                     }
                     else
                     {
