@@ -25,7 +25,13 @@
     <h2 style="text-align: center;">Meals</h2>
     <div class="pr">
             <div class="prr images">
-                <img src="/images/Food5.jpg" alt="" height="200px" width="200px">
+            
+                @foreach($brkfst as $bf)
+                <?php 
+                    $imagename=$bf->recipeImage; 
+                ?>
+                    <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                @endforeach
                 <p>Breakfast</p>
             </div>
             <div class="prr images">

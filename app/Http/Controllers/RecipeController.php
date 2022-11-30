@@ -51,7 +51,9 @@ class RecipeController extends Controller
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
-            'eatingstyle'=>$eatingstyle
+            'eatingstyle'=>$eatingstyle,
+            
+
         ];
         return view('searchrecipe')->with($params);
     }

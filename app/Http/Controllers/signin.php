@@ -6,6 +6,7 @@ use App\Models\userRoles;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
+use App\Models\recipes;
 
 class signin extends Controller
 {
@@ -49,8 +50,9 @@ class signin extends Controller
                         $request->session()->put('loginUser',$user->userEmail);
                         $request->session()->put('loginUserId',$user->id);
                         $request->session()->put('userRole',$user->userType);
+                        $brkfst = recipes::inRandomorder()->limit(1)->get();
                         
-                        return view('homeafterlogin');
+                        return view('homeafterlogin',['brkfst'=>$brkfst]);
                     }
                     else
                     {
