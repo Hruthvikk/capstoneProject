@@ -85,10 +85,11 @@ body {
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
 }
-.hint{
-  font-size: 10px;
-  font-style: italic;
-  color: tomato;
+.displaysteps h2{
+  margin-left: 3%;
+}
+.displaysteps h4{
+  margin-left: 10%;
 }
 .prr img{
     width: auto;
