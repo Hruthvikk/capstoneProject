@@ -22,10 +22,10 @@ class signup extends Controller
     }
     public function registerUser(Request $request){
         $request->validate([
-            'firstname'=>'required',
-            'lastname' =>'required',
+            'firstname'=>'required |alpha',
+            'lastname' =>'required|alpha',
             'email'=>'required|email:rfc,dns|unique:user_roles,userEmail',
-            'phonenum'=>'required | max:12',
+            'phonenum'=>'required |numeric |digits:10',
             'password'=> [
                 'required',
                 'string',

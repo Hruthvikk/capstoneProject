@@ -1,5 +1,4 @@
-
-  .container{
+.container{
     width: 100vw;
     display: grid;
     
@@ -86,6 +85,11 @@ body {
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
 }
+.hint{
+  font-size: 10px;
+  font-style: italic;
+  color: tomato;
+}
 .prr img{
     width: auto;
     height: 200px;
@@ -105,7 +109,9 @@ h3{
 .loginform, .registerform{
     margin-left: 40%;
     margin-top: 50px;
+    
 }
+
 .recipeform{
     margin-left: 3%;
 }

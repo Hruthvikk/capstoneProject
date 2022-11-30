@@ -39,9 +39,10 @@
        <div class="form-row">
             <div class="form-group col-md-3">
             <label class="form-label">Password</label> 
-            <input type="password" name="password" class="form-control" placeholder="password" />
+            <input type="password"  id="inputValidationEx2" name="password" class="form-control validate" placeholder="password" />
+            
             <span class="text-danger">@error('password'){{$message}}@enderror</span>
-        </div>
+            </div>
         <div class="form-group col-md-3">
             <label class="form-label">Confirm Password</label> 
             <input type="password" name="confirmpassword" class="form-control" placeholder="confirmpassword" />
