@@ -12,7 +12,7 @@
                         <div class="prr images">
                             <a href="{{ url('viewrecipe', $rr->id) }}"><img
                                     src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                                    alt="" height="200px" width="200px"></a>
+                                    alt="" height="175px" width="200px"></a>
                             <p>{{ $rr->recipeName }}</p>
                         </div>
                     @endforeach

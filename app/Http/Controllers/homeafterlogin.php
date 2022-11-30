@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\userRoles;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
-use Psy\Readline\Hoa\Console;
+use App\Models\recipes;
 
 class homeafterlogin extends Controller
 {
@@ -14,7 +13,23 @@ class homeafterlogin extends Controller
     public function index()
     {
         $user = userRoles::all();
-        return view('homeafterlogin', ['user' => $user]);
+        $b = DB::table('recipes')->select('id')->where('mealTime_id', '=', 1)->limit(1)->first();
+                        $l = DB::table('recipes')->select('id')->where('mealTime_id', '=', 2)->limit(1)->first();
+                        $d = DB::table('recipes')->where('mealTime_id', '=', 3)->limit(1)->first();
+                        $rndrec = recipes::inRandomorder()
+                            ->where('id', '!=', $b->id)->where('id', '!=', $l->id)->where('id', '!=', $d->id)->orWhereNull('id')
+                            ->limit(3)->get();
+                        $brkfst = recipes::where('mealTime_id', '=', 1)->limit(1)->get();
+                        $lunch = recipes::where('mealTime_id', '=', 2)->limit(1)->get();
+                        $dine = recipes::where('mealTime_id', '=', 3)->limit(1)->get();
+                        $params = [
+                            'rndrec' => $rndrec,
+                            'brkfst' => $brkfst,
+                            'lunch' => $lunch,
+                            'dine' => $dine,
+                            'user' => $user
+                        ];
+        return view('homeafterlogin')->with($params);
     }
     // This is function to display edit profile page with recipes added by user
     // which is logged in
