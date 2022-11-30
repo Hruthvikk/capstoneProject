@@ -225,7 +225,9 @@ h3{
     background-color: slategray;
   }
   .steps{
-    max-width: 600px;
+    max-width: 800px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
   table, th, td {
     border: 1px solid;
