@@ -46,7 +46,7 @@
                     <?php $imagename=$r->recipeImage;
                             $rena = $r->recipeName; 
                     ?>
-                    <td><img src="storage/app/public/Image/<?=$imagename?>" alt="" height="125px" width="125px"></td>
+                    <td><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="125px" width="125px"></td>
                     <td><a href="{{url('updateRecipe',$rena)}}" class="btn btn-light">Update Recipe</a></td>
                 </tr>      
             @endforeach

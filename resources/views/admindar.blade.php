@@ -65,7 +65,7 @@
                     <td>{{$dr->occassionName}}</td>
                     <td>{{$dr->mealTimeName}}</td>
                     <?php $imagename=$dr->recipeImage; ?>
-                    <td><img src="/public/Image/<?=$imagename?>" alt="" height="125px" width="125px"></td>
+                    <td><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>" alt="" height="125px" width="125px"></td>
                     <td><a href="{{url('deleteRecipe',$dr->id)}}" class="btn btn-danger">Delete Recipe</a></td>
                 </tr>      
 

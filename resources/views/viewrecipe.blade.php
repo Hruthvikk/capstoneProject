@@ -14,7 +14,7 @@
                 $total = $recd->preparationTime + $recd->cookingTime +5;
                 $imagename=$recd->recipeImage; 
             ?>
-            <img src="/public/Image/<?=$imagename?>" alt="" height="200px" width="200px">
+            <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
             <h4>Total minutes : {!! $total!!}
             <br>   
             Preparation Time : {!!$recd->preparationTime!!}
