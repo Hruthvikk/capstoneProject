@@ -1,11 +1,10 @@
 @extends('mainafterlogin')
 @section('content')
-
+@if(Session::has('loginUserId'))
 <div class="container">
     <div class="row">
         <h2 style="text-align: center;">Popular Recipe</h2>
         <div class="pr">
-            
             @foreach ($rndrec as $rr )
                 <?php    
                     $imagename=$rr->recipeImage; 
@@ -27,7 +26,7 @@
                 <?php 
                     $imagename=$bf->recipeImage; 
                 ?>
-                    <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                    <a href="{{url('viewrecipe',$bf-id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                 @endforeach
                 <p>Breakfast</p>
             </div>
@@ -52,4 +51,9 @@
         </div>
     </div>
 </div>
+
+@else
+<?php return view('signin')?>
+@endif
+
 @endsection
