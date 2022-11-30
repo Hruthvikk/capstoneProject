@@ -11,38 +11,37 @@ use Illuminate\Http\Request;
 
 class signup extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // This is function to display SIGN UP PAGE
     public function index()
     {
         return view('signup');
     }
-    public function registerUser(Request $request){
+
+    // This is function to REGISTER USER with VALIDATING data entered by user
+    public function registerUser(Request $request)
+    {
         $request->validate([
-            'firstname'=>'required |alpha',
-            'lastname' =>'required|alpha',
-            'email'=>'required|email:rfc,dns|unique:user_roles,userEmail',
-            'phonenum'=>'required |numeric |digits:10',
-            'password'=> [
+            'firstname' => 'required |alpha',
+            'lastname' => 'required|alpha',
+            'email' => 'required|email:rfc,dns|unique:user_roles,userEmail',
+            'phonenum' => 'required |numeric |digits:10',
+            'password' => [
                 'required',
                 'string',
-                'min:6',             
-                'regex:/[a-z]/',      
-                'regex:/[A-Z]/',      
-                'regex:/[0-9]/',      
-                'regex:/[@$!%*#?&]/', 
+                'min:6',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
             ],
-            'confirmpassword'=>[
+            'confirmpassword' => [
                 'required',
                 'string',
-                'min:6',             
-                'regex:/[a-z]/',      
-                'regex:/[A-Z]/',      
-                'regex:/[0-9]/',      
-                'regex:/[@$!%*#?&]/', 
+                'min:6',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
             ]
         ]);
         $user = new userRoles();
@@ -51,15 +50,14 @@ class signup extends Controller
         $user->userEmail = $request->email;
         $user->userType = "member";
         $user->userPhoneNumber = $request->phonenum;
-        if($request->password === $request->confirmpassword){
+        if ($request->password === $request->confirmpassword) {
             $user->userPassword = Hash::make($request->password);
-            $res=$user->save();
+            $res = $user->save();
         }
-        if($res){
-            return back()->with('success','You are Registered Successfully');
-        }
-        else{
-            return back()->with('fail','Registration Unsuccessful');
+        if ($res) {
+            return back()->with('success', 'You are Registered Successfully');
+        } else {
+            return back()->with('fail', 'Registration Unsuccessful');
         }
     }
 }
