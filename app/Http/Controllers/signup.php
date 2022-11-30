@@ -26,8 +26,24 @@ class signup extends Controller
             'lastname' =>'required',
             'email'=>'required|email:rfc,dns|unique:user_roles,userEmail',
             'phonenum'=>'required | max:12',
-            'password'=>'required | min:4 | max:24',
-            'confirmpassword'=>'required | min:4 | max:24'
+            'password'=> [
+                'required',
+                'string',
+                'min:10',             
+                'regex:/[a-z]/',      
+                'regex:/[A-Z]/',      
+                'regex:/[0-9]/',      
+                'regex:/[@$!%*#?&]/', 
+            ],
+            'confirmpassword'=>[
+                'required',
+                'string',
+                'min:10',             
+                'regex:/[a-z]/',      
+                'regex:/[A-Z]/',      
+                'regex:/[0-9]/',      
+                'regex:/[@$!%*#?&]/', 
+            ]
         ]);
         $user = new userRoles();
         $user->userFirstName = $request->firstname;
