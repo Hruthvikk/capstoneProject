@@ -12,7 +12,7 @@
                 ?>
                 <div class="prr images">
                     <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
-                    <p>$rr->recipeName</p>    
+                    <p>{{$rr->recipeName}}</p>    
                 </div>    
             @endforeach
         </div>
