@@ -126,30 +126,30 @@ class RecipeController extends Controller
             $mtid[] = $request->mealtime;
             $esid[] = $request->eatingStyle;
             $oid[] = $request->occasion;
-            if($mtid)
+            if($request->mealtime)
             {
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->get();
                 return view('searchedrecipes',['mtres'=>$mtres]);
-            }else if($esid)
+            }else if($request->eatingStyle)
             {
                 $mtres = DB::table('recipes')
                 ->where('editStyle_id','=',$esid)
                 ->get();
-            }else if($oid){
+            }else if($request->occasion){
                 $mtres = DB::table('recipes')
                 ->where('occasion_id','=',$oid)->get();
-            }else if($mtid && $esid){
+            }else if($request->mealtime && $request->eatingStyle){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
                 ->where('editStyle_id','=',$esid)
                 ->first();
-            }else if($mtid && $oid){
+            }else if($request->mealtime && $request->occasion){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
                 ->where('occasion_id','=',$oid)->first();
-            }else if($esid && $oid){
+            }else if($request->eatingStyle && $request->occasion){
                 $mtres = DB::table('recipes')
                 ->where('editStyle_id','=',$esid)
                 ->where('occasion_id','=',$oid)->first();
-            }else if($esid && $mtid && $oid){
+            }else if($request->eatingStyle && $request->mealtime && $request->occasion){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
                 ->where('editStyle_id','=',$esid)
                 ->where('occasion_id','=',$oid)->first();
