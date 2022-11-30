@@ -6,8 +6,6 @@
         <div class="pr">
             <div class="prr images">
                 <img src="/images/Food1.jpg" alt="" height="200px" width="200px">
-                
-                
             </div>
             <div class="prr images">
                 <img src="/images/Food4.jpg" alt=""  height="200px" width="200px">
