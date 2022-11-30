@@ -50,7 +50,12 @@ class signin extends Controller
                         $request->session()->put('loginUser',$user->userEmail);
                         $request->session()->put('loginUserId',$user->id);
                         $request->session()->put('userRole',$user->userType);
-                        $rndrec = recipes::inRandomorder()->limit(3)->get();
+                        $b=recipes::select('id')->where('mealTime_id','=',1)->limit(1)->get();
+                        $l=recipes::select('id')->where('mealTime_id','=',2)->limit(1)->get();
+                        $d=recipes::select('id')->where('mealTime_id','=',3)->limit(1)->get();
+                        $rndrec = recipes::inRandomorder()
+                        ->where('id','!=',$b)->where('id','!=',$l)->where('id','!=',$d)
+                        ->limit(3)->get();
                         $brkfst = recipes::where('mealTime_id','=',1)->limit(1)->get();
                         $lunch = recipes::where('mealTime_id','=',2)->limit(1)->get();
                         $dine = recipes::where('mealTime_id','=',3)->limit(1)->get();
