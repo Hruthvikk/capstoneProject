@@ -141,18 +141,18 @@ class RecipeController extends Controller
             }else if($mtid && $esid){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
                 ->where('editStyle_id','=',$esid)
-                ->get();
+                ->first();
             }else if($mtid && $oid){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
-                ->where('occasion_id','=',$oid)->get();
+                ->where('occasion_id','=',$oid)->first();
             }else if($esid && $oid){
                 $mtres = DB::table('recipes')
                 ->where('editStyle_id','=',$esid)
-                ->where('occasion_id','=',$oid)->get();
+                ->where('occasion_id','=',$oid)->first();
             }else if($esid && $mtid && $oid){
                 $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
                 ->where('editStyle_id','=',$esid)
-                ->where('occasion_id','=',$oid)->get();
+                ->where('occasion_id','=',$oid)->first();
             }
     }
     public function viewrecipe(Request $request,$id)
