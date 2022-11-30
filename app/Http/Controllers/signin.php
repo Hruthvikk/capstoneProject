@@ -53,6 +53,7 @@ class signin extends Controller
                         $b=recipes::select('id')->where('mealTime_id','=',1)->limit(1)->get();
                         $l=recipes::select('id')->where('mealTime_id','=',2)->limit(1)->get();
                         $d=recipes::select('id')->where('mealTime_id','=',3)->limit(1)->get();
+                        var_dump($b);
                         $rndrec = recipes::inRandomorder()
                         ->where('id','!=',$b->id)->where('id','!=',$l->id)->where('id','!=',$d->id)->orWhereNull('id')
                         ->limit(3)->get();
@@ -65,7 +66,7 @@ class signin extends Controller
                             'lunch' =>$lunch,
                             'dine' =>$dine
                         ];
-                        return view('homeafterlogin')->with($params);
+                        // return view('homeafterlogin')->with($params);
                     }
                     else
                     {
