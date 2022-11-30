@@ -74,37 +74,40 @@ class homeafterlogin extends Controller
 
     public function displayUserWithDate(Request $request){
         $fromDate = $request->fromDate;
-        
         $toDate = $request->toDate;
-        
-
-        $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?",[$fromDate." 00:00:00",$toDate." 23:59:59"])->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?",[$fromDate." 00:00:00",$toDate." 23:59:59"])->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function displayallUserdes(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'desc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userFirstName', 'desc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function displayallUserlndes(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'desc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'desc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function displayallUserelnasc(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'asc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userLastName', 'asc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function displayallUseremasc(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'asc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'asc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function displayallUseremdes(){
         $mem="member";
-        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'desc')->get();
-        return view('admindalu',['dau'=>$displayau]);
+        $displayau = userRoles::where('userType',$mem)->orderBy('userEmail', 'desc')->paginate(5);
+        $data = compact('displayau');
+        return view('admindalu')->with($data);
     }
     public function deleteUser($id){
         DB::delete('delete from user_roles where id = ?',[$id]);

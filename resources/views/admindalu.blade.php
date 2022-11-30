@@ -4,8 +4,8 @@
     <div class="form-group row">
     <form method="POST" action="{{route('searchdate-user')}}">
         @csrf
-    <label for="fromDate">Users added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate"></div>
-    <label for="toDate">Users added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate"></div>
+    <label for="fromDate">Users added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate" required></div>
+    <label for="toDate">Users added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate" required></div>
     <br>
     <div class="col-sm-3"><input type="submit" value="Search"></div>
     </form>

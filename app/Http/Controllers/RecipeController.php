@@ -217,8 +217,9 @@ class RecipeController extends Controller
                     ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
-                    ->get();
-                    return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
 
     public function displayallRecipedesc(){
@@ -228,8 +229,9 @@ class RecipeController extends Controller
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->orderBy('recipeName','desc')
-                    ->get();
-        return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
     public function displayallRecipeptasc(){
         $displayar = DB::table('recipes')
@@ -238,8 +240,9 @@ class RecipeController extends Controller
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->orderBy('preparationTime','asc')
-                    ->get();
-        return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
     public function displayallRecipeptdesc(){
         $displayar = DB::table('recipes')
@@ -248,8 +251,9 @@ class RecipeController extends Controller
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->orderBy('preparationTime','desc')
-                    ->get();
-        return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
     public function displayallRecipectasc(){
         $displayar = DB::table('recipes')
@@ -258,8 +262,9 @@ class RecipeController extends Controller
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->orderBy('cookingTime','asc')
-                    ->get();
-        return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
     public function displayallRecipectdesc(){
         $displayar = DB::table('recipes')
@@ -268,18 +273,18 @@ class RecipeController extends Controller
                     ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->orderBy('cookingTime','desc')
-                    ->get();
-        return view('admindar',['dar'=>$displayar]);
+                    ->paginate(5);
+                    $data = compact('displayar');
+                    return view('admindar')->with($data);
     }
     public function deleteRecipe($id){
-        DB::delete('delete from recipes where id = ?',[$id]);
-        $displayar =  DB::table('recipes')
-        ->join('user_roles', 'recipes.user_id','=','user_roles.id')
-        ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
-        ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
-        ->join('occasions', 'recipes.occasion_id','=','occasions.id')
-        ->get();
-        return view('admindar',['dar'=>$displayar]);
+        $success=DB::delete('delete from recipes where id = ?',[$id]);
+        if($success){
+            return back()->with('successdel','Recipe Deleted Successfully');
+        }
+        else{
+            return back()->with('faildel','Recipe Delete Unsuccessfully');
+        }
     }
 
     

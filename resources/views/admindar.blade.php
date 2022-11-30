@@ -4,8 +4,8 @@
     <div class="form-group row">
     <form method="POST" action="{{route('searchdate-recipe')}}">
         @csrf
-    <label for="fromDate">Recipes added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate"></div>
-    <label for="toDate">Recipes added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate"></div>
+    <label for="fromDate">Recipes added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate" required></div>
+    <label for="toDate">Recipes added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate" required></div>
     <br>
     <div class="col-sm-3"><input type="submit" value="Search"></div>
     </form>
@@ -13,6 +13,13 @@
 
 </h4>
      <div>
+        @if(Session::has('successdel'))
+            <div class="alert alert-success">{{Session::get('successdel')}}</div>
+        @endif
+        @if(Session::has('faildel'))
+        <div class="alert alert-danger">{{Session::get('faildel')}}</div>
+        @endif
+
         <table>
             <thead>
                 <th>Recipe Name
