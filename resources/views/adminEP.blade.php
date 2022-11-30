@@ -20,10 +20,12 @@
             <div class="form-group col-md-3">
             <label class="form-label">Email :</label> 
             <input type="email" name="email" class="form-control" placeholder="{{$userdata->userEmail}}" value="{{$userdata->userEmail}}" />
+            <span class="text-danger">@error('email'){{$message}}@enderror</span>
             </div>
             <div class="form-group col-md-3">
             <label class="form-label">Phone Number:</label> 
             <input type="text" name="phonenumber" class="form-control" placeholder="{{$userdata->userPhoneNumber}}"  value="{{$userdata->userPhoneNumber}}"/>
+            <span class="text-danger">@error('phonenumber'){{$message}}@enderror</span>
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Update</button>

@@ -14,19 +14,19 @@ class homeafterlogin extends Controller
         $user = userRoles::all(); 
         return view('homeafterlogin',['user'=>$user]);
     }
-    public function editp(Request $request)
-    {
-        $uid=$request->session()->get('loginUserId');
-        $editr = DB::table('recipes')
-                    ->where('user_id','=',$uid)
-                    ->join('user_roles', 'recipes.user_id','=','user_roles.id')
-                    ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
-                    ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
-                    ->join('occasions', 'recipes.occasion_id','=','occasions.id')
-                    ->get();
-        return view('editProfile',['editr'=>$editr]);
+    // public function editp(Request $request)
+    // {
+    //     $uid=$request->session()->get('loginUserId');
+    //     $editr = DB::table('recipes')
+    //                 ->where('user_id','=',$uid)
+    //                 ->join('user_roles', 'recipes.user_id','=','user_roles.id')
+    //                 ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+    //                 ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+    //                 ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+    //                 ->get();
+    //     return view('editProfile',['editr'=>$editr]);
 
-    }
+    // }
     public function aeditp($aid)
     {
         $userdata=userRoles::find($aid);
@@ -38,7 +38,12 @@ class homeafterlogin extends Controller
         return view('editUserProfile',compact('userdata'));
     }
     public function updatep1(Request $request,$uid){
+        $request->validate([
+            'email'=>'required|email:rfc,dns|unique:user_roles,userEmail',
+            'phonenumber'=>'required |numeric |digits:10'
+        ]);
         $up = userRoles::find($uid);
+        
         $up->userEmail = $request->email;
         $up->userPhoneNumber = $request->phonenumber;
         $up->save();
@@ -46,7 +51,12 @@ class homeafterlogin extends Controller
     }
     
     public function aupdatep1(Request $request,$uid){
+        $request->validate([
+            'email'=>'required|email:rfc,dns|unique:user_roles,userEmail',
+            'phonenumber'=>'required |numeric |digits:10'
+        ]);
         $up = userRoles::find($uid);
+        
         $up->userEmail = $request->email;
         $up->userPhoneNumber = $request->phonenumber;
         $up->save();

@@ -7,7 +7,7 @@
     <label for="fromDate">Recipes added from :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate" required></div>
     <label for="toDate">Recipes added to :</label> <div class="col-sm-3"><input type="date" class="form-control input-sm" name="toDate" required></div>
     <br>
-    <div class="col-sm-3"><input type="submit" value="Search"></div>
+    <div class="col-sm-3"><input type="submit" class="btn btn-primary" value="Search"></div>
     </form>
     </div>
 
