@@ -42,7 +42,7 @@
                     </span>
                 </th>
                 <th>Ingredients</th>
-                <th>Steps</th>
+                
                 <th>Username</th>
                 <th>Eating Style</th>
                 <th>Occasion</th>
@@ -59,7 +59,7 @@
                     <td>{{$dr->preparationTime}} Minutes</td>
                     <td>{{$dr->cookingTime}} Minutes</td>
                     <td>{{$dr->ingredients}}</td>
-                    <td>{{$dr->steps}}</td>
+                    
                     <td>{{$dr->userFirstName}}</td>
                     <td>{{$dr->editStyleName}}</td>
                     <td>{{$dr->occassionName}}</td>
