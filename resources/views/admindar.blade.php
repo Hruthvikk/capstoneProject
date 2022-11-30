@@ -75,7 +75,7 @@
             </tbody>
         </table>
         <br>
-        <div class="row" style="margin-left:645px">
+        <div class="pagi" style="margin-left:645px">
             {{$displayar->links()}}
         </div>  
      </div>
