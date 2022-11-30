@@ -1,17 +1,17 @@
 .container{
     width: 100vw;
     display: grid;
-    
+
   }
-  
+
 body {
     background-color: #212529;
     height: 100vh;
     position: absolute;
     width: 100vw;
     color: yellowgreen;
-    
-    
+
+
 }
 
 .navbar{
@@ -21,12 +21,12 @@ body {
     background-blend-mode: lighten;
     background-repeat: no-repeat;
     height: 225px;
-    
+
 }
 
 .ultwo{
     list-style-type: none;
-} 
+}
 
 .stickFoot{
     text-align:start;
@@ -58,14 +58,14 @@ body {
   @media (min-width: 900px) {
    .grid-cointainer,.pr,.edre { grid-template-columns: repeat(3, 1fr); }
   }
-  
+
 
 .sd{
     margin-top: 50px;
     margin-left: 50px;
     margin-bottom: 50px;
     width: 90%;
-    
+
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 15px;
@@ -79,7 +79,7 @@ body {
     grid-gap: 5px;
 }
 .prr{
-    
+
     height: 290px;
     width: 250;
     border-radius: 10px;
@@ -91,12 +91,11 @@ body {
 
 .prr img{
     width: 240;
-    height: 250px;
+    height: 225px;
     border-radius: 10px;
     margin-left: 25px;
     margin-right: 25px;
     margin-top: 5px;
-    
 }
 .prr p{
     text-align: center;
@@ -108,7 +107,7 @@ h3{
 .loginform, .registerform{
     margin-left: 40%;
     margin-top: 50px;
-    
+
 }
 
 .recipeform{
@@ -143,11 +142,11 @@ h3{
     content: '★ ';
 }
 .rate > input:checked ~ label {
-    color: #ffc700;    
+    color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+    color: #deb217;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
@@ -176,25 +175,25 @@ h3{
     width: 15%;
     margin-top:10px;
   }
-  
+
   .middle {
     margin-top:10px;
     float: left;
     width: 70%;
   }
-  
+
   /* Place text to the right */
   .right {
     text-align: right;
   }
-  
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
-  
+
   /* The bar container */
   .bar-container {
     width: 100%;
@@ -202,7 +201,7 @@ h3{
     text-align: center;
     color: white;
   }
-  
+
   /* Individual bars */
   .bar-5 {height: 18px; background-color: #04AA6D;}
   .bar-4 {height: 18px; background-color: #2196F3;}
@@ -248,7 +247,7 @@ h3{
         overflow-x: hidden;
         transition: 0.5s;
       }
-      
+
       .overlay-content {
         position: relative;
         top: 25%;
@@ -256,7 +255,7 @@ h3{
         text-align: center;
         margin-top: 30px;
       }
-      
+
       .overlay a {
         padding: 8px;
         text-decoration: none;
@@ -265,18 +264,18 @@ h3{
         display: block;
         transition: 0.3s;
       }
-      
+
       .overlay a:hover, .overlay a:focus {
         color: #f1f1f1;
       }
-      
+
       .overlay .closebtn {
         position: absolute;
         top: 20px;
         right: 45px;
         font-size: 60px;
       }
-      
+
       @media screen and (max-height: 450px) {
         .overlay a {font-size: 20px}
         .overlay .closebtn {

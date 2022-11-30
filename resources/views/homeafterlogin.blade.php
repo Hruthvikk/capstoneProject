@@ -30,7 +30,7 @@
                             ?>
                             <a href="{{ url('viewrecipe', $bf->id) }}"><img
                                     src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                                    alt="" height="175px" width="200px"></a>
+                                    height="175px" width="200px"></a>
                             <p>{{ $bf->recipeName }}</p>
                         @endforeach
                     </div>
@@ -42,7 +42,7 @@
                             ?>
                             <a href="{{ url('viewrecipe', $lch->id) }}"><img
                                     src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                                    alt="" height="175px" width="200px"></a>
+                                    height="175px" width="200px"></a>
                             <p>{{ $lch->recipeName }}</p>
                         @endforeach
 
@@ -55,7 +55,7 @@
                             ?>
                             <a href="{{ url('viewrecipe', $dn->id) }}"><img
                                     src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                                    alt="" height="175px" width="200px"></a>
+                                    height="175px" width="200px"></a>
                             <p>{{ $dn->recipeName }}</p>
                         @endforeach
 
