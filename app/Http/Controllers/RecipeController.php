@@ -123,37 +123,106 @@ class RecipeController extends Controller
     }
 
     public function searchRecipe(Request $request){
-            $mtid[] = $request->mealtime;
-            $esid[] = $request->eatingStyle;
-            $oid[] = $request->occasion;
-            if($request->mealtime)
-            {
-                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->get();
-                return view('searchedrecipes',['mtres'=>$mtres]);
-            }else if($request->eatingStyle)
-            {
-                $mtres = DB::table('recipes')
-                ->where('editStyle_id','=',$esid)
-                ->get();
-            }else if($request->occasion){
-                $mtres = DB::table('recipes')
-                ->where('occasion_id','=',$oid)->get();
-            }else if($request->mealtime && $request->eatingStyle){
-                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
-                ->where('editStyle_id','=',$esid)
-                ->first();
-            }else if($request->mealtime && $request->occasion){
-                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
-                ->where('occasion_id','=',$oid)->first();
-            }else if($request->eatingStyle && $request->occasion){
-                $mtres = DB::table('recipes')
-                ->where('editStyle_id','=',$esid)
-                ->where('occasion_id','=',$oid)->first();
-            }else if($request->eatingStyle && $request->mealtime && $request->occasion){
-                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
-                ->where('editStyle_id','=',$esid)
-                ->where('occasion_id','=',$oid)->first();
+            $mtid = $request->mealtime;
+            $esid = $request->eatingstyle;
+            $oid = $request->occasion;
+
+            if(!$mtid && !$esid && !$oid){
+                return back()->with('notsel','Please Select Radio Button');
             }
+            else if($esid && $mtid && $oid)
+            {
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->where('editStyle_id','=',$esid)->where('occasion_id','=',$oid)->first();
+                
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('mealTime_id','=',$mtid)->where('editStyle_id','=',$esid)->where('occasion_id','=',$oid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($mtid && $esid)
+            {
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->where('editStyle_id','=',$esid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('mealTime_id','=',$mtid)->where('editStyle_id','=',$esid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($mtid && $oid)
+            {
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->where('occasion_id','=',$oid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 =  DB::table('recipes')->where('mealTime_id','=',$mtid)->where('occasion_id','=',$oid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($esid && $oid)
+            {
+                $mtres = DB::table('recipes')->where('editStyle_id','=',$esid)->where('occasion_id','=',$oid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('editStyle_id','=',$esid)->where('occasion_id','=',$oid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($mtid)
+            {
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('mealTime_id','=',$mtid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($esid)
+            {
+                $mtres = DB::table('recipes')->where('editStyle_id','=',$esid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('editStyle_id','=',$esid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            else if($oid)
+            {
+                $mtres = DB::table('recipes')->where('occasion_id','=',$oid)->first();
+                if( $mtres == null )
+                {
+                    return back()->with('notsel','NO RECIPES UNDER THAT FILTER');
+                }
+                else if($mtres != null)
+                {
+                    $mtres1 = DB::table('recipes')->where('occasion_id','=',$oid)->get();
+                    return view('searchedrecipes',['mtres1'=>$mtres1]);
+                }
+            }
+            
     }
     public function viewrecipe(Request $request,$id)
     {
