@@ -26,7 +26,7 @@
                 <?php 
                     $imagename=$bf->recipeImage; 
                 ?>
-                    <a href="{{url('viewrecipe',$bf-id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
+                    <a href="{{url('viewrecipe',$bf->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                 @endforeach
                 <p>Breakfast</p>
             </div>
