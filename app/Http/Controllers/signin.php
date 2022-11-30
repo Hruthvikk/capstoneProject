@@ -53,9 +53,9 @@ class signin extends Controller
                         $b=recipes::select('id')->where('mealTime_id','=',1)->limit(1)->get();
                         $l=recipes::select('id')->where('mealTime_id','=',2)->limit(1)->get();
                         $d=recipes::select('id')->where('mealTime_id','=',3)->limit(1)->get();
-                        var_dump($b);
-                        var_dump($l);
-                        var_dump($d);
+                        print_r($b);
+                        print_r($l);
+                        print_r($d);
                         $rndrec = recipes::inRandomorder()
                         ->where('id','!=',$b)->where('id','!=',$l)->where('id','!=',$d)->orWhereNull('id')
                         ->limit(3)->get();
