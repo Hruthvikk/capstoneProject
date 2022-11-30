@@ -29,7 +29,7 @@ class signup extends Controller
             'password'=> [
                 'required',
                 'string',
-                'min:10',             
+                'min:6',             
                 'regex:/[a-z]/',      
                 'regex:/[A-Z]/',      
                 'regex:/[0-9]/',      
@@ -38,7 +38,7 @@ class signup extends Controller
             'confirmpassword'=>[
                 'required',
                 'string',
-                'min:10',             
+                'min:6',             
                 'regex:/[a-z]/',      
                 'regex:/[A-Z]/',      
                 'regex:/[0-9]/',      
@@ -53,8 +53,8 @@ class signup extends Controller
         $user->userPhoneNumber = $request->phonenum;
         if($request->password === $request->confirmpassword){
             $user->userPassword = Hash::make($request->password);
+            $res=$user->save();
         }
-        $res=$user->save();
         if($res){
             return back()->with('success','You are Registered Successfully');
         }
