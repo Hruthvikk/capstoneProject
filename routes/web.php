@@ -38,7 +38,7 @@ Route::get('/displayallUserlndes',[homeafterlogin::class,'displayallUserlndes'])
 Route::get('/displayallUserelnasc',[homeafterlogin::class,'displayallUserelnasc'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/displayallUseremdes',[homeafterlogin::class,'displayallUseremdes'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/displayallUseremasc',[homeafterlogin::class,'displayallUseremasc'])->middleware('isLoggedIn')->middleware('isAdmin');
-
+Route::get('/adminviewsteps/{recipeid}',[RecipeController::class,'infosteps'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/deleteuser/{userid}',[homeafterlogin::class,'deleteUser'])->middleware('isLoggedIn')->middleware('isAdmin');
 
 Route::get('/admindar',[RecipeController::class,'displayallRecipe'])->middleware('isLoggedIn')->middleware('isAdmin');

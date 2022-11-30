@@ -22,7 +22,7 @@
 
         <table>
             <thead>
-                <th>ID</th>
+                
                 <th>Recipe Name
                 <span>
                     <a href="{{url('displayallRecipedesc')}}"><i class="bi bi-arrow-up"></i></a>
@@ -49,13 +49,13 @@
                 <th>Occasion</th>
                 <th>Meal Time</th>
                 <th>Recipe Image</th>
-                <th>Delete</th>
+                <th></th>
             </thead>
             <tbody>
                 @foreach ( $displayar as $dr )    
                 
                 <tr>
-                    <td>{{$dr->id}}</td>
+                    
                     <td>{{$dr->recipeName}}</td>
                     <td>{{$dr->recipeDescription}}</td>
                     <td>{{$dr->preparationTime}} Minutes</td>
@@ -68,7 +68,11 @@
                     <td>{{$dr->mealTimeName}}</td>
                     <?php $imagename=$dr->recipeImage; ?>
                     <td><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>" alt="" height="125px" width="125px"></td>
-                    <td><a href="{{url('deleteRecipe',$dr->id)}}" class="btn btn-danger">Delete Recipe</a></td>
+                    <td>
+                        <a href="{{url('adminviewsteps',$dr->id)}}" class="btn btn-light">View Steps</a>
+                        <br>
+                        <a href="{{url('deleteRecipe',$dr->id)}}" class="btn btn-danger">Delete Recipe</a>
+                    </td>
                 </tr>      
 
                 @endforeach     

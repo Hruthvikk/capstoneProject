@@ -378,6 +378,11 @@ class RecipeController extends Controller
             return back()->with('faildel','Recipe Delete Unsuccessfully');
         }
     }
+    public function infosteps($id)
+    {
+        $recipestepdata = recipes::where('id',$id)->get();
+        return view('adminviewsteps',compact('recipestepdata'));
+    }
 
     
     

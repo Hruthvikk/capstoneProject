@@ -47,7 +47,7 @@
                 
             </tbody>
         </table>
-        <div class="row" style="margin-left:645px">
+        <div class="pagi" style="margin-left:645px">
             {{$displayau->links()}}
         </div>
      </div>
