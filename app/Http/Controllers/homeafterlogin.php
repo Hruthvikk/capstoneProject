@@ -77,7 +77,7 @@ class homeafterlogin extends Controller
         $toDate = $request->toDate;
         $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?",[$fromDate." 00:00:00",$toDate." 23:59:59"])->paginate(5);
         $data = compact('displayau');
-        return view('admindalu')->with($data);
+        return back()->with($data);
     }
     public function displayallUserdes(){
         $mem="member";

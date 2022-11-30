@@ -219,7 +219,7 @@ class RecipeController extends Controller
                     ->join('occasions', 'recipes.occasion_id','=','occasions.id')
                     ->paginate(5);
                     $data = compact('displayar');
-                    return view('admindar')->with($data);
+                    return back()->with($data);
     }
 
     public function displayallRecipedesc(){
