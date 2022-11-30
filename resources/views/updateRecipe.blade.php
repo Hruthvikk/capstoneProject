@@ -7,14 +7,15 @@
 <form method="POST" action="{{route('update-recipe')}}" enctype="multipart/form-data">
        @csrf        
        <input type="hidden" value="{{$updata->id}}" name="rid">
-       @if(Session::has('successupre'))
+       
+        <div class="form-group col-md-3">
+        @if(Session::has('successupre'))
         <div class="alert alert-success">{{Session::get('successupre')}}</div>
         @endif
         @if(Session::has('unsuccessupre'))
         <div class="alert alert-danger">{{Session::get('unsuccessupre')}}</div>
         @endif
         </div>
-        <div class="form-group col-md-3">
             @if(Session::has('loginUserId'))
             <input type="hidden" name="user_id" value="{{Session::get('loginUserId')}}">
             @endif
