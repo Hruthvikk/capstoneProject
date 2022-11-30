@@ -21,32 +21,37 @@
     <h2 style="text-align: center;">Meals</h2>
     <div class="pr">
             <div class="prr images">
-            
                 @foreach($brkfst as $bf)
+                <p>Breakfast</p>
                 <?php 
                     $imagename=$bf->recipeImage; 
                 ?>
                     <a href="{{url('viewrecipe',$bf->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
+                    <p>{{$bf->recipeName}}</p>
                 @endforeach
-                <p>Breakfast</p>
+                
             </div>
             <div class="prr images">
                 @foreach($lunch as $lch)
+                    <p>Lunch</p>
                     <?php 
                         $imagename=$lch->recipeImage; 
                     ?>
                     <a href="{{url('viewrecipe',$lch->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
+                    <p>{{$lch->recipeName}}</p>
                 @endforeach
-                <p>Lunch</p>
+                
             </div>
             <div class="prr images">
+                <p>Dinner</p> 
                 @foreach($dine as $dn)
                     <?php 
                         $imagename=$dn->recipeImage; 
                     ?>
                 <a href="{{url('viewrecipe',$dn->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
+                <p>{{$dn->recipeName}}</p>
                 @endforeach
-                <p>Dinner</p>               
+                              
             </div>
         </div>
     </div>
