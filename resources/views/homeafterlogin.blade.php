@@ -29,7 +29,6 @@
                     <a href="{{url('viewrecipe',$bf->id)}}"><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px"></a>
                     <p>{{$bf->recipeName}}</p>
                 @endforeach
-                
             </div>
             <div class="prr images">
                 @foreach($lunch as $lch)
