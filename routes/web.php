@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[aboutUs::class,'homeindex']);
-
+Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 
 Route::get('/recipesteps/{recipeid}',[RecipeController::class,'viewrecipesteps'])->middleware('isLoggedIn');
 Route::get('/viewrecipe/{recipeid}',[RecipeController::class,'viewrecipe'])->middleware('isLoggedIn');
@@ -63,7 +63,7 @@ Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn')->
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware('isLoggedIn')->name('added-recipe');
 Route::post('/update-recipe',[RecipeController::class,'updaterecipep'])->middleware('isLoggedIn')->name('update-recipe');
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn')->middleware('isAdmin');
-Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
+
 Route::get('/aboutus',[aboutUs::class,'index']);
 Route::get('/tant',[aboutUs::class,'tantindex'])->middleware('isLoggedIn');
 
