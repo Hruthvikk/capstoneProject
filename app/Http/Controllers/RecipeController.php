@@ -126,12 +126,34 @@ class RecipeController extends Controller
             $mtid[] = $request->mealtime;
             $esid[] = $request->eatingStyle;
             $oid[] = $request->occasion;
-            
-            $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
-                             ->orwhere('editStyle_id','=',$esid)
-                             ->orwhere('occasion_id','=',$oid)->get();
-            return view('searchedrecipes',['mtres'=>$mtres]);
-            
+            if($mtid)
+            {
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)->get();
+                return view('searchedrecipes',['mtres'=>$mtres]);
+            }else if($esid)
+            {
+                $mtres = DB::table('recipes')
+                ->where('editStyle_id','=',$esid)
+                ->get();
+            }else if($oid){
+                $mtres = DB::table('recipes')
+                ->where('occasion_id','=',$oid)->get();
+            }else if($mtid && $esid){
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
+                ->where('editStyle_id','=',$esid)
+                ->get();
+            }else if($mtid && $oid){
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
+                ->where('occasion_id','=',$oid)->get();
+            }else if($esid && $oid){
+                $mtres = DB::table('recipes')
+                ->where('editStyle_id','=',$esid)
+                ->where('occasion_id','=',$oid)->get();
+            }else if($esid && $mtid && $oid){
+                $mtres = DB::table('recipes')->where('mealTime_id','=',$mtid)
+                ->where('editStyle_id','=',$esid)
+                ->where('occasion_id','=',$oid)->get();
+            }
     }
     public function viewrecipe(Request $request,$id)
     {
