@@ -35,11 +35,21 @@
                 <p>Breakfast</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food8.jpg" alt=""  height="150px" width="150px">
+                @foreach($lunch as $lch)
+                    <?php 
+                        $imagename=$lch->recipeImage; 
+                    ?>
+                    <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                @endforeach
                 <p>Lunch</p>
             </div>
             <div class="prr images">
-                <img src="/images/Food11.jpg" alt=""  height="150px" width="150px">
+                @foreach($dine as $dn)
+                    <?php 
+                        $imagename=$dn->recipeImage; 
+                    ?>
+                <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?=$imagename?>"  alt="" height="200px" width="200px">
+                @endforeach
                 <p>Dinner</p>               
             </div>
         </div>

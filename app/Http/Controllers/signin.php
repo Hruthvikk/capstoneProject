@@ -50,9 +50,15 @@ class signin extends Controller
                         $request->session()->put('loginUser',$user->userEmail);
                         $request->session()->put('loginUserId',$user->id);
                         $request->session()->put('userRole',$user->userType);
-                        $brkfst = recipes::inRandomorder()->limit(1)->get();
-                        
-                        return view('homeafterlogin',['brkfst'=>$brkfst]);
+                        $brkfst = recipes::inRandomorder()->where('mealTime_id','=',1)->limit(1)->get();
+                        $lunch = recipes::inRandomorder()->where('mealTime_id','=',2)->limit(1)->get();
+                        $dine = recipes::inRandomorder()->where('mealTime_id','=',3)->limit(1)->get();
+                        $params = [
+                            'brkfst'=>$brkfst,
+                            'lunch' =>$lunch,
+                            'dine' =>$dine
+                        ];
+                        return view('homeafterlogin')->with($params);
                     }
                     else
                     {
