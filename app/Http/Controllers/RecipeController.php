@@ -12,6 +12,7 @@ use App\Models\ratingFav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -270,19 +271,54 @@ class RecipeController extends Controller
     }
     
 
-    public function updateRecipe($recipename){
+    public function updateRecipe($id){
         $eatingstyle=editStyle::all();
         $mealtime=mealTime::all();
         $occasions=occasion::all();
-        $uprecipeData = recipes::where('recipeName','=',$recipename)->get();
+        
+        $uprecipeData =  DB::table('recipes')->where('recipes.id','=',$id)
+        ->join('meal_times', 'recipes.mealTime_id','=','meal_times.id')
+        ->join('edit_styles', 'recipes.editStyle_id','=','edit_styles.id')
+        ->join('occasions', 'recipes.occasion_id','=','occasions.id')
+        ->select('recipes.*','meal_times.mealTimeName','edit_styles.editStyleName','occasions.occassionName')->get();
         $params=[
             'mealtime'=>$mealtime,
             'occasions'=>$occasions,
             'eatingstyle'=>$eatingstyle,
             'uprecipeData'=>$uprecipeData
+            
         ];
         
         return view('updateRecipe',['uprecipeData'=>$uprecipeData])->with($params);
+    }
+    public function updaterecipep(Request $request){
+        $rid = $request->rid;
+        $rimg = $request->recipeimage;
+        $rimg1 = Str::length($rimg);
+        $upr = recipes::find($rid);
+        if($rimg1 > 1) {
+            $path=$request->file('recipeimage')->store('images','s3');
+            Storage::disk('s3')->setVisibility($path,'public');
+            $upr->recipeImage = basename($path) ;
+        }
+        $upr->recipeName = $request->recipename;
+        $upr->recipeDescription = $request->recipedescription;
+        $upr->preparationTime = $request->preparationtime;
+        $upr->cookingTime = $request->cookingtime;
+        // $upr->ingredients = $ingredients1;
+        $upr->steps = $request->steps;
+        
+        $upr->mealTime_id = $request->mealtime;
+        $upr->editStyle_id = $request->eatingstyle;
+        $upr->occasion_id = $request->occasion;
+        $upr1=$upr->save();
+        if($upr1){
+            return back()->with('successupre','RECIPE UPDATED SUCCESSFULLY');
+        }
+        else{
+            return back()->with('unsuccessupre','RECIPE UPDATE UNSUCCESSFULLY');
+        }
+        
     }
 
 

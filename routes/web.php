@@ -61,6 +61,7 @@ Route::get('/addrecipe',[RecipeController::class,'index'])->middleware('isLogged
 Route::post('/subratefav',[ratingFavourite1::class,'raterecipe'])->middleware('isLoggedIn')->name('added-rate');
 Route::get('/adminView',[signin::class,'adminView'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::post('/added-recipe',[RecipeController::class,'addrecipep'])->middleware('isLoggedIn')->name('added-recipe');
+Route::post('/update-recipe',[RecipeController::class,'updaterecipep'])->middleware('isLoggedIn')->name('update-recipe');
 Route::get('/adminhomeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/homeafterlogin', [homeafterlogin::class,'index'])->middleware('isLoggedIn');
 Route::get('/aboutus',[aboutUs::class,'index']);

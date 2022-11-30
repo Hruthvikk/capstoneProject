@@ -2,10 +2,18 @@
 @section('content')
 @foreach ($uprecipeData as $updata )
     
-
-<form method="POST" action="{{route('added-recipe')}}" enctype="multipart/form-data">
+<div class="gridviewrecip">
+        <div class="gridv1">
+<form method="POST" action="{{route('update-recipe')}}" enctype="multipart/form-data">
        @csrf        
-       
+       <input type="hidden" value="{{$updata->id}}" name="rid">
+       @if(Session::has('successupre'))
+        <div class="alert alert-success">{{Session::get('successupre')}}</div>
+        @endif
+        @if(Session::has('unsuccessupre'))
+        <div class="alert alert-danger">{{Session::get('unsuccessupre')}}</div>
+        @endif
+        </div>
         <div class="form-group col-md-3">
             @if(Session::has('loginUserId'))
             <input type="hidden" name="user_id" value="{{Session::get('loginUserId')}}">
@@ -36,7 +44,7 @@
        <div class="form-group col-md-3">
        <label class="form-label" for="mealtime">Meal Time: </label>
        <select id="mealtime" name="mealtime">
-       <option  hidden disabled selected>Select An Option</option>
+       <option disabled selected>{{$updata->mealTimeName}}</option>
             @foreach ($mealtime as $mt )
                 
                 <option value="{{$mt->id}}" name="mealtime" selected>{{$mt->mealTimeName}}</option>    
@@ -47,7 +55,7 @@
        <div class="form-group col-md-3">
        <label class="form-label" for="eatingstyle">Eating style: </label>
        <select id="eatingstyle" name="eatingstyle">
-       <option  hidden disabled selected>Select An Option</option>
+       <option disabled selected>{{$updata->editStyleName}}</option>
             @foreach ($eatingstyle as $es )
                 <option value="{{$es->id}}" name="eatingstyle" selected>{{$es->editStyleName}}</option>    
             @endforeach
@@ -58,7 +66,7 @@
        <label class="form-label" for="occasion">Occasion: </label>
        
        <select id="occasion" name="occasion">
-       <option  hidden disabled selected>Select An Option</option>
+       <option disabled selected>{{$updata->occassionName}}</option>
             @foreach ($occasions as $occ )
                 <option value="{{$occ->id}}" name="occasion" selected>{{$occ->occassionName}}</option>    
             @endforeach
@@ -71,22 +79,48 @@
        </div>
        <br>
        <div class="form-group col-md-3">
-       Ingredients Required :
-            <table>
-              <tr>
-                  <td>Measurement</td>
-                  <td>Unit</td>
-                  <td>Ingredients</td>
-              </tr>
+        Ingredients Required :
+                <table>
+                <tr>
+                    <td>Measurement</td>
+                    <td>Unit</td>
+                    <td>Ingredients</td>
+                </tr>
+                
+                    <?php 
+                        $m=explode(",",$updata->measurement);
+                        $u=explode(",",$updata->unitName);
+                        $in=explode(",",$updata->ingredients);
+                        $i=0;  
+                    ?>
+                    @foreach ( $m as $m1 )
+                    <tr>
+                    
+                            <td>
+                            {!! $m1 !!}
+                            </td>
+                            <td>{!!$u[$i]!!}</td>
+                            <td>{!!$in[$i]!!}</td>
+                        <?php $i++?>
+                    @endforeach
+                    
+                        </tr>
+
+                </table>
        </div>
+            
        <br>
        <div class="form-group col-md-3">
        <label class="form-label">Steps: </label> <br>
        <textarea name="steps" >{{$updata->steps}}</textarea>
        </div>
-        <br>
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <div class="form-group col-md-3">
+            <br>
+        <input type="submit" class="btn btn-primary" value="UPDATE RECIPE">
+        </div>
         
     </form>
+        
     @endforeach
+    </div></div>
 @endsection
