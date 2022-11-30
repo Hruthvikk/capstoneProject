@@ -81,7 +81,7 @@ body {
 .prr{
     
     height: 290px;
-    width: auto;
+    width: 250;
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
 }
