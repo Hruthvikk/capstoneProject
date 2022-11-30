@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use App\Models\recipes;
+use Illuminate\Support\Facades\DB;
 
 class signin extends Controller
 {
@@ -50,9 +51,9 @@ class signin extends Controller
                         $request->session()->put('loginUser',$user->userEmail);
                         $request->session()->put('loginUserId',$user->id);
                         $request->session()->put('userRole',$user->userType);
-                        $b=recipes::select('id')->where('mealTime_id','=',1)->limit(1)->first();
-                        $l=recipes::select('id')->where('mealTime_id','=',2)->limit(1)->first();
-                        $d=recipes::select('id')->where('mealTime_id','=',3)->limit(1)->first();
+                        $b=DB::table('recipes')->select('id')->where('mealTime_id','=',1)->limit(1)->first();
+                        $l=DB::table('recipes')->select('id')->where('mealTime_id','=',2)->limit(1)->first();
+                        $d=DB::table('recipes')->where('mealTime_id','=',3)->limit(1)->first();
                         $rndrec = recipes::inRandomorder()
                         ->where('id','!=',$b)->where('id','!=',$l)->where('id','!=',$d)->orWhereNull('id')
                         ->limit(3)->get();
