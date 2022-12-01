@@ -14,9 +14,10 @@
                 height="200px" width="200px">
             <br>
             <script>
-                $(document).ready(function() {
+                $(document).ready(function getv() {
                     $("#getVal").click(function() {
                         $x = $("#numofperson").val();
+                        return $x;
                     });
                 });
             </script>
@@ -25,7 +26,7 @@
             ?>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <button id="getVal">Update Ingredients</button>
+            <button id="getVal" onclick="getv()">Update Ingredients</button>
 
             <h4>Total minutes : {!! $total !!}
                 <br>
