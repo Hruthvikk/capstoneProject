@@ -21,9 +21,10 @@
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
                     for(i=0; i<firstChilds.length; ++i){
-                    firstChilds[i].innerHTML += terf1
+                    firstChilds[i].innerHTML*=terf1
                     console.log(terf1);
                     }
+
                 }
             </script>
             <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
