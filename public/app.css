@@ -260,6 +260,24 @@ h3{
     color: #001F3F;
     background-color: #fff;
   }
+  .searbtn{
+    transition: all .5s ease;
+    color: #fff;
+    border: 3px solid #fff;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+  }
+  .searbtn:hover{
+    color: #001F3F;
+    background-color: seagreen;
+}
   .stylbtnedit{
     display: block;
     font-size: 24px;
