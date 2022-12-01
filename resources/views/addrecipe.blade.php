@@ -195,7 +195,7 @@
         <textarea name="steps" col="50" style="width: 650px;"></textarea>
     </div>
     <br>
-    <input type="submit" class="searbtn" value="Submit">
+    <input type="submit" class="searbtn" value="ADD RECIPE">
     </form>
 
     <script src="js/jquery.min.js"></script>
