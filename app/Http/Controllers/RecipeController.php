@@ -395,6 +395,7 @@ class RecipeController extends Controller
         $recipestepdata = recipes::where('id', $id)->get();
         return view('adminviewsteps', compact('recipestepdata'));
     }
+
     // This is function to display RECIPE'S steps on Member side
     public function infostepsmem($id)
     {

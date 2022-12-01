@@ -14,7 +14,7 @@
                         @if (Session::has('unsuccessupre'))
                             <div class="alert alert-danger">{{ Session::get('unsuccessupre') }}</div>
                         @endif
-                    </div>
+
                     @if (Session::has('loginUserId'))
                         <input type="hidden" name="user_id" value="{{ Session::get('loginUserId') }}">
                     @endif
@@ -26,6 +26,7 @@
                             {{ $message }}
                         @enderror
                     </span>
+                </div>
             </div>
             <br>
             <div class="form-group col-md-3">
