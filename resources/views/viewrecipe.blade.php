@@ -16,7 +16,7 @@
             <script language="javascript">
                 function getv() {
                     var terf = document.getElementById('terf');
-                    var terf1 = 1
+                    var terf1 = ""
                     terf1 = document.getElementById('numofperson').value;
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
