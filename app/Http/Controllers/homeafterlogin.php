@@ -29,7 +29,7 @@ class homeafterlogin extends Controller
                             'dine' => $dine,
                             'user' => $user
                         ];
-        return view('homeafterlogin',['rndrec'=>$rndrec])->with($params);
+        return view('homeafterlogin')->with($params);
     }
     // This is function to display edit profile page with recipes added by user
     // which is logged in
