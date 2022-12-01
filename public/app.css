@@ -224,11 +224,23 @@ h3{
     height: 350px;
     background-color: slategray;
   }
-  .wraa{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .signinupbtndel{
+    transition: all .5s ease;
+    color: crimson;
+    border: 3px solid white;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+  }
+  .signinupbtndel:hover{
+    color: #001F3F;
+    background-color: #fff;
   }
   .signinupbtn{
     transition: all .5s ease;
@@ -254,8 +266,8 @@ h3{
     font-family: sans-serif;
     text-decoration: none;
     color: whitesmoke;
-    border-top: 2px solid forestgreen;
-    border-bottom: 2px solid forestgreen;
+    border-top: 2px solid mediumblue;
+    border-bottom: 2px solid mediumblue;
     padding: 10px;
     letter-spacing: 2px;
     transition: all .25s;

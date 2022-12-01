@@ -71,9 +71,9 @@
                         <td><img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
                                 alt="" height="125px" width="125px"></td>
                         <td>
-                            <a href="{{ url('adminviewsteps', $dr->id) }}" class="btn btn-light">View Steps</a>
+                            <a href="{{ url('adminviewsteps', $dr->id) }}" class="stylbtn">View Steps</a>
                             <br>
-                            <a href="{{ url('deleteRecipe', $dr->id) }}" class="btn btn-danger">Delete Recipe</a>
+                            <a href="{{ url('deleteRecipe', $dr->id) }}" class="signinupbtndel">Delete Recipe</a>
                         </td>
                     </tr>
                 @endforeach

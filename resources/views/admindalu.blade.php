@@ -43,7 +43,7 @@
                         <td>{{ $au->userFirstName }}</td>
                         <td>{{ $au->userLastName }}</td>
                         <td>{{ $au->userEmail }}</td>
-                        <td><a href="{{ url('deleteuser', $au->id) }}" class="btn btn-danger">D</a></td>
+                        <td><a href="{{ url('deleteuser', $au->id) }}" class="signinupbtndel">D</a></td>
                     </tr>
                 @endforeach
 
