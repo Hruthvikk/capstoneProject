@@ -14,17 +14,20 @@
                 height="200px" width="200px">
             <br>
             <script language="javascript">
-                $(document).ready(function getv() {
-                    $("#getVal").click(function() {
-                        var x = $("#numofperson").val();
-                        var y = $("#measurementnum").val(y);
+                function getv(numppl) {
+                var table = document.getElementById(numppl);
+                var numofppl = document.getElementById("#numofperson");
+                var mcol = document.getElementById("#measurementnum");
+                var rowCount = table.rows.length;
+                for(var i = 0; i < rowCount; i++ ){
+                    table.rows[i].cell[0].innerHTML = mcol*numofppl
+                }
 
-                    });
-                });
+                }
             </script>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <button id="getVal" onclick="getv()">Update Ingredients</button>
+            <input type="button" id="getVal" onclick="getv('numppl')" value="Update Ingredients"/>
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -33,7 +36,7 @@
                 Cooking Time : {!! $recd->cookingTime !!}
                 <br>
                 Ingredients Required :
-                <table>
+                <table id="numppl">
                     <tr>
                         <td>Measurement</td>
                         <td>Unit</td>
