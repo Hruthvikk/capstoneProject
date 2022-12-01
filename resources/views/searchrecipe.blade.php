@@ -36,7 +36,7 @@
                     @endforeach
                 </div>
                 <div>
-                    <button class="stylbtn" type="submit" value="Search" id="srecipe" name="srecipe"></button>
+                    <button class="stylbtn" type="submit"  id="srecipe" name="srecipe">Search</button>
                     </form>
                     <BR><BR>
                     @if (Session::has('notsel'))
