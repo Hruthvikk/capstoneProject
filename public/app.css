@@ -248,6 +248,21 @@ h3{
     color: #001F3F;
     background-color: #fff;
   }
+  .stylbtnedit{
+    display: block;
+    font-size: 24px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
+    border-top: 2px solid deepskyblue;
+    border-bottom: 2px solid whitesmoke;
+    padding: 10px;
+    letter-spacing: 2px;
+    transition: all .25s;
+  }
+  .stylbtnedit:hover{
+    letter-spacing: 15px;
+  }
   .stylbtn{
     display: block;
     font-size: 24px;
