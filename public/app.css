@@ -84,6 +84,10 @@ body {
     width: 250;
     border-radius: 10px;
     box-shadow: 2px 2px 4px lightgray;
+    transition: transform 250ms;
+}
+.prr:hover{
+    transform: translateX(-10px);
 }
 .displaysteps h2{
   margin-left: 7%;
