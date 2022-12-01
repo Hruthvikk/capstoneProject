@@ -32,7 +32,7 @@
                 </span>
             </div>
             <br>
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="signinupbtn" type="submit">Login</button>
         </form>
     </div>
 @endsection
