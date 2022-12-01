@@ -13,17 +13,15 @@
             <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>" alt=""
                 height="200px" width="200px">
             <br>
-            <script>
+            <script language="javascript">
                 $(document).ready(function getv() {
                     $("#getVal").click(function() {
-                        $x = $("#numofperson").val();
-                        return $x;
+                        var x = $("#numofperson").val();
+                        var y = $("#measurementnum").val();
+                        return x*y;
                     });
                 });
             </script>
-            <?php
-            $x = 1;
-            ?>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
             <button id="getVal" onclick="getv()">Update Ingredients</button>
@@ -51,8 +49,8 @@
                     @foreach ($m as $m1)
                         <tr>
 
-                            <td>
-                                {!! $m1 * $x !!}
+                            <td id="measurementnum">
+                                {!! $m1 !!}
                             </td>
                             <td>{!! $u[$i] !!}</td>
                             <td>{!! $in[$i] !!}</td>
