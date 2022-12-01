@@ -14,9 +14,9 @@ class homeafterlogin extends Controller
     {
         $user = userRoles::all();
         $b = DB::table('recipes')->select('id')->where('mealTime_id', '=', 1)->limit(1)->first();
-                        $l = DB::table('recipes')->select('id')->where('mealTime_id', '=', 2)->limit(1)->first();
-                        $d = DB::table('recipes')->where('mealTime_id', '=', 3)->limit(1)->first();
-                        $rndrec = recipes::inRandomorder()
+        $l = DB::table('recipes')->select('id')->where('mealTime_id', '=', 2)->limit(1)->first();
+        $d = DB::table('recipes')->where('mealTime_id', '=', 3)->limit(1)->first();
+            $rndrec = recipes::inRandomorder()
                             ->where('id', '!=', $b->id)->where('id', '!=', $l->id)->where('id', '!=', $d->id)->orWhereNull('id')
                             ->limit(3)->get();
                         $brkfst = recipes::where('mealTime_id', '=', 1)->limit(1)->get();
