@@ -11,9 +11,8 @@ body {
     width: 100vw;
     color: yellowgreen;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-
 }
+
 
 .navbar{
     background-image: url("navbackg.jpg");
@@ -225,7 +224,7 @@ h3{
     height: 350px;
     background-color: slategray;
   }
-  .steps{
+  .steps, .aus{
     max-width: 1100px;
     margin-left: 15%;
     margin-right: 15%;

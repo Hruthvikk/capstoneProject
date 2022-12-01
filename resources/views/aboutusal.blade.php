@@ -2,6 +2,7 @@
 @section('content')
     <div style="color:yellow;">
         <h3>About Us</h3>
+        <p class="aus">
         Mirch Masala is a website that provides you with recipes of delicious Indian food and beverages you can easily cook
         at home.
         By clicking on a particular recipe you will see all the ingredients you need to prepare a recipe.
@@ -14,5 +15,6 @@
         Also it provides with cooking time and preparation time.
         Check mark after completing each step.
         The admin can manage and add new recipes to the site.
+        </p>
     </div>
 @endsection
