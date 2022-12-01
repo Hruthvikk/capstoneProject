@@ -16,13 +16,15 @@
             <script language="javascript">
                 function getv() {
                     var terf = document.getElementById('terf');
+                    var terf1 = document.getElementById('numofperson');
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
                     for(i=0; i<firstChilds.length; ++i){
-                    allName.push(firstChilds[i].innerHTML);
+                    firstChilds[i].innerHTML += terf1
+                    console.log(firstChilds[i].innerHTML += terf1);
                     }
 
-                    console.log(allName);
+
                 }
             </script>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
