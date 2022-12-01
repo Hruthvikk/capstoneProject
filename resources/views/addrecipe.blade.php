@@ -183,7 +183,7 @@
             <br>
             <div class="form-group col-md-3">
                 <label class="form-label">Recipe Image: </label>
-                <input type="file" name="recipeimage">
+                <input type="file" class="btn btn-light" name="recipeimage">
             </div>
             <br>
 
@@ -195,7 +195,7 @@
         <textarea name="steps" col="50" style="width: 650px;"></textarea>
     </div>
     <br>
-    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="submit" class="searbtn" value="Submit">
     </form>
 
     <script src="js/jquery.min.js"></script>
