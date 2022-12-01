@@ -6,14 +6,15 @@
             @foreach ($recipedata as $recd)
             @endforeach
             <h4>Recipe Description : {!! $recd->recipeDescription !!}</h4>
-            <h4>Cooking for :  <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person" defaultvalue="1" placeholder="1"> </h4>
-            <a href="">Update Ingredients</a>
             <?php
             $total = $recd->preparationTime + $recd->cookingTime + 5;
             $imagename = $recd->recipeImage;
             ?>
             <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>" alt=""
                 height="200px" width="200px">
+            <h4>Cooking for :  <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person" defaultvalue="1" placeholder="1"> </h4>
+            <a href="">Update Ingredients</a>
+
             <h4>Total minutes : {!! $total !!}
                 <br>
                 Preparation Time : {!! $recd->preparationTime !!}
