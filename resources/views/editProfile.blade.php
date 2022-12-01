@@ -22,7 +22,6 @@
                 <th>Cooking Time</th>
                 <th>Ingredients</th>
                 <th>Steps</th>
-                <th>Username</th>
                 <th>Eating Style</th>
                 <th>Occasion</th>
                 <th>Meal Time</th>
@@ -39,7 +38,6 @@
                         <td>{{ $r->cookingTime }} Minutes</td>
                         <td>{{ $r->ingredients }}</td>
                         <td>{{ $r->steps }}</td>
-                        <td>{{ $r->userFirstName }}</td>
                         <td>{{ $r->editStyleName }}</td>
                         <td>{{ $r->occassionName }}</td>
                         <td>{{ $r->mealTimeName }}</td>
