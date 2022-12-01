@@ -1,5 +1,6 @@
 @extends('mainafterlogin')
 @section('content')
+    <div class="pr">
     @foreach ($userFavourites as $uf)
         <div class="prr images">
             <?php
@@ -11,4 +12,5 @@
             <p>{{ $uf->recipeName }}</p>
         </div>
     @endforeach
+    </div>
 @endsection

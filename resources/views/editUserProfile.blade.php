@@ -39,7 +39,7 @@
                 </span>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="edbtn">Update</button>
         </form>
     </div>
 @endsection
