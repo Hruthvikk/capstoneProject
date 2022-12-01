@@ -14,22 +14,20 @@
                 height="200px" width="200px">
             <br>
             <script language="javascript">
-                function getv(numppl) {
-                var table = document.getElementById(numppl);
-                var numofppl = document.getElementById("#numofperson");
-                var mcol = document.getElementById("#measurementnum");
-                var rowCount = table.rows.length;
-                    console.log(mcol);
-                    console.log(numofppl);
-                    console.log(mcol*numofppl);
-                    var arr = $('#ItemsTable tr').find('td:first').map(function(){
-                    console.log($(this).text())
-                    }).get()
+                function getv() {
+                    var terf = document.getElementById('terf');
+                    var firstChilds = terf.querySelectorAll("td:first-child");
+                    var allName = [];
+                    for(i=0; i<firstChilds.length; ++i){
+                    allName.push(firstChilds[i].innerHTML);
+                    }
+
+                    console.log(allName);
                 }
             </script>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <input type="button" id="getVal" onclick="getv('numppl')" value="Update Ingredients"/>
+            <input type="button" id="getVal" onclick="getv()" value="Update Ingredients"/>
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -51,6 +49,7 @@
                     $in = explode(',', $recd->ingredients);
                     $i = 0;
                     ?>
+                    <tbody id="terf">
                     @foreach ($m as $m1)
                         <tr>
 
@@ -63,7 +62,7 @@
                     @endforeach
 
                     </tr>
-
+                    </tbody>
                 </table>
 
             </h4>
