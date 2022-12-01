@@ -13,14 +13,6 @@
                 @endif
             </div>
             <div class="form-group col-md-3">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-at"></i></span>
-                </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-            </div>
-            <div class="form-group col-md-3">
                 <label class="form-label">Email</label>
                 <input type="email" name="userEmail" class="form-control" value="{{ old('userEmail') }}"
                     placeholder="email" />
@@ -30,6 +22,12 @@
                     @enderror
                 </span>
             </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
             <div class="form-group col-md-3">
                 <label class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="password" />
