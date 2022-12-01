@@ -6,7 +6,7 @@
             @foreach ($recipedata as $recd)
             @endforeach
             <h4>Recipe Description : {!! $recd->recipeDescription !!}</h4>
-            <!-- <h4>Cooking for :  <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"> </h4> -->
+            <h4>Cooking for :  <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"> </h4>
 
             <?php
             $total = $recd->preparationTime + $recd->cookingTime + 5;
