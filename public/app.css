@@ -255,7 +255,7 @@ h3{
     text-decoration: none;
     color: whitesmoke;
     border-top: 2px solid deepskyblue;
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 2px solid deepskyblue;
     padding: 10px;
     letter-spacing: 2px;
     transition: all .25s;
