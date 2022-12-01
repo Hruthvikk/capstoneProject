@@ -6,8 +6,8 @@
             @foreach ($recipedata as $recd)
             @endforeach
             <h4>Recipe Description : {!! $recd->recipeDescription !!}</h4>
-            <h4>Cooking for :  <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"> </h4>
-
+            <h4>Cooking for :  <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person" defaultvalue="1" placeholder="1"> </h4>
+            <a href="">Update Ingredients</a>
             <?php
             $total = $recd->preparationTime + $recd->cookingTime + 5;
             $imagename = $recd->recipeImage;
