@@ -21,7 +21,7 @@
                 var rowCount = table.rows.length;
                 for(var i = 0; i < rowCount; i++ ){
 
-                    console.log(table.rows.cell[0].innerHTML);
+
                     console.log(mcol);
                     console.log(numofppl);
                     console.log(mcol*numofppl);
