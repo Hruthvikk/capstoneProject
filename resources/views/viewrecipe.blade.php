@@ -12,8 +12,20 @@
             ?>
             <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>" alt=""
                 height="200px" width="200px">
-            <h4>Cooking for :  <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person" defaultvalue="1" placeholder="1"> </h4>
-            <a href="">Update Ingredients</a>
+            <br>
+            <script>
+                $(document).ready(function() {
+                    $("#getVal").click(function() {
+                        $x = $("#numofperson").val();
+                    });
+                });
+            </script>
+            <?php
+            $x = 1;
+            ?>
+            <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
+                    defaultvalue="1" placeholder="1"> </h4>
+            <button id="getVal">Update Ingredients</button>
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -39,7 +51,7 @@
                         <tr>
 
                             <td>
-                                {!! $m1 !!}
+                                {!! $m1 * $x !!}
                             </td>
                             <td>{!! $u[$i] !!}</td>
                             <td>{!! $in[$i] !!}</td>
