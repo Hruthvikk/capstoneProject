@@ -20,7 +20,7 @@
                 var mcol = document.getElementById("#measurementnum");
                 var rowCount = table.rows.length;
                 for(var i = 0; i < rowCount; i++ ){
-                    table.rows[i].cell[0].innerHTML = mcol*numofppl
+
                     console.log(table.rows.cell[0].innerHTML);
                     console.log(mcol);
                     console.log(numofppl);
