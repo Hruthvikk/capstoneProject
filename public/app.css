@@ -233,7 +233,7 @@ h3{
   .signinupbtn{
     transition: all .5s ease;
     color: #fff;
-    border: 3px solid white;
+    border: 3px solid yellowgreen;
     font-family:'Montserrat', sans-serif;
     text-transform: uppercase;
     text-align: center;
