@@ -46,6 +46,7 @@
                                 alt="" height="125px" width="125px"></td>
                         <td>
                             <a href="{{ url('memviewsteps', $r->id) }}" class="stylbtn">View Steps</a>
+                            <br>
                             <a href="{{ url('updateRecipe', $r->id) }}" class="stylbtnedit">Update Recipe</a>
                         </td>
                     </tr>
