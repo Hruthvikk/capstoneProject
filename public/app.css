@@ -10,7 +10,7 @@ body {
     position: absolute;
     width: 100vw;
     color: yellowgreen;
-    font:monospace;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 
 }
