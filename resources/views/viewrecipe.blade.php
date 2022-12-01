@@ -23,11 +23,9 @@
                     firstChilds[i].innerHTML += terf1
                     console.log(firstChilds[i].innerHTML += terf1);
                     }
-
-
                 }
             </script>
-            <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
+            <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
             <input type="button" id="getVal" onclick="getv()" value="Update Ingredients"/>
 
