@@ -19,14 +19,12 @@
                 var numofppl = document.getElementById("#numofperson");
                 var mcol = document.getElementById("#measurementnum");
                 var rowCount = table.rows.length;
-                for(var i = 0; i < rowCount; i++ ){
-
-
                     console.log(mcol);
                     console.log(numofppl);
                     console.log(mcol*numofppl);
-                }
-
+                    var arr = $('#ItemsTable tr').find('td:first').map(function(){
+                    console.log($(this).text())
+                    }).get()
                 }
             </script>
             <h4>Cooking for : <input type="number" id="numofperson" name="numofperson" placeholder="Number of Person"
