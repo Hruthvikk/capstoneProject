@@ -17,8 +17,8 @@
                 $(document).ready(function getv() {
                     $("#getVal").click(function() {
                         var x = $("#numofperson").val();
-                        var y = $("#measurementnum").val();
-                        y.innerHTML = x*y;
+                        var y = $("#measurementnum").val(y);
+
                     });
                 });
             </script>
