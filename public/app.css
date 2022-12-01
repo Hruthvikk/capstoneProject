@@ -49,14 +49,21 @@ body {
     grid-template-columns: repeat(3,1fr);
     grid-gap: 45px;
 }
+.prfav{
+    width: 300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 45px;
+}
 @media (min-width: 300px) {
-    .grid-cointainer,.pr, .edre{ grid-template-columns: repeat(1, 1fr); }
+    .grid-cointainer,.pr, .prfav,.edre{ grid-template-columns: repeat(1, 1fr); }
   }
 @media (min-width: 600px) {
-  .grid-cointainer,.pr,.edre { grid-template-columns: repeat(2, 1fr); }
+  .grid-cointainer,.pr,.prfav,.edre { grid-template-columns: repeat(2, 1fr); }
   }
   @media (min-width: 900px) {
-   .grid-cointainer,.pr,.edre { grid-template-columns: repeat(3, 1fr); }
+   .grid-cointainer,.pr,.prfav,.edre { grid-template-columns: repeat(3, 1fr); }
   }
 
 
