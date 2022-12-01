@@ -13,13 +13,15 @@
                 @endif
             </div>
             <div class="form-group col-md-3">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-at"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="form-group col-md-3">
                 <label class="form-label">Email</label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text"><i class="bi bi-envelope-at"></i></div>
-                    </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-                  </div>
                 <input type="email" name="userEmail" class="form-control" value="{{ old('userEmail') }}"
                     placeholder="email" />
                 <span class="text-danger">
