@@ -7,8 +7,8 @@
         @if (Session::has('loginUserId'))
             <?php $uid = session('loginUserId'); ?>
             <!-- {{ url('editUserProfile/<?= $uid ?>') }} -->
-            <a href="{{ url('editUserProfile', $uid) }}" class="stylbtn">Edit Profile</a>
-            <a href="{{ url('/viewfavourites') }}" class="stylbtnedit">View Favourites</a>
+            <a href="{{ url('editUserProfile', $uid) }}" class="edbtn">Edit Profile</a>
+            <a href="{{ url('/viewfavourites') }}" class="vfbtn">View Favourites</a>
         @endif
     </div>
     <br><br>
