@@ -226,7 +226,7 @@ h3{
   }
   .signinupbtndel{
     transition: all .5s ease;
-    color: crimson;
+    color: #fff;
     border: 3px solid white;
     font-family:'Montserrat', sans-serif;
     text-transform: uppercase;
@@ -240,7 +240,7 @@ h3{
   }
   .signinupbtndel:hover{
     color: #001F3F;
-    background-color: #fff;
+    background-color: crimson;
   }
   .signinupbtn{
     transition: all .5s ease;
