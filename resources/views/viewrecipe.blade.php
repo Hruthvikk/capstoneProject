@@ -21,12 +21,15 @@
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
                     for(i=0; i<firstChilds.length; ++i){
-                        allName.push(firstChilds[i].innerHTML)
+                        allName.push(firstChilds[i].innerHTML);
+                        console.log(allName);
                     }
                     for(i=0; i<firstChilds.length; ++i){
-                    firstChilds[i].innerHTML=allName[i]
-                    firstChilds[i].innerHTML*=terf1
-                    console.log(terf1);
+                    firstChilds[i].innerHTML=allName[i];
+                    console.log(allName[i]);
+                    }
+                    for(i=0; i<firstChilds.length; ++i){
+                        firstChilds[i].innerHTML*=terf1;
                     }
 
                 }
