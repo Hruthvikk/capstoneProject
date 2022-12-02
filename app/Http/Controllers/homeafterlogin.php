@@ -62,8 +62,8 @@ class homeafterlogin extends Controller
     public function updatep1(Request $request, $uid)
     {
         $request->validate([
-            'email' => 'required|email:rfc,dns|unique:user_roles,userEmail',
-            'phonenumber' => 'required |numeric |digits:10'
+            'phonenumber' => 'required |numeric |digits:10',
+            'email' => 'required|email:rfc,dns|unique:user_roles,userEmail,'.$this->id.',id',
         ]);
         $up = userRoles::find($uid);
 
