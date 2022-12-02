@@ -15,6 +15,7 @@
             <br>
             <script language="javascript">
                 var allName = [];
+
                 function getv() {
                     var terf = document.getElementById('terf');
                     var terf1 = ""
@@ -26,22 +27,19 @@
                             allName.push(firstChilds[i].innerHTML);
                             console.log(allName[i]);
                         }
-                        // for(i=0; i<firstChilds.length; ++i){
-                        //
-                            console.log("HEllo");
-                        // }
+                        console.log("HEllo");
+
                         for (i = 0; i < firstChilds.length; i++) {
                             firstChilds[i].innerHTML = (allName[i] * terf1);
                         }
 
-                    }
-                        else{
-                            console.log("world");
-                            for (i = 0; i < firstChilds.length; i++) {
-                                firstChilds[i].innerHTML = allName[i];
-                                firstChilds[i].innerHTML *= terf1;
-                            }
+                    } else {
+                        console.log("world");
+                        for (i = 0; i < firstChilds.length; i++) {
+                            firstChilds[i].innerHTML = allName[i];
+                            firstChilds[i].innerHTML *= terf1;
                         }
+                    }
 
 
 
@@ -49,7 +47,7 @@
             </script>
             <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <input type="button" id="getVal" onclick="getv()" value="Update Ingredients" />
+            <input type="button" class="" id="getVal" onclick="getv()" value="Update Ingredients" />
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -89,8 +87,8 @@
 
             </h4>
             <br>
-            <button><a href="{{ url('recipesteps', $recd->id) }}">I have All ingredients</a></button>
-            <button><a href="">I dont have all ingredients</a></button>
+            <button><a href="{{ url('recipesteps', $recd->id) }}" class="edbtn">I have All ingredients</a></button>
+            <button><a href="{{ url('grocerylist', $recd->id) }}" class="vfbtn">I dont have all ingredients</a></button>
         </div>
 
         <div class="gridv2">

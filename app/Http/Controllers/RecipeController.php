@@ -228,6 +228,10 @@ class RecipeController extends Controller
         $recipestepdata = recipes::where('id', $id)->get();
         return view('recipesteps', compact('recipestepdata'));
     }
+    public function viewingredients($id){
+        $recipeingredata = recipes::where('id', $id)->get();
+        return view('grocerylist', compact('recipeingredata'));
+    }
 
     // This is function to display UPDATE RECIPE table on member's side.
     public function updateRecipe($id)
