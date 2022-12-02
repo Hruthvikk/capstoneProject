@@ -39,6 +39,7 @@
             </thead>
             <tbody>
                 @foreach ($displayau as $au)
+                <?php console.log($au); ?>
                     <tr>
                         <td>{{ $au->userFirstName }}</td>
                         <td>{{ $au->userLastName }}</td>
