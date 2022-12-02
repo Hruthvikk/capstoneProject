@@ -34,12 +34,13 @@
                         }
 
                     }
-                    else{
+                    else if(j>=1){
                         for(i=0; i<firstChilds.length; ++i){
                             firstChilds[i].innerHTML=allName[i]*terf1;
                         }
                     }
                     j++;
+                    console.log(j);
                 }
             </script>
             <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
