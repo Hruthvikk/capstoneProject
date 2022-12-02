@@ -36,7 +36,14 @@
                     }
                     else if(allName.length>=1){
                         for(i=0; i<firstChilds.length; ++i){
-                            firstChilds[i].innerHTML=allName[i]*terf1;
+                            allName.push(firstChilds[i].innerHTML);
+                        }
+                        for(i=0; i<firstChilds.length; ++i){
+                        firstChilds[i].innerHTML=allName[i];
+                        console.log(allName[i]);
+                        }
+                        for(i=0; i<firstChilds.length; ++i){
+                            firstChilds[i].innerHTML=(allName[i]*terf1);
                         }
                     }
                     j++;
