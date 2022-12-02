@@ -21,7 +21,7 @@
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
                     var j = 0;
-                    if(j==0){
+                    if(allName.length==0){
                         for(i=0; i<firstChilds.length; ++i){
                             allName.push(firstChilds[i].innerHTML);
                         }
@@ -34,7 +34,7 @@
                         }
 
                     }
-                    else if(j>=1){
+                    else if(allName.length>=1){
                         for(i=0; i<firstChilds.length; ++i){
                             firstChilds[i].innerHTML=allName[i]*terf1;
                         }
