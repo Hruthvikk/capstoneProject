@@ -21,33 +21,35 @@
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
 
-                    if(allName.length==0){
-                        for(i=0; i<firstChilds.length; i++){
+                    if (allName.length == 0) {
+                        for (i = 0; i < firstChilds.length; i++) {
                             allName.push(firstChilds[i].innerHTML);
                             console.log(allName[i]);
                         }
                         // for(i=0; i<firstChilds.length; ++i){
                         //
-
+                            console.log("HEllo");
                         // }
-                        for(i=0; i<firstChilds.length; i++){
-                            firstChilds[i].innerHTML=(allName[i]*terf1);
+                        for (i = 0; i < firstChilds.length; i++) {
+                            firstChilds[i].innerHTML = (allName[i] * terf1);
                         }
 
-                    // }
-                    else if(allName.length>=1){
-                        for(i=0; i<firstChilds.length; i++){
-                            firstChilds[i].value=allName[i];
-                            firstChilds[i].value*=terf1;
-                        }
                     }
+                        else{
+                            console.log("world");
+                            for (i = 0; i < firstChilds.length; i++) {
+                                firstChilds[i].value = allName[i];
+                                firstChilds[i].value *= terf1;
+                            }
+                        }
+
 
 
                 }
             </script>
             <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <input type="button" id="getVal" onclick="getv()" value="Update Ingredients"/>
+            <input type="button" id="getVal" onclick="getv()" value="Update Ingredients" />
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -70,18 +72,18 @@
                     $i = 0;
                     ?>
                     <tbody id="terf">
-                    @foreach ($m as $m1)
-                        <tr>
+                        @foreach ($m as $m1)
+                            <tr>
 
-                            <td id="measurementnum">
-                                {!! $m1 !!}
-                            </td>
-                            <td>{!! $u[$i] !!}</td>
-                            <td>{!! $in[$i] !!}</td>
-                            <?php $i++; ?>
-                    @endforeach
+                                <td id="measurementnum">
+                                    {!! $m1 !!}
+                                </td>
+                                <td>{!! $u[$i] !!}</td>
+                                <td>{!! $in[$i] !!}</td>
+                                <?php $i++; ?>
+                        @endforeach
 
-                    </tr>
+                        </tr>
                     </tbody>
                 </table>
 
