@@ -20,17 +20,19 @@
                     terf1 = document.getElementById('numofperson').value;
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
-                    var j = 0;
+
                     if(allName.length==0){
                         for(i=0; i<firstChilds.length; ++i){
                             allName.push(firstChilds[i].innerHTML);
+                            console.log(allName[i]);
                         }
-                        for(i=0; i<firstChilds.length; ++i){
-                        firstChilds[i].innerHTML=allName[i];
-                        console.log(allName[i]);
-                        }
+                        // for(i=0; i<firstChilds.length; ++i){
+                        // firstChilds[i].innerHTML=allName[i];
+
+                        // }
                         for(i=0; i<firstChilds.length; ++i){
                             firstChilds[i].innerHTML*=terf1;
+
                         }
 
                     }
