@@ -63,7 +63,7 @@ class homeafterlogin extends Controller
     {
         $request->validate([
             'phonenumber' => 'required |numeric |digits:10',
-            'email' => 'required|email:rfc,dns|unique:user_roles,userEmail,'.$request->id.',id',
+            'email' => 'required|email:rfc,dns|unique:user_roles,userEmail,'.$this->uid,
         ]);
         $up = userRoles::find($uid);
 
