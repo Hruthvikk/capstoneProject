@@ -39,7 +39,7 @@
             </thead>
             <tbody>
                 @foreach ($displayau as $au)
-                <?php var_dump($au+"Hello"); ?>
+                <?php var_dump($au); ?>
                     <tr>
                         <td>{{ $au->userFirstName }}</td>
                         <td>{{ $au->userLastName }}</td>
