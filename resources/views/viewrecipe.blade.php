@@ -22,7 +22,7 @@
                     var allName = [];
 
                     // if(allName.length==0){
-                        for(i=0; i<firstChilds.length; ++i){
+                        for(i=0; i<firstChilds.length; i++){
                             allName.push(firstChilds[i].innerHTML);
                             console.log(allName[i]);
                         }
@@ -30,7 +30,7 @@
                         // firstChilds[i].innerHTML=allName[i];
 
                         // }
-                        for(i=0; i<firstChilds.length; ++i){
+                        for(i=0; i<firstChilds.length; i++){
                             firstChilds[i].innerHTML=(allName[i]*terf1);
                         }
 
