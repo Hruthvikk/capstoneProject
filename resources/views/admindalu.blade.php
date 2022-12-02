@@ -39,7 +39,7 @@
             </thead>
             <tbody>
                 @foreach ($displayau as $au)
-                <?php console.log($au+"Hello"); ?>
+                <?php var_dimp($au+"Hello"); ?>
                     <tr>
                         <td>{{ $au->userFirstName }}</td>
                         <td>{{ $au->userLastName }}</td>
