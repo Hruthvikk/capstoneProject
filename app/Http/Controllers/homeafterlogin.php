@@ -112,12 +112,12 @@ class homeafterlogin extends Controller
         $data = compact('displayau');
         return view('admindalu')->with($data);
     }
-    // This is function to display
+    // This is function to display users with date filter
     public function displayUserWithDate(Request $request)
     {
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
-        $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?", [$fromDate . " 00:00:00", $toDate . " 23:59:59"])->paginate(5);
+        $displayau = userRoles::where("created_at >= ? AND created_at <= ?", [$fromDate . " 00:00:00", $toDate . " 23:59:59"])->paginate(5);
         $data = compact('displayau');
         return back()->with($data);
     }
