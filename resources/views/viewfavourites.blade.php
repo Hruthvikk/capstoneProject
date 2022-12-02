@@ -1,6 +1,6 @@
 @extends('mainafterlogin')
 @section('content')
-    <h4>My Favourites:</h4>
+    <h2>My Favourites:</h2>
     <div class="prfav">
         @foreach ($userFavourites as $uf)
             <div class="prr images">
