@@ -6,6 +6,10 @@
             @csrf
             @method('PUT')
             <div class="form-group col-md-3">
+                <input type="hidden" name="id" class="form-control" placeholder="{{ $userdata->id }}"
+                />
+            </div>
+            <div class="form-group col-md-3">
                 @if (Session::has('success2'))
                     <div class="alert alert-info">{{ Session::get('success2') }}</div>
                 @endif
