@@ -307,7 +307,7 @@ class RecipeController extends Controller
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
 
-        $displayar = recipes::whereRaw("recipes.created_at >= ? AND recipes.created_at <= ?", [$fromDate . " 00:00:00", $toDate . " 23:59:59"])
+        $displayar = recipes::whereRaw("recipes.created_at >= ? AND recipes.created_at <= ?", [$fromDate."00:00:00", $toDate."23:59:59"])
             ->join('user_roles', 'recipes.user_id', '=', 'user_roles.id')
             ->join('meal_times', 'recipes.mealTime_id', '=', 'meal_times.id')
             ->join('edit_styles', 'recipes.editStyle_id', '=', 'edit_styles.id')
