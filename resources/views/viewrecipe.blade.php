@@ -38,8 +38,8 @@
                         else{
                             console.log("world");
                             for (i = 0; i < firstChilds.length; i++) {
-                                firstChilds[i].value = allName[i];
-                                firstChilds[i].value *= terf1;
+                                firstChilds[i].innerHTML = allName[i];
+                                firstChilds[i].innerHTML *= terf1;
                             }
                         }
 
