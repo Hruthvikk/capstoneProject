@@ -21,13 +21,13 @@
                     var firstChilds = terf.querySelectorAll("td:first-child");
                     var allName = [];
 
-                    // if(allName.length==0){
+                    if(allName.length==0){
                         for(i=0; i<firstChilds.length; i++){
                             allName.push(firstChilds[i].innerHTML);
                             console.log(allName[i]);
                         }
                         // for(i=0; i<firstChilds.length; ++i){
-                        // firstChilds[i].innerHTML=allName[i];
+                        //
 
                         // }
                         for(i=0; i<firstChilds.length; i++){
@@ -35,9 +35,12 @@
                         }
 
                     // }
-                    // else if(allName.length>=1){
-
-                    // }
+                    else if(allName.length>=1){
+                        for(i=0; i<firstChilds.length; i++){
+                            firstChilds[i].value=allName[i];
+                            firstChilds[i].value*=terf1;
+                        }
+                    }
 
 
                 }
