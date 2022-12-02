@@ -47,7 +47,7 @@
             </script>
             <h4>Cooking for : <input type="text" id="numofperson" name="numofperson" placeholder="Number of Person"
                     defaultvalue="1" placeholder="1"> </h4>
-            <input type="button" class="" id="getVal" onclick="getv()" value="Update Ingredients" />
+            <input type="button" class="btn btn-warning" id="getVal" onclick="getv()" value="Update Ingredients" />
 
             <h4>Total minutes : {!! $total !!}
                 <br>
@@ -87,8 +87,8 @@
 
             </h4>
             <br>
-            <button><a href="{{ url('recipesteps', $recd->id) }}" class="edbtn">I have All ingredients</a></button>
-            <button><a href="{{ url('grocerylist', $recd->id) }}" class="vfbtn">I dont have all ingredients</a></button>
+            <a href="{{ url('recipesteps', $recd->id) }}" class="edbtn">I have All ingredients</a>
+            <a href="{{ url('grocerylist', $recd->id) }}" class="vfbtn">I dont have all ingredients</a>
         </div>
 
         <div class="gridv2">
