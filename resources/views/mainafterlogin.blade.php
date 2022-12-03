@@ -40,7 +40,7 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
             line-height: 1.5
         }
-
+        /* Navigation bar from bootstrap*/
         *,
         :after,
         :before {
@@ -411,7 +411,7 @@
         <div class="overlay-content">
             <a class="nav-link" href="{{ url('/tant') }}">Tips / Tricks</a>
             <a class="nav-link" href="{{ url('/editProfile') }}">Account</a>
-            <a class="nav-link" href="{{ url('/message') }}">Messages</a>
+            <a class="nav-link" href="{{ url('/viewmessage') }}">Messages</a>
             <a class="nav-link" href="{{ url('/aboutusal') }}">About Us</a>
             <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
         </div>

@@ -414,4 +414,7 @@ class RecipeController extends Controller
     public function msgsent(){
         return back()->with('msg','Your question has been sent');
     }
+    public function viewmessage(){
+        return view('viewmessage');
+    }
 }
