@@ -6,7 +6,7 @@
             <h2>Steps:</h2> <br>
             <h4 class="steps">{{ $rs->steps }}</h4>
         </div>
-        <div>
+        <div style="margin-left:10%;">
             <br>
             <a href="{{url('message')}}" class="edbtn">Ask a question to chef?</a>
         </div>
