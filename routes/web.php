@@ -33,7 +33,7 @@ Route::get('/aboutusal', [homeafterlogin::class, 'aual'])->middleware('isLoggedI
 Route::get('/message', [RecipeController::class, 'message'])->middleware('isLoggedIn');
 Route::get('/viewmessage', [RecipeController::class, 'viewmessage'])->middleware('isLoggedIn');
 Route::get('/msgsent', [RecipeController::class, 'msgsent'])->middleware('isLoggedIn')->name('msg-sent');
-Route::get('/timefil', [homeafterlogin::class, 'timefil'])->middleware('isLoggedIn')->middleware('isAdmin')->name('timefil');
+Route::post('/timefil', [homeafterlogin::class, 'timefil'])->middleware('isLoggedIn')->middleware('isAdmin')->name('timefil');
 Route::get('/admindalu', [homeafterlogin::class, 'displayallUser'])->middleware('isLoggedIn')->middleware('isAdmin');
 Route::get('/displayUserWithDate', [homeafterlogin::class, 'displayUserWithDate'])->middleware(('isLoggedIn'))->middleware('isAdmin')->name('searchdate-user');
 Route::get('/displayRecipeWithDate', [RecipeController::class, 'displayRecipeWithDate'])->middleware(('isLoggedIn'))->middleware('isAdmin')->name('searchdate-recipe');
