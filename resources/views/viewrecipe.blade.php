@@ -4,7 +4,6 @@
         <div class="gridv1">
             @foreach ($recipedata as $recd)
             @endforeach
-            <h2>Recipe By Chef {!! $recd->userFirstName !!}</h2>
 
             <h4>Recipe Description : {!! $recd->recipeDescription !!}</h4>
             <?php
