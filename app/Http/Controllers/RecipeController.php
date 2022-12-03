@@ -314,7 +314,7 @@ class RecipeController extends Controller
             ->join('occasions', 'recipes.occasion_id', '=', 'occasions.id')
             ->paginate(5);
         $data = compact('displayar');
-        return back()->with($data);
+        return view('admindar')->with($data);
     }
 
     // This is function to display all recipes in descending order by RECIPE NAME
