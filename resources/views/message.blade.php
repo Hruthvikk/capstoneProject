@@ -4,8 +4,14 @@
         <h2>Ask a question to chef</h2>
         <br>
         <h2>Question?</h2>
+
             <form>
                 @csrf
+                <div class="form-group col-md-3">
+                    @if (Session::has('msg'))
+                        <div class="alert alert-success">{{ Session::get('msg') }}</div>
+                    @endif
+                </div>
                 <div class="form-group col-md-3">
                     <textarea cols="100" rows="10" name="memquestion"></textarea>
                     <br>
