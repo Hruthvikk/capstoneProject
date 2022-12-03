@@ -4,8 +4,10 @@
     <h2>Ask a question to chef</h2>
     <br>
     <h2>Question?</h2>
-    <form>
-        @csrf
-        <textarea cols="100" rows="50"></textarea>
-    </form>
+    <div>
+        <form>
+            @csrf
+            <textarea cols="100" rows="25"></textarea>
+        </form>
+    </div>
 @endsection
