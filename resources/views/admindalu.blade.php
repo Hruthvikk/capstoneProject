@@ -2,7 +2,7 @@
 @section('content')
     <h4>
         <div class="form-group row">
-            <form method="POST" action="{{ route('searchdate-user') }}">
+            <form method="get" action="{{ route('searchdate-user') }}">
                 @csrf
                 <label for="fromDate">Users added from :</label>
                 <div class="col-sm-3"><input type="date" class="form-control input-sm" name="fromDate" required></div>
