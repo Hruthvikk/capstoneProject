@@ -409,6 +409,9 @@ class RecipeController extends Controller
     }
 
     public function message(Request $request){
-        return view('message')->with('msg','Your question has been sent');
+        return view('message');
+    }
+    public function msgsent(){
+        return back()->with('msg','Your question has been sent');
     }
 }

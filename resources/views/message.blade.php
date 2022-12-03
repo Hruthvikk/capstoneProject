@@ -5,7 +5,7 @@
         <br>
         <h2>Question?</h2>
 
-            <form>
+            <form action="{{ route('msg-sent') }}">
                 @csrf
                 <div class="form-group col-md-3">
                     @if (Session::has('msg'))
