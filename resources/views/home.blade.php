@@ -1,3 +1,4 @@
+{{-- Hruthvik Chokshi - 000813765 --}}
 @extends('main')
 @section('content')
     <div class="container">
@@ -9,9 +10,10 @@
                     $imagename = $rr->recipeImage;
                     ?>
                     <div class="prr images">
+                        <a href="{{url('/signin')}}">
                         <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
                             alt="" height="200px" width="200px">
-                        <p>{{ $rr->recipeName }}</p>
+                        <p>{{ $rr->recipeName }}</p></a>
                     </div>
                 @endforeach
             </div>
@@ -25,8 +27,9 @@
                         <?php
                         $imagename = $bf->recipeImage;
                         ?>
+                        <a href="{{url('/signin')}}">
                         <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                            alt="" height="200px" width="200px">
+                            alt="" height="200px" width="200px"></a>
                     @endforeach
                     <p>Breakfast</p>
                 </div>
@@ -35,8 +38,9 @@
                         <?php
                         $imagename = $lch->recipeImage;
                         ?>
+                        <a href="{{url('/signin')}}">
                         <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                            alt="" height="200px" width="200px">
+                            alt="" height="200px" width="200px"></a>
                     @endforeach
                     <p>Lunch</p>
                 </div>
@@ -45,8 +49,9 @@
                         <?php
                         $imagename = $dn->recipeImage;
                         ?>
+                        <a href="{{url('/signin')}}">
                         <img src="https://softwarecapstone000813765.s3.us-east-2.amazonaws.com/images/<?= $imagename ?>"
-                            alt="" height="200px" width="200px">
+                            alt="" height="200px" width="200px"></a>
                     @endforeach
                     <p>Dinner</p>
                 </div>
