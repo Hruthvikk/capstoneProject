@@ -52,7 +52,7 @@
             </tbody>
         </table>
         <div class="pagi" style="margin-left:645px">
-            {{ $displayau->links() }}
+            {!! $displayau->render() !!}
         </div>
     </div>
 @endsection
