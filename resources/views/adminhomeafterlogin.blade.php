@@ -5,7 +5,7 @@
         <br><br>
         <a href="{{ url('admindar') }}" class="btn btn-primary">Display all Recipes Added</a>
         <br><br>
-        <form action="{{ route('timefil') }}" method="POST">
+        <form action="{{ route('timefil') }}" method="post">
             @csrf
             <label>New users and recipes added within this time range</label>
             <select id="timefil" name="timefil">
@@ -13,7 +13,7 @@
                 <option value="week">Week</option>
                 <option value="month">Month</option>
             </select>
-            <input type="submit" value="Search">
+            <button class="signinupbtn" type="submit">search</button>
         </form>
             <div class="form-group col-md-3">
                 @if (Session::has('numus'))
