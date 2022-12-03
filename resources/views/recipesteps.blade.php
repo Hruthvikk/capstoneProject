@@ -8,7 +8,7 @@
         </div>
         <div>
             <br>
-            <a href="{{url('message')}} }}">Ask a question to chef?</a>
+            <a href="{{url('message')}}" class="edbtn">Ask a question to chef?</a>
         </div>
     @endforeach
 @endsection
