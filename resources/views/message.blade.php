@@ -7,7 +7,7 @@
     <div class="displaysteps">
         <form>
             @csrf
-            <textarea cols="100" rows="10" name="memquestion"></textarea>
+            <textarea cols="100" name="memquestion"></textarea>
         </form>
     </div>
 @endsection
