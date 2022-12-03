@@ -4,7 +4,7 @@
     <h2>Ask a question to chef</h2>
     <br>
     <h2>Question?</h2>
-    <div style="align-content: center">
+    <div class="displaysteps">
         <form>
             @csrf
             <textarea cols="100" rows="10" name="memquestion"></textarea>
