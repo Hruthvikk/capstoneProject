@@ -12,6 +12,5 @@
                     <input type="submit" value="Send Question">
                 </div>
             </form>
-        </div>
     </div>
 @endsection
