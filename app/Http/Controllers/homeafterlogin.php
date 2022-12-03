@@ -171,5 +171,36 @@ class homeafterlogin extends Controller
         return back();
     }
 
+    public function timefil(Request $request){
+        $timedur = $request->timefil;
+        if($timedur=="today"){
+            $us=userRoles::where('created_at','>',now()->today());
+            $re=recipes::where('created_at','>',now()->today());
+            $us1=$us->count();
+            $re1=$re->count();
+            $request->session()->put('numus', $us1);
+            $request->session()->put('numre', $re1);
+            return back();
+        }
+        else if($timedur=="week"){
+            $us=userRoles::where('created_at','>',now()->subWeek());
+            $re=recipes::where('created_at','>',now()->subWeek());
+            $us1=$us->count();
+            $re1=$re->count();
+            $request->session()->put('numus', $us1);
+            $request->session()->put('numre', $re1);
+            return back();
+        }
+        else if($timedur=="month"){
+            $us=userRoles::where('created_at','>',now()->subMonth());
+            $re=recipes::where('created_at','>',now()->subMonth());
+            $us1=$us->count();
+            $re1=$re->count();
+            $request->session()->put('numus', $us1);
+            $request->session()->put('numre', $re1);
+            return back();
+        }
+    }
+
     //---------------------------------------END ADMIN---------------------------------------------------
 }
