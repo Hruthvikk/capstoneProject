@@ -4,10 +4,10 @@
     <h2>Ask a question to chef</h2>
     <br>
     <h2>Question?</h2>
-    <div>
+    <div style="align-content: center">
         <form>
             @csrf
-            <textarea cols="100" rows="25"></textarea>
+            <textarea cols="100" rows="10" name="memquestion"></textarea>
         </form>
     </div>
 @endsection
