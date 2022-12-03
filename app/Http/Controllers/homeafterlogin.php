@@ -119,7 +119,7 @@ class homeafterlogin extends Controller
         $toDate = $request->toDate;
         $displayau = userRoles::whereRaw("created_at >= ? AND created_at <= ?", [$fromDate." 00:00:00", $toDate." 23:59:59"])->paginate(5);
         $data = compact('displayau');
-        return back()->with($data);
+        return view('admindalu')->with($data);
     }
     // This is function to display all users in descending order by First Name
     public function displayallUserdes()
