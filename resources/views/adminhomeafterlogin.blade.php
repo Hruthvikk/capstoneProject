@@ -20,7 +20,7 @@
                 @if (Session::has('numre'))
                     <div class="alert alert-success">Recipes: {{ Session::get('success') }}</div>
                 @endif
-            <div>
+            </div>
         </form>
     </div>
 @endsection
