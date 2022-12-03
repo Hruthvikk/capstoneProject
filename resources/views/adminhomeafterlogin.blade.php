@@ -13,6 +13,14 @@
                 <option value="month">Month</option>
             </select>
             <input type="submit" value="Search">
+            <div class="form-group col-md-3">
+                @if (Session::has('numus'))
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @endif
+                @if (Session::has('numre'))
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @endif
+            <div>
         </form>
     </div>
 @endsection
