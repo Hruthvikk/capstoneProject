@@ -407,4 +407,8 @@ class RecipeController extends Controller
         $recipestepdata = recipes::where('id', $id)->get();
         return view('memviewsteps', compact('recipestepdata'));
     }
+
+    public function message(Request $request){
+        return view('message');
+    }
 }
