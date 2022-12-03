@@ -17,10 +17,10 @@
         </form>
             <div class="form-group col-md-3">
                 @if (Session::has('numus'))
-                    <div class="alert alert-success">Users: {{ Session::get('success') }}</div>
+                    <div class="alert alert-success">Users: {{ Session::get('numus') }}</div>
                 @endif
                 @if (Session::has('numre'))
-                    <div class="alert alert-success">Recipes: {{ Session::get('success') }}</div>
+                    <div class="alert alert-success">Recipes: {{ Session::get('numus') }}</div>
                 @endif
             </div>
 

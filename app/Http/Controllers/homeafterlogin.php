@@ -180,7 +180,7 @@ class homeafterlogin extends Controller
             $re1=$re->count();
             $request->session()->put('numus', $us1);
             $request->session()->put('numre', $re1);
-            return back();
+            return view('adminhomeafterlogin');
         }
         else if($timedur=="week"){
             $us=userRoles::where('created_at','>',now()->subWeek());
@@ -189,7 +189,7 @@ class homeafterlogin extends Controller
             $re1=$re->count();
             $request->session()->put('numus', $us1);
             $request->session()->put('numre', $re1);
-            return back();
+            return view('adminhomeafterlogin');
         }
         else if($timedur=="month"){
             $us=userRoles::where('created_at','>',now()->subMonth());
@@ -198,7 +198,7 @@ class homeafterlogin extends Controller
             $re1=$re->count();
             $request->session()->put('numus', $us1);
             $request->session()->put('numre', $re1);
-            return back();
+            return view('adminhomeafterlogin');
         }
     }
 
