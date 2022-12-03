@@ -9,7 +9,8 @@
                 <div class="form-group col-md-3">
                     <textarea cols="100" rows="10" name="memquestion"></textarea>
                     <br>
-                    <input type="submit" value="Send Question">
+                    <br>
+                    <input type="submit" value="Send Question" class="vfbtn">
                 </div>
             </form>
     </div>
