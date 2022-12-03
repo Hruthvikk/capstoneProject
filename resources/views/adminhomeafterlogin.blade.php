@@ -5,7 +5,8 @@
         <br><br>
         <a href="{{ url('admindar') }}" class="btn btn-primary">Display all Recipes Added</a>
         <br><br>
-        <form action="{{ route('timefil') }}">
+        <form action="{{ route('timefil') }}" method="POST">
+            @csrf
             <label>New users and recipes added within this time range</label>
             <select id="timefil" name="timefil">
                 <option value="today">Today</option>
