@@ -18,6 +18,7 @@
                 <option value="week">Week</option>
                 <option value="month">Month</option>
             </select>
+            <input type="submit" value="Search">
         </form>
     </div>
 @endsection
