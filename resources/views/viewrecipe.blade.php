@@ -2,9 +2,10 @@
 @section('content')
     <div class="gridviewrecip">
         <div class="gridv1">
-            <h2>Recipe By Chef Username</h2>
             @foreach ($recipedata as $recd)
             @endforeach
+            <h2>Recipe By Chef {!! $recd->userFirstName !!}</h2>
+
             <h4>Recipe Description : {!! $recd->recipeDescription !!}</h4>
             <?php
             $total = $recd->preparationTime + $recd->cookingTime + 5;
