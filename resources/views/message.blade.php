@@ -8,6 +8,7 @@
             <form>
                 @csrf
                 <textarea cols="100" rows="10" name="memquestion"></textarea>
+                <input type="submit" value="Send Question">
             </form>
         </div>
     </div>
