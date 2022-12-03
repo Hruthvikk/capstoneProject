@@ -79,6 +79,8 @@ class signin extends Controller
 
         if ($request->session()->has('loginUser')) {
             $request->session()->forget('loginUser');
+            $request->session()->forget('numus');
+            $request->session()->forget('numre');
             return redirect('signin');
         } else {
             return redirect('signin');
