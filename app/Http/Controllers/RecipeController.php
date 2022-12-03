@@ -313,6 +313,7 @@ class RecipeController extends Controller
             ->join('edit_styles', 'recipes.editStyle_id', '=', 'edit_styles.id')
             ->join('occasions', 'recipes.occasion_id', '=', 'occasions.id')
             ->paginate(5);
+        $displayar->appends($request->all());
         $data = compact('displayar');
         return view('admindar')->with($data);
     }
